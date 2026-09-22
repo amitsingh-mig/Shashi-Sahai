@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.svg">
+    <!-- Prevent Browser Image/Asset Caching -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Shashi Sahai — Three Decades of Perspective</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="scroll-indicator" aria-hidden="true">
+        <span>SCROLL</span>
+        <div class="track">
+            <div class="fill" id="scrollFill"></div>
+        </div>
+    </div>
+
+    <header class="site-nav" id="siteHeader">
+        <div class="container-xxl nav-inner">
+            <a href="index.html" class="nav-brand"><span>Shashi</span> Sahai</a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="links" id="navLinks">
+                <a href="#" class="active">Home</a>
+                <a href="#gallery">Portfolio</a>
+                <a href="archive.html">Archive</a>
+                <a href="tributes.html">Tributes</a>
+                <a href="https://www.instagram.com/shashiphotographs/" target="_blank" rel="noopener">Instagram</a>
+                <a href="https://aarohanngo.org/shashi-sahai/" target="_blank" rel="noopener">Aarohan NGO</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero position-relative">
+        <div class="container-xxl px-0 px-lg-3">
+            <div class="row align-items-stretch g-0 g-lg-4 min-vh-75">
+                <div
+                    class="col-12 col-lg-5 hero-left d-flex flex-column justify-content-center py-3 py-lg-4 px-4 px-lg-5 reveal">
+                    <h1 class="hero-h1"> <span class="accent">Shashi Sahai</span> Photography is about.</h1>
+                    <div class="hero-sub">
+                        <!-- Camera SVG icon -->
+                        <svg class="hero-cam-icon" width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true">
+                            <rect x="0" y="3" width="18" height="11" rx="1.5" stroke="currentColor" stroke-width="1.3"/>
+                            <path d="M6 3V2a1 1 0 011-1h4a1 1 0 011 1v1" stroke="currentColor" stroke-width="1.3"/>
+                            <circle cx="9" cy="8.5" r="3" stroke="currentColor" stroke-width="1.3"/>
+                            <circle cx="9" cy="8.5" r="1.2" fill="currentColor"/>
+                            <rect x="13" y="5.5" width="2" height="1.2" rx="0.4" fill="currentColor"/>
+                        </svg>
+                        35 Years of Photojournalism &amp; Philanthropy
+                    </div>
+                    <div class="hero-copy">
+                        <p class="mb-3">Shashi Sahai — veteran photojournalist, photographer and philanthropist — passed away in New Delhi on August 15, 2026, after a prolonged battle with cancer. He was 66. For over 35 years, his lens traversed heritage streets, quiet misty landscapes, timeless cultural celebrations and intimate human moments across five continents.</p>
+                        <p class="mb-3">A prolific contributor to leading national and international magazines, he received the Bronze at Cannes for an advertising project. Yet more than his accolades, colleagues and friends remember a man who could find a story in the seemingly ordinary — who stood behind the lens not for recognition, but because it was where he felt most at home.</p>
+                        <p class="mb-0">As cofounder of Aarohan NGO, he worked quietly in service of children, women and vulnerable communities. He was the person who called. The person who showed up. The person who remembered.</p>
+                    </div>
+                </div>
+
+                <div
+                    class="col-12 col-lg-1 hero-timeline d-flex flex-row flex-lg-column align-items-center justify-content-center py-3 py-lg-4 reveal delay-1">
+                    <span class="yr top">1960</span>
+                    <!-- Aperture SVG watermark -->
+                    <svg class="aperture-svg" viewBox="0 0 80 80" fill="none" aria-hidden="true">
+                        <circle cx="40" cy="40" r="36" stroke="currentColor" stroke-width="0.8" stroke-dasharray="3 4"/>
+                        <circle cx="40" cy="40" r="26" stroke="currentColor" stroke-width="0.5"/>
+                        <circle cx="40" cy="40" r="10" stroke="currentColor" stroke-width="1.2"/>
+                        <line x1="40" y1="4" x2="40" y2="18" stroke="currentColor" stroke-width="0.8"/>
+                        <line x1="40" y1="62" x2="40" y2="76" stroke="currentColor" stroke-width="0.8"/>
+                        <line x1="4" y1="40" x2="18" y2="40" stroke="currentColor" stroke-width="0.8"/>
+                        <line x1="62" y1="40" x2="76" y2="40" stroke="currentColor" stroke-width="0.8"/>
+                        <line x1="15" y1="15" x2="25" y2="25" stroke="currentColor" stroke-width="0.6"/>
+                        <line x1="55" y1="55" x2="65" y2="65" stroke="currentColor" stroke-width="0.6"/>
+                        <line x1="65" y1="15" x2="55" y2="25" stroke="currentColor" stroke-width="0.6"/>
+                        <line x1="25" y1="55" x2="15" y2="65" stroke="currentColor" stroke-width="0.6"/>
+                    </svg>
+                    <div class="line"></div>
+                    <span class="yr bottom">2026</span>
+                </div>
+
+                <div class="col-12 col-lg-6 hero-image-col reveal-img delay-2">
+                    <img src="images/Shashi_Sahai_hero.jpg?v=20260918"
+                        alt="Photographer looking through a camera viewfinder">
+                    <div class="hero-image-caption">
+                        <p>A life spent capturing what truly matters.</p>
+                        <div class="rule"></div>
+                        <ul class="hero-tags list-unstyled mb-0">
+                            <li>Photojournalism</li>
+                            <li>Travel & Heritage</li>
+                            <li>Wildlife</li>
+                            <li>Cannes Bronze Winner</li>
+                            <li>Aarohan NGO</li>
+                            <li>Human Stories</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats py-5">
+        <div class="container-xxl">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4 text-center">
+                <div class="col stat reveal">
+                    <div class="num">35+</div>
+                    <div class="lbl">Years of Photojournalism</div>
+                </div>
+                <div class="col stat reveal delay-1">
+                    <div class="num">Cannes</div>
+                    <div class="lbl">Bronze Award Winner</div>
+                </div>
+                <div class="col stat reveal delay-2">
+                    <div class="num">Global</div>
+                    <div class="lbl">Magazines & Press</div>
+                </div>
+                <div class="col stat reveal delay-3">
+                    <div class="num">Aarohan</div>
+                    <div class="lbl">NGO Treasurer & Cause</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="preview py-5">
+        <div class="container-xxl py-lg-5">
+            <div class="row g-4 align-items-end">
+                <div class="col-12 col-lg-4 preview-head reveal">
+                    <div class="eyebrow">Our Work</div>
+                    <h2 class="mt-2">Moments<br><em>Across</em> Time</h2>
+                    <p class="mt-3">From everyday life to extraordinary stories, our lens has always been about people
+                        and the world
+                        around them.</p>
+                    <!-- <a href="#gallery" class="btn">View Portfolio
+                        <svg width="16" height="10" viewBox="0 0 16 10" fill="none" stroke="currentColor"
+                            stroke-width="1.4">
+                            <path d="M0 5h14M9 1l5 4-5 4" />
+                        </svg>
+                    </a> -->
+                </div>
+                <div class="col-12 col-lg-8">
+                    <div class="row row-cols-2 row-cols-md-4 g-3 strip">
+                        <div class="col">
+                            <div class="strip-item reveal-img">
+                                <img src="images/image_photo (3).jpg?v=20260918" alt="Mountain travel landscape">
+                                <div class="strip-tag"><span>Travel</span><span class="ln"></span></div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="strip-item reveal-img delay-1">
+                                <img src="images/image_photo (5).jpg?v=20260918" alt="Portrait of a man">
+                                <div class="strip-tag"><span>Lifestyle</span><span class="ln"></span></div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="strip-item reveal-img delay-2">
+                                <img src="images/image_photo (1).jpg?v=20260918"
+                                    alt="Child walking through a doorway">
+                                <div class="strip-tag"><span>People</span><span class="ln"></span></div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="strip-item reveal-img delay-3">
+                                <img src="https://images.pexels.com/photos/32584961/pexels-photo-32584961.jpeg" alt="Boat on a still lake">
+                                <div class="strip-tag"><span>Nature</span><span class="ln"></span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="story-split container-fluid px-0">
+        <div class="row g-0">
+            <div class="col-12 col-lg-7 story-photo reveal-img">
+                <img src="images/image_photo (6).jpg?v=20260918"
+                    alt="Camera lens, film strip and old photographs on a desk">
+                <div class="story-photo-copy">
+                    <div class="eyebrow light">Our Journey</div>
+                    <h3>From 1991<br>to 2026</h3>
+                    <p>A journey of images, ideas and impact. PhotoGate has grown with the times, but our passion
+                        remains
+                        the same — to capture what truly matters.</p>
+                    <div class="rule-red"></div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-5 story-red reveal delay-1 d-flex flex-column justify-content-center p-4 p-md-5">
+                <div class="eyebrow">More Than Images</div>
+                <h3 class="mt-3">Photography connects people.</h3>
+                <p class="mt-3">It preserves memories, inspires change and brings the world a little closer.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery py-5" id="gallery">
+        <div class="container-xxl py-lg-4">
+            <div class="gallery-head d-flex justify-content-between align-items-end flex-wrap mb-5 gap-3 reveal">
+                <div>
+                    <div class="eyebrow">The Archive</div>
+                    <h2 class="mt-2">Moments Across Time</h2>
+                </div>
+                <div class="gallery-cats d-flex gap-4 flex-wrap">
+                    <span class="on" data-cat="all">All</span>
+                    <span data-cat="People">People</span>
+                    <span data-cat="Culture">Culture</span>
+                    <span data-cat="Travel">Travel</span>
+                    <span data-cat="Nature">Nature</span>
+                    <span data-cat="Lifestyle">Lifestyle</span>
+                    <span data-cat="Stories">Stories</span>
+                </div>
+            </div>
+
+            <div class="mosaic">
+                <div class="m-item m1 reveal-img"><img src="images/image_photo (11).jpg?v=20260918"
+                        alt="Portrait, documentary style">
+                    <div class="m-label">People</div>
+                </div>
+                <div class="m-item m2 reveal-img delay-1"><img src="images/image_photo (12).jpg?v=20260918"
+                        alt="Cultural gathering">
+                    <div class="m-label">Culture</div>
+                </div>
+                <div class="m-item m3 reveal-img delay-2 color"><img src="images/image_photo (13).jpg?v=20260918"
+                        alt="Travel destination in colour">
+                    <div class="m-label">Travel</div>
+                </div>
+                <div class="m-item m4 reveal-img"><img src="images/image_photo (14).jpg?v=20260918"
+                        alt="Landscape photograph">
+                    <div class="m-label">Nature</div>
+                </div>
+                <div class="m-item m5 reveal-img delay-1"><img src="images/image_photo (15).jpg?v=20260918"
+                        alt="Everyday lifestyle scene">
+                    <div class="m-label">Lifestyle</div>
+                </div>
+                <div class="m-item m6 reveal-img delay-2"><img src="images/image_photo (16).jpg?v=20260918"
+                        alt="Street photography">
+                    <div class="m-label">Stories</div>
+                </div>
+                <div class="m-item m7 reveal-img"><img src="images/image_photo (18).jpg?v=20260918"
+                        alt="Architecture and culture">
+                    <div class="m-label">Culture</div>
+                </div>
+                <div class="m-item m8 reveal-img delay-1 color"><img src="images/image_photo (20).jpg?v=20260918"
+                        alt="Travel photograph in colour">
+                    <div class="m-label">Travel</div>
+                </div>
+                <div class="m-item m9 reveal-img delay-2"><img src="images/image_photo (21).jpg?v=20260918"
+                        alt="Portrait photograph">
+                    <div class="m-label">People</div>
+                </div>
+                <div class="m-item m10 reveal-img"><img src="images/image_photo (22).jpg?v=20260918"
+                        alt="Documentary lifestyle scene">
+                    <div class="m-label">Lifestyle</div>
+                </div>
+                <div class="m-item m11 reveal-img delay-1"><img src="images/image_photo (23).jpg?v=20260918"
+                        alt="Landscape and nature">
+                    <div class="m-label">Nature</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- <section class="archive py-5">
+        <div class="container-xxl py-lg-5">
+            <div class="row g-5 align-items-center">
+                <div class="col-12 col-lg-6 archive-copy reveal">
+                    <div class="eyebrow mb-3">Visual History</div>
+                    <h2>An archive that remembers.</h2>
+                    <p class="mt-4">Every roll of film, every contact sheet and every hard drive tells part of the same
+                        story — a
+                        running record of how the world has looked, decade after decade.</p>
+                    <div class="archive-facts mt-4">
+                        <div class="archive-fact d-flex gap-3 align-items-baseline pt-3 border-top"><span class="yr">35+
+                                Yrs</span><span class="tx">Prolific photojournalist for national & international
+                                press.</span></div>
+                        <div class="archive-fact d-flex gap-3 align-items-baseline pt-3 border-top"><span
+                                class="yr">Cannes</span><span class="tx">Won the prestigious Bronze award at Cannes for
+                                advertising project.</span></div>
+                        <div class="archive-fact d-flex gap-3 align-items-baseline pt-3 border-top"><span
+                                class="yr">Aarohan</span><span class="tx">Treasurer & dedicated philanthropist driving
+                                NGO social impact.</span></div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 archive-visual reveal-img delay-1">
+                    <div class="main-img"><img src="images/image_photo (24).jpg?v=20260918"
+                            alt="Contact sheet of archival photographs"></div>
+                    <div class="float-img"><img src="images/image_photo (25).jpg?v=20260918"
+                            alt="Vintage camera detail"></div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Film-strip SVG divider -->
+    <div class="filmstrip-divider" aria-hidden="true">
+        <svg viewBox="0 0 900 28" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect y="8" width="900" height="12" fill="currentColor" opacity="0.06"/>
+            <!-- Film sprocket holes -->
+            <g fill="currentColor" opacity="0.22">
+                <rect x="10" y="10" width="8" height="8" rx="1"/>
+                <rect x="30" y="10" width="8" height="8" rx="1"/>
+                <rect x="50" y="10" width="8" height="8" rx="1"/>
+                <rect x="70" y="10" width="8" height="8" rx="1"/>
+                <rect x="90" y="10" width="8" height="8" rx="1"/>
+                <rect x="110" y="10" width="8" height="8" rx="1"/>
+                <rect x="130" y="10" width="8" height="8" rx="1"/>
+                <rect x="150" y="10" width="8" height="8" rx="1"/>
+                <rect x="170" y="10" width="8" height="8" rx="1"/>
+                <rect x="190" y="10" width="8" height="8" rx="1"/>
+                <rect x="210" y="10" width="8" height="8" rx="1"/>
+                <rect x="230" y="10" width="8" height="8" rx="1"/>
+                <rect x="250" y="10" width="8" height="8" rx="1"/>
+                <rect x="270" y="10" width="8" height="8" rx="1"/>
+                <rect x="290" y="10" width="8" height="8" rx="1"/>
+                <rect x="310" y="10" width="8" height="8" rx="1"/>
+                <rect x="330" y="10" width="8" height="8" rx="1"/>
+                <rect x="350" y="10" width="8" height="8" rx="1"/>
+                <rect x="370" y="10" width="8" height="8" rx="1"/>
+                <rect x="390" y="10" width="8" height="8" rx="1"/>
+                <rect x="410" y="10" width="8" height="8" rx="1"/>
+                <rect x="430" y="10" width="8" height="8" rx="1"/>
+                <rect x="450" y="10" width="8" height="8" rx="1"/>
+                <rect x="470" y="10" width="8" height="8" rx="1"/>
+                <rect x="490" y="10" width="8" height="8" rx="1"/>
+                <rect x="510" y="10" width="8" height="8" rx="1"/>
+                <rect x="530" y="10" width="8" height="8" rx="1"/>
+                <rect x="550" y="10" width="8" height="8" rx="1"/>
+                <rect x="570" y="10" width="8" height="8" rx="1"/>
+                <rect x="590" y="10" width="8" height="8" rx="1"/>
+                <rect x="610" y="10" width="8" height="8" rx="1"/>
+                <rect x="630" y="10" width="8" height="8" rx="1"/>
+                <rect x="650" y="10" width="8" height="8" rx="1"/>
+                <rect x="670" y="10" width="8" height="8" rx="1"/>
+                <rect x="690" y="10" width="8" height="8" rx="1"/>
+                <rect x="710" y="10" width="8" height="8" rx="1"/>
+                <rect x="730" y="10" width="8" height="8" rx="1"/>
+                <rect x="750" y="10" width="8" height="8" rx="1"/>
+                <rect x="770" y="10" width="8" height="8" rx="1"/>
+                <rect x="790" y="10" width="8" height="8" rx="1"/>
+                <rect x="810" y="10" width="8" height="8" rx="1"/>
+                <rect x="830" y="10" width="8" height="8" rx="1"/>
+                <rect x="850" y="10" width="8" height="8" rx="1"/>
+                <rect x="870" y="10" width="8" height="8" rx="1"/>
+                <rect x="890" y="10" width="8" height="8" rx="1"/>
+            </g>
+        </svg>
+    </div>
+
+    <section class="philosophy text-center py-5 position-relative">
+        <div class="container-xxl py-lg-5 reveal">
+            <div class="eyebrow light d-flex justify-content-center">Our Philosophy</div>
+            <!-- Lens SVG decoration -->
+            <svg class="philosophy-lens" viewBox="0 0 60 60" fill="none" aria-hidden="true">
+                <circle cx="30" cy="30" r="28" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+                <circle cx="30" cy="30" r="20" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                <circle cx="30" cy="30" r="12" stroke="rgba(192,20,18,0.5)" stroke-width="1.5"/>
+                <circle cx="30" cy="30" r="4" fill="rgba(192,20,18,0.4)"/>
+            </svg>
+            <blockquote>A photograph is a pause button for time — it lets a single <em>moment</em> outlive the instant
+                it was made in.</blockquote>
+            <div class="sig mt-4">— Shashi Sahai Studio, Est. 1991</div>
+        </div>
+    </section>
+
+    <section class="closing position-relative overflow-hidden">
+        <img src="images/image_photo (26).jpg?v=20260918" alt="Sweeping landscape at dusk">
+        <div class="closing-overlay d-flex flex-column justify-content-end p-4 p-md-5">
+            <div class="eyebrow light mb-3">In Memoriam — August 15, 2026</div>
+            <h2>He was the person who called. <em>The person who showed up.</em></h2>
+            <div class="closing-timeline mt-4 d-flex align-items-center gap-3">1960 <span class="ln"></span> 2026 <span
+                    class="ln"></span> and always remembered</div>
+        </div>
+    </section>
+
+    <footer class="py-5">
+        <div class="container-xxl">
+            <div
+                class="foot-top d-flex justify-content-center flex-wrap pb-4 mb-4 border-bottom border-secondary-subtle">
+                <div class="foot-links d-flex gap-4 flex-wrap justify-content-center">
+                    <a href="#">Home</a>
+                    <a href="#gallery">Portfolio</a>
+                    <a href="archive.html">Archive</a>
+                    <a href="tributes.html">Tributes</a>
+                    <a href="https://www.instagram.com/shashiphotographs/" target="_blank" rel="noopener">Instagram
+                        (@shashiphotographs)</a>
+                    <a href="https://aarohanngo.org/shashi-sahai/" target="_blank" rel="noopener">Aarohan NGO
+                        Profile</a>
+                </div>
+            </div>
+            <div class="foot-bottom d-flex justify-content-between flex-wrap gap-2 pt-2">
+                <span>© 2026 Shashi Sahai. All Rights Reserved.</span>
+                <span>Photojournalism. Heritage. Philanthropy.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Image Preview Lightbox Modal -->
+    <div id="imagePreviewModal" class="img-preview-modal" aria-hidden="true" role="dialog" aria-label="Image Preview Modal">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-dialog-box">
+            <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">&times;</button>
+            <button class="modal-arrow modal-arrow-prev" id="modalPrevBtn" aria-label="Previous image">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <button class="modal-arrow modal-arrow-next" id="modalNextBtn" aria-label="Next image">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+            <div class="modal-body-content">
+                <div class="modal-img-container">
+                    <img id="modalPreviewImg" src="" alt="Full view photograph">
+                </div>
+                <div class="modal-footer-caption">
+                    <div class="caption-left">
+                        <span id="modalImgTag" class="modal-tag">Category</span>
+                        <h4 id="modalImgTitle" class="modal-title">Photo Title</h4>
+                    </div>
+                    <div class="caption-right">
+                        <span id="modalImgCounter" class="modal-counter">1 / 11</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.5/dist/ScrollToPlugin.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
