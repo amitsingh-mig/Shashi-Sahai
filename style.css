@@ -910,6 +910,51 @@ nav.links a:hover {
   grid-row: 8/11;
 }
 
+.m12 {
+  grid-column: 1/3;
+  grid-row: 11/14;
+}
+
+.m13 {
+  grid-column: 3/5;
+  grid-row: 11/13;
+}
+
+.m14 {
+  grid-column: 5/7;
+  grid-row: 11/14;
+}
+
+.m15 {
+  grid-column: 3/5;
+  grid-row: 13/16;
+}
+
+.m16 {
+  grid-column: 1/3;
+  grid-row: 14/16;
+}
+
+.m17 {
+  grid-column: 5/7;
+  grid-row: 14/17;
+}
+
+.m18 {
+  grid-column: 1/4;
+  grid-row: 16/19;
+}
+
+.m19 {
+  grid-column: 4/7;
+  grid-row: 16/18;
+}
+
+.m20 {
+  grid-column: 4/7;
+  grid-row: 18/20;
+}
+
 @media (max-width: 900px) {
   .mosaic {
     grid-template-columns: repeat(2, 1fr);
@@ -926,7 +971,16 @@ nav.links a:hover {
   .m8,
   .m9,
   .m10,
-  .m11 {
+  .m11,
+  .m12,
+  .m13,
+  .m14,
+  .m15,
+  .m16,
+  .m17,
+  .m18,
+  .m19,
+  .m20 {
     grid-column: auto;
     grid-row: span 2;
   }
@@ -985,7 +1039,7 @@ nav.links a:hover {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: grayscale(1);
+  /* filter: grayscale(1);   */
 }
 
 @media (max-width: 1000px) {
