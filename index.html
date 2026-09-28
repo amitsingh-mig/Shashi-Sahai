@@ -22,6 +22,75 @@
 
 <body>
 
+    <!-- ============================================================
+         LOADER — 1960 → 2026
+         ============================================================ -->
+    <div id="siteLoader" class="site-loader" aria-hidden="true" role="status" aria-label="Loading">
+
+        <!-- SVG Shutter / Aperture -->
+        <div class="loader-aperture">
+            <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <!-- Outer dashed ring -->
+                <circle cx="100" cy="100" r="94" stroke="rgba(255,255,255,0.12)" stroke-width="1" stroke-dasharray="5 6"/>
+                <!-- Spinning ring -->
+                <circle id="loaderRing" cx="100" cy="100" r="80" stroke="#C01412" stroke-width="1.5"
+                    stroke-dasharray="502" stroke-dashoffset="502" stroke-linecap="round"/>
+                <!-- Mid ring -->
+                <circle cx="100" cy="100" r="60" stroke="rgba(255,255,255,0.08)" stroke-width="0.8"/>
+                <!-- Aperture blades -->
+                <g id="loaderBlades" style="transform-origin:100px 100px">
+                    <line x1="100" y1="20" x2="100" y2="50" stroke="rgba(255,255,255,0.4)" stroke-width="1.2"/>
+                    <line x1="100" y1="150" x2="100" y2="180" stroke="rgba(255,255,255,0.4)" stroke-width="1.2"/>
+                    <line x1="20" y1="100" x2="50" y2="100" stroke="rgba(255,255,255,0.4)" stroke-width="1.2"/>
+                    <line x1="150" y1="100" x2="180" y2="100" stroke="rgba(255,255,255,0.4)" stroke-width="1.2"/>
+                    <line x1="36" y1="36" x2="57" y2="57" stroke="rgba(255,255,255,0.25)" stroke-width="0.9"/>
+                    <line x1="143" y1="143" x2="164" y2="164" stroke="rgba(255,255,255,0.25)" stroke-width="0.9"/>
+                    <line x1="164" y1="36" x2="143" y2="57" stroke="rgba(255,255,255,0.25)" stroke-width="0.9"/>
+                    <line x1="57" y1="143" x2="36" y2="164" stroke="rgba(255,255,255,0.25)" stroke-width="0.9"/>
+                </g>
+                <!-- Inner lens circle -->
+                <circle cx="100" cy="100" r="32" stroke="rgba(192,20,18,0.5)" stroke-width="1.5"/>
+                <circle cx="100" cy="100" r="18" fill="rgba(192,20,18,0.15)" stroke="rgba(192,20,18,0.6)" stroke-width="1"/>
+                <circle cx="100" cy="100" r="6" fill="#C01412"/>
+                <!-- Tick marks -->
+                <g stroke="rgba(255,255,255,0.18)" stroke-width="0.8">
+                    <line x1="100" y1="6" x2="100" y2="14"/>
+                    <line x1="100" y1="186" x2="100" y2="194"/>
+                    <line x1="6" y1="100" x2="14" y2="100"/>
+                    <line x1="186" y1="100" x2="194" y2="100"/>
+                    <line x1="29" y1="29" x2="35" y2="35"/>
+                    <line x1="165" y1="165" x2="171" y2="171"/>
+                    <line x1="171" y1="29" x2="165" y2="35"/>
+                    <line x1="35" y1="165" x2="29" y2="171"/>
+                </g>
+            </svg>
+            <!-- Year counter — sits INSIDE the aperture div to overlay the SVG center -->
+            <div class="loader-counter">
+                <span class="loader-year" id="loaderYear">1960</span>
+            </div>
+        </div>
+
+        <!-- Label -->
+        <div class="loader-label">
+            <span class="loader-label-start">1960</span>
+            <span class="loader-label-line"></span>
+            <span class="loader-label-end">2026</span>
+        </div>
+
+        <!-- Brand name -->
+        <div class="loader-brand">Shashi <em>Sahai</em></div>
+
+        <!-- Progress bar -->
+        <div class="loader-bar-wrap">
+            <div class="loader-bar" id="loaderBar"></div>
+        </div>
+
+        <!-- and always remembered -->
+        <div class="loader-remembered">1960 &mdash; and always remembered &mdash; 2026</div>
+
+    </div>
+    <!-- /LOADER -->
+
     <div class="scroll-indicator" aria-hidden="true">
         <span>SCROLL</span>
         <div class="track">
@@ -466,6 +535,83 @@
         </div>
     </div>
 
+    <!-- Loader Script -->
+    <script>
+    (function () {
+        const loader   = document.getElementById('siteLoader');
+        const yearEl   = document.getElementById('loaderYear');
+        const bar      = document.getElementById('loaderBar');
+        const ring     = document.getElementById('loaderRing');
+        const blades   = document.getElementById('loaderBlades');
+
+        const START = 1960, END = 2026, TOTAL = END - START; // 66 steps
+        const DURATION_MS = 2800; // total count duration
+        const STEP_MS = DURATION_MS / TOTAL;
+
+        let current = START;
+        let startTime = null;
+        let rafId;
+        let spinAngle = 0;
+        const RING_TOTAL = 2 * Math.PI * 80; // circumference ≈ 502.65
+
+        function easeInOut(t) {
+            return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+        }
+
+        function tick(timestamp) {
+            if (!startTime) startTime = timestamp;
+            const elapsed = timestamp - startTime;
+            const progress = Math.min(elapsed / DURATION_MS, 1);
+            const easedProgress = easeInOut(progress);
+
+            // Year counter
+            const year = Math.round(START + easedProgress * TOTAL);
+            if (year !== current) {
+                current = year;
+                yearEl.textContent = current;
+            }
+
+            // Progress bar
+            bar.style.width = (easedProgress * 100) + '%';
+
+            // SVG ring stroke fill
+            const ringOffset = RING_TOTAL * (1 - easedProgress);
+            ring.setAttribute('stroke-dashoffset', ringOffset.toFixed(2));
+
+            // Blade spin
+            spinAngle += 0.6;
+            blades.style.transform = 'rotate(' + spinAngle + 'deg)';
+
+            if (progress < 1) {
+                rafId = requestAnimationFrame(tick);
+            } else {
+                // Reached 2026 — pause briefly then dismiss
+                yearEl.textContent = END;
+                bar.style.width = '100%';
+                setTimeout(dismissLoader, 600);
+            }
+        }
+
+        function dismissLoader() {
+            loader.classList.add('loader-exit');
+            loader.addEventListener('transitionend', function onEnd(e) {
+                if (e.target !== loader) return;
+                loader.removeEventListener('transitionend', onEnd);
+                loader.style.display = 'none';
+                document.body.classList.add('loader-done');
+            }, { once: true });
+        }
+
+        // Start on DOMContentLoaded (fonts already requested)
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function () {
+                requestAnimationFrame(tick);
+            });
+        } else {
+            requestAnimationFrame(tick);
+        }
+    }());
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.5/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.5/dist/ScrollToPlugin.min.js"></script>
