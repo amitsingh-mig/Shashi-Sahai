@@ -506,8 +506,8 @@ footer { background: var(--black); color: rgba(255,255,255,0.55); }
     white-space: nowrap;
 }
 
-/* Prevent body scrolling while loader is active */
-body:not(.loader-done) {
+/* Prevent body scrolling while loader is active — only on pages that HAVE the loader */
+body:has(#siteLoader):not(.loader-done) {
     overflow: hidden;
 }
 
