@@ -47,12 +47,36 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
   }
 
+  // ── Top Scroll Progress Line Indicator (Requirement 7) ────
+  function initScrollProgress() {
+    let progressBar = document.getElementById('scrollProgressBar');
+    if (!progressBar) {
+      progressBar = document.createElement('div');
+      progressBar.id = 'scrollProgressBar';
+      progressBar.className = 'scroll-progress-bar';
+      progressBar.setAttribute('aria-hidden', 'true');
+      document.body.prepend(progressBar);
+    }
+
+    function updateProgress() {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+      progressBar.style.width = `${Math.min(Math.max(progress, 0), 100)}%`;
+    }
+
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    window.addEventListener('resize', updateProgress, { passive: true });
+    updateProgress();
+  }
+  initScrollProgress();
+
   // Reveal Animations
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) { e.target.classList.add('in-view'); }
     });
-  }, { threshold: 0.18, rootMargin: '0px 0px -60px 0px' });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.reveal, .reveal-img').forEach(el => io.observe(el));
 
   // Timeline Spine & Dot Scroll Synchronizer
@@ -135,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Gallery Category Filter Tabs
+  // Gallery Category Filter Tabs (Home page mosaic)
   const catTabs = document.querySelectorAll('.gallery-cats span');
   const mosaicItems = document.querySelectorAll('.mosaic .m-item');
   catTabs.forEach(tab => {
@@ -158,6 +182,40 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   });
+
+  // ── Photo Archive Category Filtering (Requirement 1) ────
+  const archiveFilterBtns = document.querySelectorAll('.archive-filter-btn');
+  const archiveCards = document.querySelectorAll('.archive-photo-card');
+
+  if (archiveFilterBtns.length && archiveCards.length) {
+    archiveFilterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        archiveFilterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filterCategory = (btn.getAttribute('data-category') || 'all').toLowerCase();
+
+        archiveCards.forEach(card => {
+          const cardCategory = (card.getAttribute('data-category') || '').toLowerCase();
+          if (filterCategory === 'all' || cardCategory === filterCategory) {
+            card.style.display = 'flex';
+            requestAnimationFrame(() => {
+              card.style.opacity = '1';
+              card.style.transform = 'scale(1)';
+            });
+          } else {
+            card.style.opacity = '0';
+            card.style.transform = 'scale(0.96)';
+            setTimeout(() => {
+              if ((btn.getAttribute('data-category') || 'all').toLowerCase() !== 'all' && 
+                  (card.getAttribute('data-category') || '').toLowerCase() !== (btn.getAttribute('data-category') || '').toLowerCase()) {
+                card.style.display = 'none';
+              }
+            }, 250);
+          }
+        });
+      });
+    });
+  }
 
   // Image Preview Lightbox Modal Logic
   function ensureLightboxModalExists() {
@@ -185,8 +243,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 <div class="modal-footer-caption">
                     <div class="caption-left">
-                        <span id="modalImgTag" class="modal-tag">Portfolio</span>
+                        <span id="modalImgTag" class="modal-tag">Archive</span>
                         <h4 id="modalImgTitle" class="modal-title">Photo Preview</h4>
+                        <p id="modalImgDesc" class="modal-desc mb-0" style="font-family: var(--serif); font-style: italic; font-size: 0.875rem; color: rgba(255,255,255,0.78); margin-top: 4px; line-height: 1.45;"></p>
                     </div>
                     <div class="caption-right">
                         <span id="modalImgCounter" class="modal-counter">1 / 1</span>
@@ -205,6 +264,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalImg = document.getElementById('modalPreviewImg');
     const modalTag = document.getElementById('modalImgTag');
     const modalTitle = document.getElementById('modalImgTitle');
+    const modalDesc = document.getElementById('modalImgDesc');
     const modalCounter = document.getElementById('modalImgCounter');
     const closeBtn = document.getElementById('modalCloseBtn');
     const overlay = document.getElementById('modalOverlay');
@@ -215,7 +275,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentIndex = 0;
 
     function getVisiblePreviewElements() {
-      const all = Array.from(document.querySelectorAll('.strip-item, .mosaic .m-item, .tribute-photo-card, .tl-thumb, .archive-visual .main-img, .archive-visual .float-img'));
+      const all = Array.from(document.querySelectorAll(
+        '.archive-photo-card, .portfolio-project-card, .strip-item, .mosaic .m-item, .tribute-photo-card, .tl-thumb, .archive-visual .main-img, .archive-visual .float-img'
+      ));
       return all.filter(el => {
         const style = window.getComputedStyle(el);
         return style.display !== 'none' && style.opacity !== '0';
@@ -224,10 +286,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function getPhotoData(el) {
       const img = el.querySelector('img') || (el.tagName === 'IMG' ? el : null);
-      const tag = el.querySelector('.strip-tag span, .m-label, .modal-tag')?.textContent.trim() || 'Archive';
-      const alt = img?.getAttribute('alt') || 'Photograph by Shashi Sahai';
+      const tag = el.querySelector('.archive-photo-tag-pill, .portfolio-project-eyebrow, .strip-tag span, .m-label, .modal-tag')?.textContent.trim() || 'Archive';
+      const title = el.querySelector('.archive-photo-card-title, .portfolio-project-title')?.textContent.trim() || img?.getAttribute('alt') || 'Photograph by Shashi Sahai';
+      const desc = el.querySelector('.archive-photo-card-desc, .portfolio-project-desc')?.textContent.trim() || '';
       const src = img?.getAttribute('src') || '';
-      return { src, tag, title: alt };
+      return { src, tag, title, desc };
     }
 
     function updateModal(index) {
@@ -245,9 +308,13 @@ document.addEventListener('DOMContentLoaded', () => {
           modalImg.alt = data.title;
           if (modalTag) modalTag.textContent = data.tag;
           if (modalTitle) modalTitle.textContent = data.title;
+          if (modalDesc) {
+            modalDesc.textContent = data.desc;
+            modalDesc.style.display = data.desc ? 'block' : 'none';
+          }
           if (modalCounter) modalCounter.textContent = `${currentIndex + 1} / ${previewElements.length}`;
           modalImg.style.opacity = '1';
-        }, 100);
+        }, 80);
       }
     }
 
@@ -269,7 +336,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Global Click Listener for all preview items
     document.addEventListener('click', (e) => {
-      const card = e.target.closest('.strip-item, .mosaic .m-item, .tribute-photo-card, .tl-thumb, .archive-visual .main-img, .archive-visual .float-img');
+      const card = e.target.closest(
+        '.archive-photo-card, .portfolio-project-card, .strip-item, .mosaic .m-item, .tribute-photo-card, .tl-thumb, .archive-visual .main-img, .archive-visual .float-img'
+      );
       if (card) {
         e.preventDefault();
         openModalForElement(card);

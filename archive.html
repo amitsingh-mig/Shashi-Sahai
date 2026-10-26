@@ -10,11 +10,11 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <title>Archive & Timeline — Shashi Sahai (1991–2026)</title>
+    <title>Photo Archive & Timeline — Shashi Sahai (1961–2026)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600;1,9..144,700&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,700&display=swap"
         rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
@@ -22,9 +22,14 @@
 
 <body>
 
-   <header class="site-nav" id="siteHeader">
+    <!-- Scroll Progress Line -->
+    <div class="scroll-progress-bar" id="scrollProgressBar" aria-hidden="true"></div>
+
+    <header class="site-nav" id="siteHeader">
         <div class="container-xxl nav-inner">
-            <a href="index.html" class="nav-brand"><span>Shashi</span> Sahai</a>
+            <a href="index.html" class="nav-brand" aria-label="Shashi Sahai Home">
+                <img src="images/logo.svg" alt="Shashi Sahai" class="brand-logo-img">
+            </a>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -32,21 +37,594 @@
             </button>
             <nav class="links" id="navLinks">
                 <a href="index.html">Home</a>
-                <a href="index.html#gallery">Portfolio</a>
-                <a href="#" class="active">Archive</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="archive.html" class="active">Archive</a>
                 <a href="tributes.html">Tributes</a>
                 <a href="https://www.instagram.com/shashiphotographs/" target="_blank" rel="noopener">Instagram</a>
-                <a href="https://aarohanngo.org/shashi-sahai/" target="_blank" rel="noopener">Aarohan NGO</a>
+                <a href="https://aarohanngo.org/" target="_blank" rel="noopener">Aarohan NGO</a>
             </nav>
         </div>
     </header>
+
+    <!-- Photo Archive Section (Requirement 1) -->
+    <section class="photo-archive-section py-5" id="photo-archive" style="padding-top: 6.5rem !important;">
+        <div class="container-xxl py-lg-4">
+            <!-- Header -->
+            <div class="text-center mx-auto mb-4 reveal" style="max-width: 780px;">
+                <div class="eyebrow mb-2 d-flex justify-content-center align-items-center gap-2">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                        <circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.2"/>
+                        <circle cx="7" cy="7" r="2.5" fill="currentColor"/>
+                    </svg>
+                    Archival Photography Collection
+                </div>
+                <h1 class="h1-title mb-3">The Photo Archive</h1>
+                <p class="lead text-muted" style="font-family: var(--serif); font-style: italic; font-size: 1.15rem;">
+                    Over three decades of visual storytelling organized into seven core thematic categories. Every frame carries a narrative of human empathy, geography, sacred tradition, and silent light.
+                </p>
+            </div>
+
+            <!-- Intuitive Category Filter Bar -->
+            <div class="archive-filter-bar reveal delay-1" id="archiveFilterBar">
+                <button type="button" class="archive-filter-btn active" data-category="all">
+                    <span>All Categories</span>
+                    <span class="filter-count">27</span>
+                </button>
+                <button type="button" class="archive-filter-btn" data-category="people">
+                    <span>People</span>
+                    <span class="filter-count">5</span>
+                </button>
+                <button type="button" class="archive-filter-btn" data-category="nature">
+                    <span>Nature</span>
+                    <span class="filter-count">4</span>
+                </button>
+                <button type="button" class="archive-filter-btn" data-category="travel">
+                    <span>Travel</span>
+                    <span class="filter-count">4</span>
+                </button>
+                <button type="button" class="archive-filter-btn" data-category="heritage">
+                    <span>Heritage</span>
+                    <span class="filter-count">4</span>
+                </button>
+                <button type="button" class="archive-filter-btn" data-category="city-lights">
+                    <span>City Lights</span>
+                    <span class="filter-count">3</span>
+                </button>
+                <button type="button" class="archive-filter-btn" data-category="wildlife">
+                    <span>Wildlife</span>
+                    <span class="filter-count">3</span>
+                </button>
+                <button type="button" class="archive-filter-btn" data-category="culture">
+                    <span>Culture</span>
+                    <span class="filter-count">4</span>
+                </button>
+            </div>
+
+            <!-- Photo Archive Image Grid -->
+            <div class="photo-archive-grid reveal delay-2" id="photoArchiveGrid">
+
+                <!-- 1. People: Portrait of a Devi -->
+                <article class="archive-photo-card" data-category="people">
+                    <div class="archive-photo-card-media">
+                        <img loading="lazy" src="images/image_photo (15).jpg?v=20260918" alt="Portrait of a Devi">
+                        <span class="archive-photo-tag-pill">People</span>
+                        <div class="archive-photo-zoom-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                        </div>
+                    </div>
+                    <div class="archive-photo-card-body">
+                        <h3 class="archive-photo-card-title">Portrait of a Devi</h3>
+                        <p class="archive-photo-card-desc">A poignant black-and-white portrayal capturing quiet strength, timeless devotion, and spiritual serenity in rural India.</p>
+                        <div class="archive-photo-card-footer">
+                            <span class="archive-photo-meta">1996 · Rural Bengal</span>
+                            <span class="archive-photo-view-link">View Frame &rarr;</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 2. People: Elder of the Old Quarters -->
+                <article class="archive-photo-card" data-category="people">
+                    <div class="archive-photo-card-media">
+                        <img loading="lazy" src="images/image_photo (11).jpg?v=20260918" alt="Elder of the Old Quarters">
+                        <span class="archive-photo-tag-pill">People</span>
+                        <div class="archive-photo-zoom-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                        </div>
+                    </div>
+                    <div class="archive-photo-card-body">
+                        <h3 class="archive-photo-card-title">Elder of the Old Quarters</h3>
+                        <p class="archive-photo-card-desc">Weathered lines and a contemplative gaze reflecting decades of history within Old Delhi’s labyrinthine alleys.</p>
+                        <div class="archive-photo-card-footer">
+                            <span class="archive-photo-meta">2001 · Old Delhi</span>
+                            <span class="archive-photo-view-link">View Frame &rarr;</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 3. People: The Street Barber's Morning -->
+                <article class="archive-photo-card" data-category="people">
+                    <div class="archive-photo-card-media">
+                        <img loading="lazy" src="images/image_photo (7).jpg?v=20260918" alt="The Street Barber's Morning">
+                        <span class="archive-photo-tag-pill">People</span>
+                        <div class="archive-photo-zoom-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                        </div>
+                    </div>
+                    <div class="archive-photo-card-body">
+                        <h3 class="archive-photo-card-title">The Street Barber's Morning</h3>
+                        <p class="archive-photo-card-desc">An intimate everyday working-class moment under a roadside banyan tree, finding poetry in ordinary morning routines.</p>
+                        <div class="archive-photo-card-footer">
+                            <span class="archive-photo-meta">1993 · Varanasi</span>
+                            <span class="archive-photo-view-link">View Frame &rarr;</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 4. People: Youth in Contemplation -->
+                <article class="archive-photo-card" data-category="people">
+                    <div class="archive-photo-card-media">
+                        <img loading="lazy" src="images/image_photo (21).jpg?v=20260918" alt="Youth in Contemplation">
+                        <span class="archive-photo-tag-pill">People</span>
+                        <div class="archive-photo-zoom-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                        </div>
+                    </div>
+                    <div class="archive-photo-card-body">
+                        <h3 class="archive-photo-card-title">Youth in Contemplation</h3>
+                        <p class="archive-photo-card-desc">A candid medium shot capturing thoughtful stillness, balancing modern introspection with deep cultural roots.</p>
+                        <div class="archive-photo-card-footer">
+                            <span class="archive-photo-meta">2014 · Rajasthan</span>
+                            <span class="archive-photo-view-link">View Frame &rarr;</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 5. People: Generational Bond -->
+                <article class="archive-photo-card" data-category="people">
+                    <div class="archive-photo-card-media">
+                        <img loading="lazy" src="images/image_photo (27).jpg?v=20260918" alt="Generational Bond">
+                        <span class="archive-photo-tag-pill">People</span>
+                        <div class="archive-photo-zoom-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                        </div>
+                    </div>
+                    <div class="archive-photo-card-body">
+                        <h3 class="archive-photo-card-title">Generational Bond</h3>
+                        <p class="archive-photo-card-desc">Mother and child sharing spontaneous laughter, radiating unconditional warmth and pure human resilience.</p>
+                        <div class="archive-photo-card-footer">
+                            <span class="archive-photo-meta">2018 · Aarohan Field Project</span>
+                            <span class="archive-photo-view-link">View Frame &rarr;</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 6. Nature: Morning Mist Across the Valley -->
+                <article class="archive-photo-card" data-category="nature">
+                    <div class="archive-photo-card-media">
+                        <img loading="lazy" src="images/image_photo (13).jpg?v=20260918" alt="Morning Mist Across the Valley">
+                        <span class="archive-photo-tag-pill">Nature</span>
+                        <div class="archive-photo-zoom-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                        </div>
+                    </div>
+                    <div class="archive-photo-card-body">
+                        <h3 class="archive-photo-card-title">Morning Mist Across the Valley</h3>
+                        <p class="archive-photo-card-desc">Golden dawn filtering through eucalyptus canopies as low-hanging vapor envelops the mountain contours.</p>
+                        <div class="archive-photo-card-footer">
+                            <span class="archive-photo-meta">2005 · Western Ghats</span>
+                            <span class="archive-photo-view-link">View Frame &rarr;</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 7. Nature: River's Quiet Edge -->
+                <article class="archive-photo-card" data-category="nature">
+                    <div class="archive-photo-card-media">
+                        <img loading="lazy" src="images/image_photo (14).jpg?v=20260918" alt="River's Quiet Edge">
+                        <span class="archive-photo-tag-pill">Nature</span>
+                        <div class="archive-photo-zoom-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                        </div>
+                    </div>
+                    <div class="archive-photo-card-body">
+                        <h3 class="archive-photo-card-title">River's Quiet Edge</h3>
+                        <p class="archive-photo-card-desc">Silhouettes of solitary river reeds rippling softly along the tranquil freshwater banks during dusk.</p>
+                        <div class="archive-photo-card-footer">
+                            <span class="archive-photo-meta">2008 · Brahmaputra Basin</span>
+                            <span class="archive-photo-view-link">View Frame &rarr;</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 8. Nature: Verdant Monsoon Canopy -->
+                <article class="archive-photo-card" data-category="nature">
+                    <div class="archive-photo-card-media">
+                        <img loading="lazy" src="images/image_photo (20).jpg?v=20260918" alt="Verdant Monsoon Canopy">
+                        <span class="archive-photo-tag-pill">Nature</span>
+                        <div class="archive-photo-zoom-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                        </div>
+                    </div>
+                    <div class="archive-photo-card-body">
+                        <h3 class="archive-photo-card-title">Verdant Monsoon Canopy</h3>
+                        <p class="archive-photo-card-desc">Lush emerald rainforest foliage glistening with moisture following the torrential onset of the seasonal monsoon.</p>
+                        <div class="archive-photo-card-footer">
+                            <span class="archive-photo-meta">2015 · Kerala Backwaters</span>
+                            <span class="archive-photo-view-link">View Frame &rarr;</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 9. Nature: Alpine Solitude -->
+                <article class="archive-photo-card" data-category="nature">
+                    <div class="archive-photo-card-media">
+                        <img loading="lazy" src="images/image_photo (23).jpg?v=20260918" alt="Alpine Solitude">
+                        <span class="archive-photo-tag-pill">Nature</span>
+                        <div class="archive-photo-zoom-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                        </div>
+                    </div>
+                    <div class="archive-photo-card-body">
+                        <h3 class="archive-photo-card-title">Alpine Solitude</h3>
+                        <p class="archive-photo-card-desc">Granite crags standing immovable beneath a crystalline Himalayan sky, untouched by time or noise.</p>
+                        <div class="archive-photo-card-footer">
+                            <span class="archive-photo-meta">2017 · Ladakh High Passes</span>
+                            <span class="archive-photo-view-link">View Frame &rarr;</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 10. Travel: Footsteps on Distant Cobblestones -->
+                <article class="archive-photo-card" data-category="travel">
+                    <div class="archive-photo-card-media">
+                        <img loading="lazy" src="images/image_photo (8).jpg?v=20260918" alt="Footsteps on Distant Cobblestones">
+                        <span class="archive-photo-tag-pill">Travel</span>
+                        <div class="archive-photo-zoom-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                        </div>
+                    </div>
+                    <div class="archive-photo-card-body">
+                        <h3 class="archive-photo-card-title">Footsteps on Distant Cobblestones</h3>
+                        <p class="archive-photo-card-desc">A wandering documentary perspective capturing late afternoon shadows slanting over European stone lanes.</p>
+                        <div class="archive-photo-card-footer">
+                            <span class="archive-photo-meta">2001 · Southern France</span>
+                            <span class="archive-photo-view-link">View Frame &rarr;</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 11. Travel: The Threshold of Inward Journey -->
+                <article class="archive-photo-card" data-category="travel">
+                    <div class="archive-photo-card-media">
+                        <img loading="lazy" src="images/image_photo (1).jpg?v=20260918" alt="The Threshold of Inward Journey">
+                        <span class="archive-photo-tag-pill">Travel</span>
+                        <div class="archive-photo-zoom-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                        </div>
+                    </div>
+                    <div class="archive-photo-card-body">
+                        <h3 class="archive-photo-card-title">The Threshold of Inward Journey</h3>
+                        <p class="archive-photo-card-desc">A solitary wanderer paused beneath an ancient archway, observing the contrast of harsh exterior light and peaceful interior shade.</p>
+                        <div class="archive-photo-card-footer">
+                            <span class="archive-photo-meta">1997 · Madhya Pradesh</span>
+                            <span class="archive-photo-view-link">View Frame &rarr;</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 12. Travel: Desert Caravanserai Horizon -->
+                <article class="archive-photo-card" data-category="travel">
+                    <div class="archive-photo-card-media">
+                        <img loading="lazy" src="images/image_photo (4).jpg?v=20260918" alt="Desert Caravanserai Horizon">
+                        <span class="archive-photo-tag-pill">Travel</span>
+                        <div class="archive-photo-zoom-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                        </div>
+                    </div>
+                    <div class="archive-photo-card-body">
+                        <h3 class="archive-photo-card-title">Desert Caravanserai Horizon</h3>
+                        <p class="archive-photo-card-desc">Sweeping wind-carved sand dunes dissolving into an endless terracotta horizon at golden hour.</p>
+                        <div class="archive-photo-card-footer">
+                            <span class="archive-photo-meta">2003 · Thar Desert</span>
+                            <span class="archive-photo-view-link">View Frame &rarr;</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 13. Travel: Coastal Horizon at Dawn -->
+                <article class="archive-photo-card" data-category="travel">
+                    <div class="archive-photo-card-media">
+                        <img loading="lazy" src="images/image_photo (10).jpg?v=20260918" alt="Coastal Horizon at Dawn">
+                        <span class="archive-photo-tag-pill">Travel</span>
+                        <div class="archive-photo-zoom-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                        </div>
+                    </div>
+                    <div class="archive-photo-card-body">
+                        <h3 class="archive-photo-card-title">Coastal Horizon at Dawn</h3>
+                        <p class="archive-photo-card-desc">Traditional wooden catamaran outriggers preparing to push out into the morning surf before daybreak.</p>
+                        <div class="archive-photo-card-footer">
+                            <span class="archive-photo-meta">2012 · Coromandel Coast</span>
+                            <span class="archive-photo-view-link">View Frame &rarr;</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 14. Heritage: Carvings in Stone -->
+                <article class="archive-photo-card" data-category="heritage">
+                    <div class="archive-photo-card-media">
+                        <img loading="lazy" src="images/image_photo (18).jpg?v=20260918" alt="Carvings in Stone">
+                        <span class="archive-photo-tag-pill">Heritage</span>
+                        <div class="archive-photo-zoom-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                        </div>
+                    </div>
+                    <div class="archive-photo-card-body">
+                        <h3 class="archive-photo-card-title">Carvings in Stone</h3>
+                        <p class="archive-photo-card-desc">Centuries-old filigree stone lattice work capturing rhythmic interplay of light and shade in medieval architecture.</p>
+                        <div class="archive-photo-card-footer">
+                            <span class="archive-photo-meta">1999 · Fatehpur Sikri</span>
+                            <span class="archive-photo-view-link">View Frame &rarr;</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 15. Heritage: Temple Steps of the Ancient City -->
+                <article class="archive-photo-card" data-category="heritage">
+                    <div class="archive-photo-card-media">
+                        <img loading="lazy" src="images/image_photo (24).jpg?v=20260918" alt="Temple Steps of the Ancient City">
+                        <span class="archive-photo-tag-pill">Heritage</span>
+                        <div class="archive-photo-zoom-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                        </div>
+                    </div>
+                    <div class="archive-photo-card-body">
+                        <h3 class="archive-photo-card-title">Temple Steps of the Ancient City</h3>
+                        <p class="archive-photo-card-desc">Carved basalt ghat steps that have absorbed centuries of sacred rituals, ablutions, and continuous prayer.</p>
+                        <div class="archive-photo-card-footer">
+                            <span class="archive-photo-meta">2007 · Varanasi Ghats</span>
+                            <span class="archive-photo-view-link">View Frame &rarr;</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 16. Heritage: The Forgotten Haveli -->
+                <article class="archive-photo-card" data-category="heritage">
+                    <div class="archive-photo-card-media">
+                        <img loading="lazy" src="images/image_photo (25).jpg?v=20260918" alt="The Forgotten Haveli">
+                        <span class="archive-photo-tag-pill">Heritage</span>
+                        <div class="archive-photo-zoom-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                        </div>
+                    </div>
+                    <div class="archive-photo-card-body">
+                        <h3 class="archive-photo-card-title">The Forgotten Haveli</h3>
+                        <p class="archive-photo-card-desc">Ornate carved teakwood portals and faded natural pigment frescoes bearing silent witness to past grandeur.</p>
+                        <div class="archive-photo-card-footer">
+                            <span class="archive-photo-meta">2010 · Shekhawati</span>
+                            <span class="archive-photo-view-link">View Frame &rarr;</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 17. Heritage: Archival Relics & Vintage Glass -->
+                <article class="archive-photo-card" data-category="heritage">
+                    <div class="archive-photo-card-media">
+                        <img loading="lazy" src="images/image_photo (9).jpg?v=20260918" alt="Archival Relics & Vintage Glass">
+                        <span class="archive-photo-tag-pill">Heritage</span>
+                        <div class="archive-photo-zoom-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                        </div>
+                    </div>
+                    <div class="archive-photo-card-body">
+                        <h3 class="archive-photo-card-title">Archival Relics & Vintage Glass</h3>
+                        <p class="archive-photo-card-desc">A tactile documentary close-up celebrating mechanical manual-focus optics and silver-halide film canisters.</p>
+                        <div class="archive-photo-card-footer">
+                            <span class="archive-photo-meta">1991 · Studio Darkroom</span>
+                            <span class="archive-photo-view-link">View Frame &rarr;</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 18. City Lights: Midnight Neon & Motion -->
+                <article class="archive-photo-card" data-category="city-lights">
+                    <div class="archive-photo-card-media">
+                        <img loading="lazy" src="images/image_photo (6).jpg?v=20260918" alt="Midnight Neon & Motion">
+                        <span class="archive-photo-tag-pill">City Lights</span>
+                        <div class="archive-photo-zoom-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                        </div>
+                    </div>
+                    <div class="archive-photo-card-body">
+                        <h3 class="archive-photo-card-title">Midnight Neon & Motion</h3>
+                        <p class="archive-photo-card-desc">Streaking automobile headlights and neon signage painting luminous ribbons through the midnight metropolis.</p>
+                        <div class="archive-photo-card-footer">
+                            <span class="archive-photo-meta">2006 · Tokyo</span>
+                            <span class="archive-photo-view-link">View Frame &rarr;</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 19. City Lights: Shadows on Wet Asphalt -->
+                <article class="archive-photo-card" data-category="city-lights">
+                    <div class="archive-photo-card-media">
+                        <img loading="lazy" src="images/image_photo (16).jpg?v=20260918" alt="Shadows on Wet Asphalt">
+                        <span class="archive-photo-tag-pill">City Lights</span>
+                        <div class="archive-photo-zoom-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                        </div>
+                    </div>
+                    <div class="archive-photo-card-body">
+                        <h3 class="archive-photo-card-title">Shadows on Wet Asphalt</h3>
+                        <p class="archive-photo-card-desc">Rain-slicked avenues reflecting amber street lamps as nocturnal pedestrians scurry beneath dark umbrellas.</p>
+                        <div class="archive-photo-card-footer">
+                            <span class="archive-photo-meta">2011 · London</span>
+                            <span class="archive-photo-view-link">View Frame &rarr;</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 20. City Lights: Skyline at Dusk -->
+                <article class="archive-photo-card" data-category="city-lights">
+                    <div class="archive-photo-card-media">
+                        <img loading="lazy" src="images/image_photo (26).jpg?v=20260918" alt="Skyline at Dusk">
+                        <span class="archive-photo-tag-pill">City Lights</span>
+                        <div class="archive-photo-zoom-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                        </div>
+                    </div>
+                    <div class="archive-photo-card-body">
+                        <h3 class="archive-photo-card-title">Skyline at Dusk</h3>
+                        <p class="archive-photo-card-desc">The transitional blue hour blanketing the sprawling city as architectural towers ignite their night grid.</p>
+                        <div class="archive-photo-card-footer">
+                            <span class="archive-photo-meta">2019 · New Delhi</span>
+                            <span class="archive-photo-view-link">View Frame &rarr;</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 21. Wildlife: Grace in the Grasslands -->
+                <article class="archive-photo-card" data-category="wildlife">
+                    <div class="archive-photo-card-media">
+                        <img loading="lazy" src="images/image_photo (2).jpg?v=20260918" alt="Grace in the Grasslands">
+                        <span class="archive-photo-tag-pill">Wildlife</span>
+                        <div class="archive-photo-zoom-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                        </div>
+                    </div>
+                    <div class="archive-photo-card-body">
+                        <h3 class="archive-photo-card-title">Grace in the Grasslands</h3>
+                        <p class="archive-photo-card-desc">An alert spotted deer frozen mid-stride amidst golden dry grasses in Corbett National Park.</p>
+                        <div class="archive-photo-card-footer">
+                            <span class="archive-photo-meta">2004 · Corbett National Park</span>
+                            <span class="archive-photo-view-link">View Frame &rarr;</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 22. Wildlife: Wings Above the Marshes -->
+                <article class="archive-photo-card" data-category="wildlife">
+                    <div class="archive-photo-card-media">
+                        <img loading="lazy" src="images/image_photo (17).jpg?v=20260918" alt="Wings Above the Marshes">
+                        <span class="archive-photo-tag-pill">Wildlife</span>
+                        <div class="archive-photo-zoom-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                        </div>
+                    </div>
+                    <div class="archive-photo-card-body">
+                        <h3 class="archive-photo-card-title">Wings Above the Marshes</h3>
+                        <p class="archive-photo-card-desc">A migratory crane banking effortlessly over wetland reeds, caught with precision at maximum focal length.</p>
+                        <div class="archive-photo-card-footer">
+                            <span class="archive-photo-meta">2009 · Keoladeo Sanctuary</span>
+                            <span class="archive-photo-view-link">View Frame &rarr;</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 23. Wildlife: Predator's Silent Gaze -->
+                <article class="archive-photo-card" data-category="wildlife">
+                    <div class="archive-photo-card-media">
+                        <img loading="lazy" src="images/image_photo (19).jpg?v=20260918" alt="Predator's Silent Gaze">
+                        <span class="archive-photo-tag-pill">Wildlife</span>
+                        <div class="archive-photo-zoom-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                        </div>
+                    </div>
+                    <div class="archive-photo-card-body">
+                        <h3 class="archive-photo-card-title">Predator's Silent Gaze</h3>
+                        <p class="archive-photo-card-desc">Majestic intensity and coiled poise deep in the Sal forests of Central India during dry summer heat.</p>
+                        <div class="archive-photo-card-footer">
+                            <span class="archive-photo-meta">2016 · Kanha Reserve</span>
+                            <span class="archive-photo-view-link">View Frame &rarr;</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 24. Culture: Sacred Embers of the Aarti -->
+                <article class="archive-photo-card" data-category="culture">
+                    <div class="archive-photo-card-media">
+                        <img loading="lazy" src="images/image_photo (12).jpg?v=20260918" alt="Sacred Embers of the Aarti">
+                        <span class="archive-photo-tag-pill">Culture</span>
+                        <div class="archive-photo-zoom-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                        </div>
+                    </div>
+                    <div class="archive-photo-card-body">
+                        <h3 class="archive-photo-card-title">Sacred Embers of the Aarti</h3>
+                        <p class="archive-photo-card-desc">Towering brass lamps, curling camphor smoke, and Vedic chants rising into the night sky along the sacred riverbanks.</p>
+                        <div class="archive-photo-card-footer">
+                            <span class="archive-photo-meta">2002 · Dashashwamedh Ghat</span>
+                            <span class="archive-photo-view-link">View Frame &rarr;</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 25. Culture: Children of the Festival -->
+                <article class="archive-photo-card" data-category="culture">
+                    <div class="archive-photo-card-media">
+                        <img loading="lazy" src="images/image_photo (5).jpg?v=20260918" alt="Children of the Festival">
+                        <span class="archive-photo-tag-pill">Culture</span>
+                        <div class="archive-photo-zoom-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                        </div>
+                    </div>
+                    <div class="archive-photo-card-body">
+                        <h3 class="archive-photo-card-title">Children of the Festival</h3>
+                        <p class="archive-photo-card-desc">Infectious joy and bright powder explosions during a village spring celebration, freezing motion in mid-air.</p>
+                        <div class="archive-photo-card-footer">
+                            <span class="archive-photo-meta">2005 · Mathura</span>
+                            <span class="archive-photo-view-link">View Frame &rarr;</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 26. Culture: The Weaver's Loom -->
+                <article class="archive-photo-card" data-category="culture">
+                    <div class="archive-photo-card-media">
+                        <img loading="lazy" src="images/image_photo (3).jpg?v=20260918" alt="The Weaver's Loom">
+                        <span class="archive-photo-tag-pill">Culture</span>
+                        <div class="archive-photo-zoom-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                        </div>
+                    </div>
+                    <div class="archive-photo-card-body">
+                        <h3 class="archive-photo-card-title">The Weaver's Loom</h3>
+                        <p class="archive-photo-card-desc">Weathered hands guiding wooden shuttles through pure zari threads, preserving an endangered craft form.</p>
+                        <div class="archive-photo-card-footer">
+                            <span class="archive-photo-meta">1998 · Banaras</span>
+                            <span class="archive-photo-view-link">View Frame &rarr;</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 27. Culture: Echoes of the Shehnai -->
+                <article class="archive-photo-card" data-category="culture">
+                    <div class="archive-photo-card-media">
+                        <img loading="lazy" src="images/image_photo (22).jpg?v=20260918" alt="Echoes of the Shehnai">
+                        <span class="archive-photo-tag-pill">Culture</span>
+                        <div class="archive-photo-zoom-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                        </div>
+                    </div>
+                    <div class="archive-photo-card-body">
+                        <h3 class="archive-photo-card-title">Echoes of the Shehnai</h3>
+                        <p class="archive-photo-card-desc">Intricate classical melodies resounding through an ancestral haveli courtyard during traditional nuptials.</p>
+                        <div class="archive-photo-card-footer">
+                            <span class="archive-photo-meta">2013 · Awadh</span>
+                            <span class="archive-photo-view-link">View Frame &rarr;</span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
 
     <!-- Timeline Section -->
     <section class="timeline-section py-5" id="timeline">
         <div class="container-xxl py-lg-5">
             <div class="tl-head text-center mx-auto mb-5 reveal">
                 <div class="eyebrow light d-flex justify-content-center align-items-center gap-2">
-                    <!-- Viewfinder SVG -->
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
                         <rect x="1" y="1" width="12" height="12" rx="1" stroke="currentColor" stroke-width="1.2"/>
                         <line x1="4" y1="1" x2="4" y2="4" stroke="currentColor" stroke-width="1.2"/>
@@ -58,7 +636,7 @@
                     Our Journey
                 </div>
                 <h2 class="mt-3">Three decades, <em>told frame by frame</em></h2>
-                <p class="mt-3">Every era leaves its own light. Here is how Shashi Sahai's lens has moved with the world, one decade at a time.</p>
+                <p class="mt-3">Every era leaves its own light. Here is how Shashi Sahai's lens moved with the world, one decade at a time.</p>
             </div>
             <div class="tl-track position-relative mx-auto">
                 <div class="tl-spine">
@@ -69,7 +647,7 @@
                     <div class="tl-card">
                         <div class="tl-year">1991</div>
                         <h4>The First Frame</h4>
-                        <p>A single darkroom and a hand-loaded roll of film. Shashi Sahai Studio begins as a modest documentary studio.</p>
+                        <p>A single darkroom and hand-loaded rolls of film. Shashi Sahai Studio begins as a modest documentary sanctuary dedicated to the human story.</p>
                         <div class="tl-thumb"><img loading="lazy" src="images/image_photo (7).jpg?v=20260918" alt="Archival black and white photograph"></div>
                     </div>
                     <div class="tl-dot-col">
@@ -86,7 +664,7 @@
                     <div class="tl-card">
                         <div class="tl-year">2001</div>
                         <h4>Beyond the Studio</h4>
-                        <p>Travel and culture assignments take the lens across five continents, building the first archive of portraits.</p>
+                        <p>Travel and culture assignments take the lens across five continents, building an expansive, internationally celebrated archive of portraits.</p>
                         <div class="tl-thumb"><img loading="lazy" src="images/image_photo (8).jpg?v=20260918" alt="Archival travel photograph"></div>
                     </div>
                 </div>
@@ -94,8 +672,8 @@
                 <div class="tl-row" data-yr="2012">
                     <div class="tl-card">
                         <div class="tl-year">2012</div>
-                        <h4>Digital Horizon</h4>
-                        <p>The archive crosses into the digital age without losing its documentary instinct — grain gives way to detail.</p>
+                        <h4>Digital Horizon &amp; Accolades</h4>
+                        <p>The archive crosses gracefully into the digital age without losing its documentary soul — grain gives way to crisp luminescence while winning the Bronze at Cannes.</p>
                         <div class="tl-thumb"><img loading="lazy" src="images/image_photo (9).jpg?v=20260918" alt="Camera and film equipment"></div>
                     </div>
                     <div class="tl-dot-col">
@@ -111,8 +689,8 @@
                     </div>
                     <div class="tl-card">
                         <div class="tl-year">2026</div>
-                        <h4>Three Decades On</h4>
-                        <p>Over a million frames later, Shashi Sahai stands as a living archive of people, places and the stories between them.</p>
+                        <h4>A Living Legacy</h4>
+                        <p>Over a million frames later, Shashi Sahai stands as a living cultural archive of people, places, and the compassion between them.</p>
                         <div class="tl-thumb"><img loading="lazy" src="images/image_photo (10).jpg?v=20260918" alt="Modern editorial photograph"></div>
                     </div>
                 </div>
@@ -126,32 +704,28 @@
             <div class="row g-5 align-items-center">
                 <div class="col-12 col-lg-6 archive-copy reveal">
                     <div class="eyebrow mb-3 d-flex align-items-center gap-2">
-                        <!-- Shutter SVG icon -->
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                             <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.2"/>
                             <circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1"/>
-                            <!-- Shutter blades -->
                             <path d="M8 1v4M8 11v4" stroke="currentColor" stroke-width="1" opacity="0.5"/>
                             <path d="M1 8h4M11 8h4" stroke="currentColor" stroke-width="1" opacity="0.5"/>
-                            <path d="M3 3l2.8 2.8M10.2 10.2L13 13" stroke="currentColor" stroke-width="1" opacity="0.5"/>
-                            <path d="M13 3l-2.8 2.8M5.8 10.2L3 13" stroke="currentColor" stroke-width="1" opacity="0.5"/>
                         </svg>
                         Visual History
                     </div>
                     <h2>An archive that remembers.</h2>
-                    <p class="mt-4">Every roll of film, every contact sheet and every hard drive tells part of the same story — a running record of how the world has looked, decade after decade.</p>
+                    <p class="mt-4">Every roll of film, contact sheet, and digital negative tells part of the same story — a continuous, heartfelt record of how the world lived, decade after decade.</p>
                     <div class="archive-facts mt-4">
                         <div class="archive-fact d-flex gap-3 align-items-baseline pt-3 border-top">
                             <span class="yr">35+ Yrs</span>
-                            <span class="tx">Prolific photojournalist for national & international press.</span>
+                            <span class="tx">Prolific photojournalist for premier national &amp; international press.</span>
                         </div>
                         <div class="archive-fact d-flex gap-3 align-items-baseline pt-3 border-top">
-                            <span class="yr">Cannes</span>
-                            <span class="tx">Won the prestigious Bronze award at Cannes for advertising project.</span>
+                            <span class="yr" style="color: var(--gold);">Cannes</span>
+                            <span class="tx">Awarded the prestigious Bronze Lion at Cannes for creative advertising direction.</span>
                         </div>
                         <div class="archive-fact d-flex gap-3 align-items-baseline pt-3 border-top">
                             <span class="yr">Aarohan</span>
-                            <span class="tx">Treasurer & dedicated philanthropist driving NGO social impact.</span>
+                            <span class="tx">Cofounder &amp; treasurer driving social welfare, women's empowerment, and child education.</span>
                         </div>
                     </div>
                 </div>
@@ -169,11 +743,12 @@
             <div class="foot-top d-flex justify-content-center flex-wrap pb-4 mb-4 border-bottom border-secondary-subtle">
                 <div class="foot-links d-flex gap-4 flex-wrap justify-content-center">
                     <a href="index.html">Home</a>
-                    <a href="index.html#gallery">Portfolio</a>
-                    <a href="archive.html">Archive</a>
+                    <a href="portfolio.html">Portfolio Archive</a>
+                    <a href="archive.html" class="text-danger fw-semibold">Photo Archive</a>
                     <a href="tributes.html">Tributes</a>
+                    <a href="privacy.html">Privacy Policy</a>
                     <a href="https://www.instagram.com/shashiphotographs/" target="_blank" rel="noopener">Instagram (@shashiphotographs)</a>
-                    <a href="https://aarohanngo.org/shashi-sahai/" target="_blank" rel="noopener">Aarohan NGO Profile</a>
+                    <a href="https://aarohanngo.org/" target="_blank" rel="noopener">Aarohan NGO</a>
                 </div>
             </div>
             <div class="foot-bottom d-flex justify-content-between flex-wrap gap-2 pt-2">

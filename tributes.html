@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,16 +9,23 @@
     <title>Tributes & Reflections — Shashi Sahai (1991–2026)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <!-- Scroll Progress Line -->
+    <div class="scroll-progress-bar" id="scrollProgressBar" aria-hidden="true"></div>
+
     <header class="site-nav" id="siteHeader">
         <div class="container-xxl nav-inner">
-            <a href="index.html" class="nav-brand"><span>Shashi</span> Sahai</a>
+            <a href="index.html" class="nav-brand" aria-label="Shashi Sahai Home">
+                <img src="images/logo.svg" alt="Shashi Sahai" class="brand-logo-img">
+            </a>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -25,11 +33,11 @@
             </button>
             <nav class="links" id="navLinks">
                 <a href="index.html">Home</a>
-                <a href="index.html#gallery">Portfolio</a>
+                <a href="portfolio.html">Portfolio</a>
                 <a href="archive.html">Archive</a>
                 <a href="tributes.html" class="active">Tributes</a>
                 <a href="https://www.instagram.com/shashiphotographs/" target="_blank" rel="noopener">Instagram</a>
-                <a href="https://aarohanngo.org/shashi-sahai/" target="_blank" rel="noopener">Aarohan NGO</a>
+                <a href="https://aarohanngo.org/" target="_blank" rel="noopener">Aarohan NGO</a>
             </nav>
         </div>
     </header>
@@ -44,41 +52,72 @@
                         <span class="eyebrow d-flex align-items-center gap-2">
                             <!-- Candle / memorial SVG -->
                             <svg width="12" height="18" viewBox="0 0 12 18" fill="none" aria-hidden="true">
-                                <path d="M6 4C6 4 4 2.5 4 1.5C4 0.7 5 0 6 0.5C7 0 8 0.7 8 1.5C8 2.5 6 4 6 4Z" fill="currentColor" opacity="0.8"/>
-                                <rect x="3.5" y="4" width="5" height="12" rx="1" fill="currentColor" opacity="0.5"/>
-                                <rect x="2" y="14" width="8" height="2" rx="0.5" fill="currentColor" opacity="0.3"/>
-                                <line x1="6" y1="4" x2="6" y2="16" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+                                <path d="M6 4C6 4 4 2.5 4 1.5C4 0.7 5 0 6 0.5C7 0 8 0.7 8 1.5C8 2.5 6 4 6 4Z"
+                                    fill="currentColor" opacity="0.8" />
+                                <rect x="3.5" y="4" width="5" height="12" rx="1" fill="currentColor" opacity="0.5" />
+                                <rect x="2" y="14" width="8" height="2" rx="0.5" fill="currentColor" opacity="0.3" />
+                                <line x1="6" y1="4" x2="6" y2="16" stroke="rgba(255,255,255,0.3)" stroke-width="1" />
                             </svg>
                             In Memoriam &middot; August 15, 2026
                         </span>
                         <span class="obit-rule"></span>
                     </div>
                     <h2 class="obit-headline mb-2">Shashi Sahai: <em>The Man Who Saw Stories Others Missed</em></h2>
-                    <div class="obit-dateline mb-5">New Delhi · 1960 – 2026</div>
+                    <div class="obit-dateline mb-5">New Delhi · 1961 – 2026</div>
 
                     <div class="obit-body">
-                        <p class="obit-lead">Veteran journalist, photographer and philanthropist Shashi Sahai, whose camera documented countless lives while he quietly devoted his own to photography, friendship and social service, passed away in New Delhi on August 15 after a prolonged battle with cancer. He was 66.</p>
-                        <p>For much of his life, Shashi stood behind the lens. It was where he was most comfortable — watching, listening and waiting for the moment that others often missed.</p>
-                        <p>A Photojournalist by profession, a photographer by instinct, he had a long association with the media and contributed to several publications, including international magazines. Colleagues remember him as a keen observer with a rare ability to find a story in the seemingly ordinary.</p>
-                        <p>His photographs reflected the way he saw the world. He was interested not merely in faces, but in the lives behind them. A passing expression, a conversation on a street, a child at play, an animal, an unnoticed corner of everyday life — Sahai could find meaning in moments most people would simply walk past. For him, photography was less about the camera and more about paying attention.</p>
-                        <blockquote class="obit-blockquote">Ironically, the man who spent decades documenting others rarely wanted attention himself.</blockquote>
-                        <p>Shashi remained intensely private and understated throughout his life. He was uncomfortable with self-promotion and rarely spoke about his own achievements. Those close to him say he would much rather hear another person's story than tell his own.</p>
-                        <p>As cofounder and a long-standing pillar of Aarohan NGO, located at Malviya Nagar, New Delhi, he worked for years in support of children, women and vulnerable communities. His contribution went far beyond designation. He became one of the people the organization could depend upon — someone who worked quietly, solved problems and remained present when he was needed.</p>
-                        <p class="obit-emphasis">He did not believe every act of kindness required an audience. Much of what he did for others was done without photographs, announcements or recognition.</p>
-                        <p>Perhaps that was the clearest reflection of the man he was. He could meet a stranger and, before long, make that person feel like an old friend — irrespective of age, profession or social standing. People entered his life as acquaintances and often stayed as family.</p>
-                        <p>But the final months of Sahai's life were very different from the years he had spent moving through the world with a camera in hand. Yet cancer is only the final paragraph of his story. It is not the story itself.</p>
-                        <p>That story lies in the decades that came before it. It is in the photographs he left behind and the stories he helped tell. It is in Aarohan and the communities he served. It is in the people he helped when nobody was watching. It is in friendships that outlived assignments, workplaces and distances.</p>
-                        <p>In the memories of those who knew a very different Shashi Sahai from the name that appeared alongside published work.</p>
-                        <p class="obit-closing">He was the person who called. The person who showed up. The person who remembered…</p>
+                        <p class="obit-lead">Veteran journalist, photographer and philanthropist Shashi Sahai, whose
+                            camera documented countless lives while he quietly devoted his own to photography,
+                            friendship and social service, passed away in New Delhi on August 15 after a prolonged
+                            battle with cancer. He was 66.</p>
+                        <p>For much of his life, Shashi stood behind the lens. It was where he was most comfortable —
+                            watching, listening and waiting for the moment that others often missed.</p>
+                        <p>A Photojournalist by profession, a photographer by instinct, he had a long association with
+                            the media and contributed to several publications, including international magazines.
+                            Colleagues remember him as a keen observer with a rare ability to find a story in the
+                            seemingly ordinary.</p>
+                        <p>His photographs reflected the way he saw the world. He was interested not merely in faces,
+                            but in the lives behind them. A passing expression, a conversation on a street, a child at
+                            play, an animal, an unnoticed corner of everyday life — Sahai could find meaning in moments
+                            most people would simply walk past. For him, photography was less about the camera and more
+                            about paying attention.</p>
+                        <blockquote class="obit-blockquote">Ironically, the man who spent decades documenting others
+                            rarely wanted attention himself.</blockquote>
+                        <p>Shashi remained intensely private and understated throughout his life. He was uncomfortable
+                            with self-promotion and rarely spoke about his own achievements. Those close to him say he
+                            would much rather hear another person's story than tell his own.</p>
+                        <p>As cofounder and a long-standing pillar of Aarohan NGO, located at Malviya Nagar, New Delhi,
+                            he worked for years in support of children, women and vulnerable communities. His
+                            contribution went far beyond designation. He became one of the people the organization could
+                            depend upon — someone who worked quietly, solved problems and remained present when he was
+                            needed.</p>
+                        <p class="obit-emphasis">He did not believe every act of kindness required an audience. Much of
+                            what he did for others was done without photographs, announcements or recognition.</p>
+                        <p>Perhaps that was the clearest reflection of the man he was. He could meet a stranger and,
+                            before long, make that person feel like an old friend — irrespective of age, profession or
+                            social standing. People entered his life as acquaintances and often stayed as family.</p>
+                        <p>But the final months of Sahai's life were very different from the years he had spent moving
+                            through the world with a camera in hand. Yet cancer is only the final paragraph of his
+                            story. It is not the story itself.</p>
+                        <p>That story lies in the decades that came before it. It is in the photographs he left behind
+                            and the stories he helped tell. It is in Aarohan and the communities he served. It is in the
+                            people he helped when nobody was watching. It is in friendships that outlived assignments,
+                            workplaces and distances.</p>
+                        <p>In the memories of those who knew a very different Shashi Sahai from the name that appeared
+                            alongside published work.</p>
+                        <p class="obit-closing">He was the person who called. The person who showed up. The person who
+                            remembered…</p>
                     </div>
 
                     <div class="obit-footer mt-5 pt-4">
                         <div class="d-flex flex-wrap gap-4 align-items-center justify-content-between">
                             <div>
-                                <span class="obit-dates">1960 — August 15, 2026</span>
-                                <span class="d-block obit-org mt-1">Cofounder, Aarohan NGO &nbsp;·&nbsp; Photojournalist &nbsp;·&nbsp; Philanthropist</span>
+                                <span class="obit-dates">1961 — August 15, 2026</span>
+                                <span class="d-block obit-org mt-1">Cofounder, Aarohan NGO &nbsp;·&nbsp; Photojournalist
+                                    &nbsp;·&nbsp; Philanthropist</span>
                             </div>
-                            <a href="https://aarohanngo.org/shashi-sahai/" target="_blank" rel="noopener" class="tribute-link">Aarohan NGO Tribute &rarr;</a>
+                            <a href="https://aarohanngo.org/shashi-sahai/" target="_blank" rel="noopener"
+                                class="tribute-link">Aarohan NGO Tribute &rarr;</a>
                         </div>
                     </div>
                 </div>
@@ -110,7 +149,9 @@
                             <div class="quote-icon mb-3">
                                 <!-- SVG open-quote mark -->
                                 <svg width="36" height="28" viewBox="0 0 36 28" fill="none" aria-hidden="true">
-                                    <path d="M0 28V16C0 7.163 5.373 1.913 16.12 0L17.5 3.36C12.147 4.587 9.173 7.507 8.58 12.12H15v16H0ZM19.5 28V16C19.5 7.163 24.873 1.913 35.62 0L37 3.36C31.647 4.587 28.673 7.507 28.08 12.12H34.5v16H19.5Z" fill="currentColor" opacity="0.18"/>
+                                    <path
+                                        d="M0 28V16C0 7.163 5.373 1.913 16.12 0L17.5 3.36C12.147 4.587 9.173 7.507 8.58 12.12H15v16H0ZM19.5 28V16C19.5 7.163 24.873 1.913 35.62 0L37 3.36C31.647 4.587 28.673 7.507 28.08 12.12H34.5v16H19.5Z"
+                                        fill="currentColor" opacity="0.18" />
                                 </svg>
                             </div>
                             <h3 class="tribute-title mb-4">Shashi Sahai: A Bond Beyond Definitions</h3>
@@ -176,7 +217,9 @@
                         <div id="tab-professional" class="tribute-tab-content">
                             <div class="quote-icon mb-3">
                                 <svg width="36" height="28" viewBox="0 0 36 28" fill="none" aria-hidden="true">
-                                    <path d="M0 28V16C0 7.163 5.373 1.913 16.12 0L17.5 3.36C12.147 4.587 9.173 7.507 8.58 12.12H15v16H0ZM19.5 28V16C19.5 7.163 24.873 1.913 35.62 0L37 3.36C31.647 4.587 28.673 7.507 28.08 12.12H34.5v16H19.5Z" fill="currentColor" opacity="0.18"/>
+                                    <path
+                                        d="M0 28V16C0 7.163 5.373 1.913 16.12 0L17.5 3.36C12.147 4.587 9.173 7.507 8.58 12.12H15v16H0ZM19.5 28V16C19.5 7.163 24.873 1.913 35.62 0L37 3.36C31.647 4.587 28.673 7.507 28.08 12.12H34.5v16H19.5Z"
+                                        fill="currentColor" opacity="0.18" />
                                 </svg>
                             </div>
                             <h3 class="tribute-title mb-4">Patience, Resilience & Innovation</h3>
@@ -219,7 +262,9 @@
                         <div id="tab-media" class="tribute-tab-content">
                             <div class="quote-icon mb-3">
                                 <svg width="36" height="28" viewBox="0 0 36 28" fill="none" aria-hidden="true">
-                                    <path d="M0 28V16C0 7.163 5.373 1.913 16.12 0L17.5 3.36C12.147 4.587 9.173 7.507 8.58 12.12H15v16H0ZM19.5 28V16C19.5 7.163 24.873 1.913 35.62 0L37 3.36C31.647 4.587 28.673 7.507 28.08 12.12H34.5v16H19.5Z" fill="currentColor" opacity="0.18"/>
+                                    <path
+                                        d="M0 28V16C0 7.163 5.373 1.913 16.12 0L17.5 3.36C12.147 4.587 9.173 7.507 8.58 12.12H15v16H0ZM19.5 28V16C19.5 7.163 24.873 1.913 35.62 0L37 3.36C31.647 4.587 28.673 7.507 28.08 12.12H34.5v16H19.5Z"
+                                        fill="currentColor" opacity="0.18" />
                                 </svg>
                             </div>
                             <h3 class="tribute-title mb-4">Master of the Lens & Cannes Winner</h3>
@@ -252,7 +297,9 @@
                         <div id="tab-community" class="tribute-tab-content">
                             <div class="quote-icon mb-3">
                                 <svg width="36" height="28" viewBox="0 0 36 28" fill="none" aria-hidden="true">
-                                    <path d="M0 28V16C0 7.163 5.373 1.913 16.12 0L17.5 3.36C12.147 4.587 9.173 7.507 8.58 12.12H15v16H0ZM19.5 28V16C19.5 7.163 24.873 1.913 35.62 0L37 3.36C31.647 4.587 28.673 7.507 28.08 12.12H34.5v16H19.5Z" fill="currentColor" opacity="0.18"/>
+                                    <path
+                                        d="M0 28V16C0 7.163 5.373 1.913 16.12 0L17.5 3.36C12.147 4.587 9.173 7.507 8.58 12.12H15v16H0ZM19.5 28V16C19.5 7.163 24.873 1.913 35.62 0L37 3.36C31.647 4.587 28.673 7.507 28.08 12.12H34.5v16H19.5Z"
+                                        fill="currentColor" opacity="0.18" />
                                 </svg>
                             </div>
                             <h3 class="tribute-title mb-4">Empowering Youth & Grassroots Communities</h3>
@@ -303,43 +350,50 @@
                     </div>
                     <div class="swiper-slide">
                         <div class="tribute-photo-card">
-                            <img loading="eager" src="images/Shashi_Sahai_hero.jpg?v=20260918" alt="Photographer through viewfinder">
+                            <img loading="eager" src="images/Shashi_Sahai_hero.jpg?v=20260918"
+                                alt="Photographer through viewfinder">
                             <div class="tribute-photo-caption">35 Years Behind the Viewfinder</div>
                         </div>
                     </div>
                     <div class="swiper-slide">
                         <div class="tribute-photo-card">
-                            <img loading="lazy" src="images/image_photo (27).jpg?v=20260918" alt="Community documentary shot">
+                            <img loading="lazy" src="images/image_photo (27).jpg?v=20260918"
+                                alt="Community documentary shot">
                             <div class="tribute-photo-caption">Grassroots Stories & Human Bonds</div>
                         </div>
                     </div>
                     <div class="swiper-slide">
                         <div class="tribute-photo-card">
-                            <img loading="lazy" src="images/image_photo (2).jpg?v=20260918" alt="Wildlife and natural heritage">
+                            <img loading="lazy" src="images/image_photo (2).jpg?v=20260918"
+                                alt="Wildlife and natural heritage">
                             <div class="tribute-photo-caption">Wildlife & Natural Heritage</div>
                         </div>
                     </div>
                     <div class="swiper-slide">
                         <div class="tribute-photo-card">
-                            <img loading="lazy" src="images/image_photo (17).jpg?v=20260918" alt="Wildlife documentary frame">
+                            <img loading="lazy" src="images/image_photo (17).jpg?v=20260918"
+                                alt="Wildlife documentary frame">
                             <div class="tribute-photo-caption">Wildlife & Environment Lens</div>
                         </div>
                     </div>
                     <div class="swiper-slide">
                         <div class="tribute-photo-card">
-                            <img loading="lazy" src="images/image_photo (19).jpg?v=20260918" alt="Animals and landscape study">
+                            <img loading="lazy" src="images/image_photo (19).jpg?v=20260918"
+                                alt="Animals and landscape study">
                             <div class="tribute-photo-caption">Nature & Wildlife Perspectives</div>
                         </div>
                     </div>
                     <div class="swiper-slide">
                         <div class="tribute-photo-card">
-                            <img loading="lazy" src="images/image_photo (4).jpg?v=20260918" alt="Landscape and quiet moments">
+                            <img loading="lazy" src="images/image_photo (4).jpg?v=20260918"
+                                alt="Landscape and quiet moments">
                             <div class="tribute-photo-caption">Moments Across Continents</div>
                         </div>
                     </div>
                     <div class="swiper-slide">
                         <div class="tribute-photo-card">
-                            <img loading="lazy" src="images/image_photo (1).jpg?v=20260918" alt="Human stories and perspectives">
+                            <img loading="lazy" src="images/image_photo (1).jpg?v=20260918"
+                                alt="Human stories and perspectives">
                             <div class="tribute-photo-caption">Human Stories & Perspectives</div>
                         </div>
                     </div>
@@ -361,13 +415,12 @@
                 class="foot-top d-flex justify-content-center flex-wrap pb-4 mb-4 border-bottom border-secondary-subtle">
                 <div class="foot-links d-flex gap-4 flex-wrap justify-content-center">
                     <a href="index.html">Home</a>
-                    <a href="index.html#gallery">Portfolio</a>
-                    <a href="archive.html">Archive</a>
-                    <a href="tributes.html">Tributes</a>
-                    <a href="https://www.instagram.com/shashiphotographs/" target="_blank" rel="noopener">Instagram
-                        (@shashiphotographs)</a>
-                    <a href="https://aarohanngo.org/shashi-sahai/" target="_blank" rel="noopener">Aarohan NGO
-                        Profile</a>
+                    <a href="portfolio.html">Portfolio Archive</a>
+                    <a href="archive.html">Photo Archive</a>
+                    <a href="tributes.html" class="text-danger fw-semibold">Tributes</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="https://www.instagram.com/shashiphotographs/" target="_blank" rel="noopener">Instagram (@shashiphotographs)</a>
+                    <a href="https://aarohanngo.org/" target="_blank" rel="noopener">Aarohan NGO</a>
                 </div>
             </div>
             <div class="foot-bottom d-flex justify-content-between flex-wrap gap-2 pt-2">

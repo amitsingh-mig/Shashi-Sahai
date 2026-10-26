@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 50" fill="none" class="shashi-calligraphy-logo" aria-label="Shashi Sahai">
+  <defs>
+    <linearGradient id="calligraphyRedGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C01412"/>
+      <stop offset="100%" stop-color="#950E0C"/>
+    </linearGradient>
+  </defs>
+  <!-- Stylized calligraphy signature mark -->
+  <g id="calligraphyMark" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Elegant 'S' swash accent -->
+    <path d="M 12,38 C 18,41 26,42 34,39 C 45,35 48,22 36,18 C 26,15 22,25 18,22 C 14,19 16,11 26,8 C 36,5 44,8 48,11" 
+          stroke="url(#calligraphyRedGrad)" stroke-width="2.2" fill="none" opacity="0.95" />
+    <circle cx="48" cy="11" r="1.8" fill="#C01412" stroke="none" />
+  </g>
+  <!-- Shashi text in refined high-contrast editorial serif with calligraphic ligature -->
+  <text x="56" y="27" font-family="'Playfair Display', 'Fraunces', Georgia, serif" font-weight="700" font-style="italic" font-size="22" fill="currentColor" letter-spacing="0.5">
+    Shashi
+  </text>
+  <!-- Sahai text with crimson accent -->
+  <text x="135" y="27" font-family="'Fraunces', 'Playfair Display', Georgia, serif" font-weight="400" font-style="normal" font-size="22" fill="#C01412" letter-spacing="1">
+    Sahai
+  </text>
+  <!-- Fine line divider and sub-lettering -->
+  <line x1="56" y1="34" x2="206" y2="34" stroke="currentColor" stroke-width="0.7" opacity="0.25" />
+  <circle cx="131" cy="34" r="1.5" fill="#C01412" />
+  <text x="131" y="44" font-family="'Inter', -apple-system, sans-serif" font-weight="600" font-size="6.8" fill="currentColor" opacity="0.6" letter-spacing="2.8" text-anchor="middle">
+    ARCHIVE &bull; EST. 1961
+  </text>
+</svg>

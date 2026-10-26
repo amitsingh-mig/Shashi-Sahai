@@ -1,6 +1,6 @@
 # 📷 Shashi Sahai — Three Decades of Perspective
 
-A memorial photography website dedicated to **Shashi Sahai** (1960 – August 15, 2026) — veteran photojournalist, photographer, and philanthropist. The site celebrates his 35+ years behind the lens and his lasting impact through Aarohan NGO.
+A memorial photography website dedicated to **Shashi Sahai** (1961 – August 15, 2026) — veteran photojournalist, photographer, and philanthropist. The site celebrates his 35+ years behind the lens and his lasting impact through Aarohan NGO.
 
 ---
 
@@ -8,9 +8,11 @@ A memorial photography website dedicated to **Shashi Sahai** (1960 – August 15
 
 | Page | Description |
 |------|-------------|
-| `index.html` | Home — Hero, portfolio gallery, philosophy |
-| `archive.html` | Timeline — Decade-by-decade photographic journey (1991–2026) |
-| `tributes.html` | Tributes — Obituary, reflections, and archival photo slider |
+| `index.html` | Home — Hero narrative, photojournalist biography, preview strip, curated mosaic, and philosophy |
+| `portfolio.html` | Portfolio Archive — Dedicated showcase of 8 landmark projects including Cannes Bronze series, Varanasi, and Aarohan |
+| `archive.html` | Photo Archive & Timeline — 7 thematic categories (People, Nature, Travel, Heritage, City Lights, Wildlife, Culture) with photo descriptions and 1991–2026 timeline |
+| `tributes.html` | Tributes & Reflections — Interactive Tribute Wall with local storage, tabs, and Swiper archival photo carousel |
+| `privacy.html` | Privacy Policy — Transparent data minimization policy, copyright notices, and institutional contact information |
 
 ---
 
@@ -19,26 +21,30 @@ A memorial photography website dedicated to **Shashi Sahai** (1960 – August 15
 ```
 photography/
 ├── index.html          # Main landing page
-├── archive.html        # Archive & timeline page
+├── portfolio.html      # Dedicated Portfolio Archive page
+├── archive.html        # Photo Archive (7 categories) & timeline page
 ├── tributes.html       # Tributes & memorial page
-├── style.css           # Global stylesheet
-├── script.js           # JavaScript (GSAP animations, lightbox, gallery filter)
+├── privacy.html        # Privacy Policy page
+├── style.css           # Global stylesheet & design system
+├── script.js           # JavaScript (Scroll progress, lightbox, category filters, tribute wall)
 ├── favicon.svg         # Browser tab icon (aperture design)
-└── images/             # All photographs and assets
+└── images/             # All photographs, vector calligraphy logo, and assets
 ```
 
 ---
 
-## ✨ Features
+## ✨ Features & Design Improvements
 
-- **Animated Hero Section** — Full-bleed hero with GSAP scroll reveal animations
-- **Scroll Progress Indicator** — Vertical scroll tracker on the left edge
-- **Mosaic Gallery** — Filterable photo grid with lightbox preview modal (← → navigation)
-- **Timeline** — Interactive decade-by-decade visual history (1991 → 2026)
-- **Tributes Page** — Tabbed tribute sections + Swiper.js photo slider
-- **Film Strip Divider** — Decorative SVG film-strip section separator
-- **Aperture Favicon** — Custom SVG favicon styled with the site's dark red palette
-- **Fully Responsive** — Mobile-first layout using Bootstrap 5 grid
+- **Top Scroll Progress Line** — Subtle crimson-to-gold gradient scroll indicator pinned to the top of every page
+- **Calligraphy Logo** — Handcrafted vector signature logo mark for Shashi Sahai in navbar and branding
+- **Organized Photo Archive** — Seven distinct categories (*People*, *Nature*, *Travel*, *Heritage*, *City Lights*, *Wildlife*, *Culture*) with short editorial descriptions for every photo
+- **Dedicated Portfolio Archive** — Standalone project showcase featuring the Cannes Lions Bronze project, Banaras series, and Aarohan NGO documentary work
+- **Refined Typographic Hierarchy** — Bold headlines, semibold section markers, and expressive italic editorial emphasis
+- **Privacy Policy Page** — Full transparency regarding data handling, zero third-party tracking, and photographic copyright
+- **Lightbox Preview Modal** — Full-screen image inspector with keyboard navigation (←, →, ESC) and contextual caption details
+- **Decade Timeline** — Synchronized scroll spine celebrating 35+ years (1991 → 2026)
+- **Tribute Wall** — Client-side persistent remembrance messages powered by browser storage
+- **Fully Responsive** — Mobile-first layout tested across desktop, laptop, tablet, and mobile with reduced-motion support
 
 ---
 
@@ -104,7 +110,7 @@ All photographs are stored in the `images/` folder and versioned with `?v=202609
 
 ## 📝 Credits
 
-- **Subject:** Shashi Sahai (1960 – 2026) — Photojournalist, Cannes Bronze Winner, Aarohan NGO Co-founder
+- **Subject:** Shashi Sahai (1961 – 2026) — Photojournalist, Cannes Bronze Winner, Aarohan NGO Co-founder
 - **Tribute authored by:** Rani Patel, Founder & President, Aarohan NGO
 - Website built as a personal memorial and photographic archive.
 

@@ -22,7 +22,7 @@
 
 <body>
 
-    <!--LOADER — 1960 → 2026 -->
+    <!--LOADER — 1961 → 2026 -->
     <!-- <div id="siteLoader" class="site-loader" aria-hidden="true" role="status" aria-label="Loading">
 
         
@@ -59,13 +59,13 @@
             </svg>
 
             <div class="loader-counter">
-                <span class="loader-year" id="loaderYear">1960</span>
+                <span class="loader-year" id="loaderYear">1961</span>
             </div>
         </div>
 
 
         <div class="loader-label">
-            <span class="loader-label-start">1960</span>
+            <span class="loader-label-start">1961</span>
             <span class="loader-label-line"></span>
             <span class="loader-label-end">2026</span>
         </div>
@@ -76,10 +76,13 @@
             <div class="loader-bar" id="loaderBar"></div>
         </div>
 
-        <div class="loader-remembered">1960 &mdash; and always remembered &mdash; 2026</div>
+        <div class="loader-remembered">1961 &mdash; and always remembered &mdash; 2026</div>
 
     </div> -->
     <!-- /LOADER -->
+
+    <!-- Scroll Progress Line -->
+    <div class="scroll-progress-bar" id="scrollProgressBar" aria-hidden="true"></div>
 
     <div class="scroll-indicator" aria-hidden="true">
         <span>SCROLL</span>
@@ -90,19 +93,21 @@
 
     <header class="site-nav" id="siteHeader">
         <div class="container-xxl nav-inner">
-            <a href="index.html" class="nav-brand"><span>Shashi</span> Sahai</a>
+            <a href="index.html" class="nav-brand" aria-label="Shashi Sahai Home">
+                <img src="images/logo.svg" alt="Shashi Sahai" class="brand-logo-img">
+            </a>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             </button>
             <nav class="links" id="navLinks">
-                <a href="#" class="active">Home</a>
-                <a href="#gallery">Portfolio</a>
+                <a href="index.html" class="active">Home</a>
+                <a href="portfolio.html">Portfolio</a>
                 <a href="archive.html">Archive</a>
                 <a href="tributes.html">Tributes</a>
                 <a href="https://www.instagram.com/shashiphotographs/" target="_blank" rel="noopener">Instagram</a>
-                <a href="https://aarohanngo.org/shashi-sahai/" target="_blank" rel="noopener">Aarohan NGO</a>
+                <a href="https://aarohanngo.org/" target="_blank" rel="noopener">Aarohan NGO</a>
             </nav>
         </div>
     </header>
@@ -144,7 +149,7 @@
 
                 <div
                     class="col-12 col-lg-1 hero-timeline d-flex flex-row flex-lg-column align-items-center justify-content-center py-3 py-lg-4 reveal delay-1">
-                    <span class="yr top">1960</span>
+                    <span class="yr top">1961</span>
                     <!-- Aperture SVG watermark -->
                     <svg class="aperture-svg" viewBox="0 0 80 80" fill="none" aria-hidden="true">
                         <circle cx="40" cy="40" r="36" stroke="currentColor" stroke-width="0.8"
@@ -223,7 +228,8 @@
                     <div class="row row-cols-2 row-cols-md-4 g-3 strip">
                         <div class="col">
                             <div class="strip-item reveal-img">
-                                <img loading="lazy" src="images/image_photo (15).jpg?v=20260918" alt="Portrait of a Devi">
+                                <img loading="lazy" src="images/image_photo (15).jpg?v=20260918"
+                                    alt="Portrait of a Devi">
                                 <div class="strip-tag"><span>Portrait</span><span class="ln"></span></div>
                             </div>
                         </div>
@@ -374,6 +380,21 @@
                     <div class="m-label">Portraits</div>
                 </div>
             </div>
+
+            <!-- Navigation Callout to Dedicated Pages -->
+            <div class="text-center mt-5 pt-3 reveal">
+                <p class="mb-3" style="font-family: var(--serif); font-style: italic; font-size: 1.1rem; color: var(--charcoal);">
+                    Discover the complete photographic legacy across dedicated archives:
+                </p>
+                <div class="d-flex justify-content-center gap-3 flex-wrap">
+                    <a href="portfolio.html" class="btn btn-dark px-4 py-2" style="background: var(--charcoal); font-weight: 600; letter-spacing: 0.03em;">
+                        View Portfolio Archive &rarr;
+                    </a>
+                    <a href="archive.html" class="btn btn-outline-dark px-4 py-2" style="font-weight: 600; letter-spacing: 0.03em;">
+                        Explore 7 Archive Categories &rarr;
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -453,7 +474,7 @@
         <div class="closing-overlay d-flex flex-column justify-content-end p-4 p-md-5">
             <div class="eyebrow light mb-3">In Memoriam — August 15, 2026</div>
             <h2>He was the person who called. <em>The person who showed up.</em></h2>
-            <div class="closing-timeline mt-4 d-flex align-items-center gap-3">1960 <span class="ln"></span> 2026 <span
+            <div class="closing-timeline mt-4 d-flex align-items-center gap-3">1961 <span class="ln"></span> 2026 <span
                     class="ln"></span> and always remembered</div>
         </div>
     </section>
@@ -463,14 +484,13 @@
             <div
                 class="foot-top d-flex justify-content-center flex-wrap pb-4 mb-4 border-bottom border-secondary-subtle">
                 <div class="foot-links d-flex gap-4 flex-wrap justify-content-center">
-                    <a href="#">Home</a>
-                    <a href="#gallery">Portfolio</a>
-                    <a href="archive.html">Archive</a>
+                    <a href="index.html">Home</a>
+                    <a href="portfolio.html">Portfolio Archive</a>
+                    <a href="archive.html">Photo Archive</a>
                     <a href="tributes.html">Tributes</a>
-                    <a href="https://www.instagram.com/shashiphotographs/" target="_blank" rel="noopener">Instagram
-                        (@shashiphotographs)</a>
-                    <a href="https://aarohanngo.org/shashi-sahai/" target="_blank" rel="noopener">Aarohan NGO
-                        Profile</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="https://www.instagram.com/shashiphotographs/" target="_blank" rel="noopener">Instagram (@shashiphotographs)</a>
+                    <a href="https://aarohanngo.org/" target="_blank" rel="noopener">Aarohan NGO</a>
                 </div>
             </div>
             <div class="foot-bottom d-flex justify-content-between flex-wrap gap-2 pt-2">
@@ -522,7 +542,7 @@
             const ring = document.getElementById('loaderRing');
             const blades = document.getElementById('loaderBlades');
 
-            const START = 1960, END = 2026, TOTAL = END - START; // 66 steps
+            const START = 1961, END = 2026, TOTAL = END - START; // 66 steps
             const DURATION_MS = 2800; // total count duration
             const STEP_MS = DURATION_MS / TOTAL;
 
