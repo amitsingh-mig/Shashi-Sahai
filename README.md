@@ -98,7 +98,7 @@ All photographs are stored in the `images/` folder and versioned with `?v=202609
 ## 🔗 External Links
 
 - **Instagram:** [@shashiphotographs](https://www.instagram.com/shashiphotographs/)
-- **Aarohan NGO Tribute:** [aarohanngo.org/shashi-sahai](https://aarohanngo.org/shashi-sahai/)
+- **Aarohan NGO Tribute:** [aarohanngo.org/shashi-sahai](https://aarohanngo.org/)
 
 ---
 

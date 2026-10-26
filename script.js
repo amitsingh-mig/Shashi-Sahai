@@ -53,35 +53,74 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.isIntersecting) { e.target.classList.add('in-view'); }
     });
   }, { threshold: 0.18, rootMargin: '0px 0px -60px 0px' });
-  document.querySelectorAll('.reveal, .reveal-img, .tl-row').forEach(el => io.observe(el));
+  document.querySelectorAll('.reveal, .reveal-img').forEach(el => io.observe(el));
 
+  // Timeline Spine & Dot Scroll Synchronizer
+  const tlTrack = document.querySelector('.tl-track');
+  const tlSpine = document.querySelector('.tl-spine');
+  const tlFill = document.getElementById('tlFill');
+  const tlRows = document.querySelectorAll('.tl-row');
 
-  // Parallax & Scroll fill
-  const heroImg = document.querySelector('.hero-image-col img');
-  window.addEventListener('scroll', () => {
-    const y = window.scrollY;
-    if (heroImg && y < 900) {
-      heroImg.style.transform = `translateY(${y * 0.08}px) scale(1.02)`;
+  if (tlTrack && tlSpine && tlFill && tlRows.length) {
+    function alignTimelineSpine() {
+      const dots = document.querySelectorAll('.tl-dot');
+      if (!dots.length) return;
+      const trackRect = tlTrack.getBoundingClientRect();
+      const firstDotRect = dots[0].getBoundingClientRect();
+      const lastDotRect = dots[dots.length - 1].getBoundingClientRect();
+
+      const topOffset = (firstDotRect.top - trackRect.top) + (firstDotRect.height / 2);
+      const totalSpineHeight = (lastDotRect.top - firstDotRect.top);
+
+      tlSpine.style.top = `${topOffset}px`;
+      tlSpine.style.height = `${Math.max(totalSpineHeight, 40)}px`;
+      tlSpine.style.bottom = 'auto';
     }
 
-    const doc = document.documentElement;
-    const pct = (doc.scrollTop) / (doc.scrollHeight - doc.clientHeight) * 100;
-    const fill = document.getElementById('scrollFill');
-    if (fill) fill.style.height = pct + '%';
-  }, { passive: true });
+    function updateTimelineProgress() {
+      const dots = document.querySelectorAll('.tl-dot');
+      if (!dots.length) return;
 
-  // Timeline Scroll fill
-  const tlSection = document.getElementById('timeline');
-  const tlFill = document.getElementById('tlFill');
-  window.addEventListener('scroll', () => {
-    if (!tlSection || !tlFill) return;
-    const rect = tlSection.getBoundingClientRect();
-    const vh = window.innerHeight;
-    const total = rect.height - vh * 0.4;
-    const progressed = Math.min(Math.max(-rect.top + vh * 0.5, 0), total);
-    const pct = total > 0 ? (progressed / total) * 100 : 0;
-    tlFill.style.height = pct + '%';
-  }, { passive: true });
+      const vh = window.innerHeight;
+      const triggerY = vh * 0.52; // Focal center line for timeline activation
+
+      const spineRect = tlSpine.getBoundingClientRect();
+      const spineTop = spineRect.top;
+      const spineHeight = spineRect.height;
+
+      if (spineHeight > 0) {
+        const scrolled = triggerY - spineTop;
+        const progressPct = Math.min(Math.max((scrolled / spineHeight) * 100, 0), 100);
+        tlFill.style.height = `${progressPct}%`;
+      }
+
+      dots.forEach(dot => {
+        const dotRect = dot.getBoundingClientRect();
+        const dotCenterY = dotRect.top + (dotRect.height / 2);
+        const row = dot.closest('.tl-row');
+        if (dotCenterY <= triggerY + 12) {
+          dot.classList.add('active');
+          if (row) row.classList.add('in-view');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+    }
+
+    window.addEventListener('load', () => {
+      alignTimelineSpine();
+      updateTimelineProgress();
+    });
+    window.addEventListener('resize', () => {
+      alignTimelineSpine();
+      updateTimelineProgress();
+    }, { passive: true });
+    window.addEventListener('scroll', updateTimelineProgress, { passive: true });
+
+    // Initial pass
+    alignTimelineSpine();
+    updateTimelineProgress();
+  }
 
   // Tribute Tabs Switcher
   const tributeTabs = document.querySelectorAll('.tribute-tab-btn');

@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,700&display=swap"
         rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
@@ -22,22 +22,16 @@
 
 <body>
 
-    <!-- ============================================================
-         LOADER — 1960 → 2026
-         ============================================================ -->
-    <div id="siteLoader" class="site-loader" aria-hidden="true" role="status" aria-label="Loading">
+    <!--LOADER — 1960 → 2026 -->
+    <!-- <div id="siteLoader" class="site-loader" aria-hidden="true" role="status" aria-label="Loading">
 
-        <!-- SVG Shutter / Aperture -->
+        
         <div class="loader-aperture">
             <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <!-- Outer dashed ring -->
                 <circle cx="100" cy="100" r="94" stroke="rgba(255,255,255,0.12)" stroke-width="1" stroke-dasharray="5 6"/>
-                <!-- Spinning ring -->
                 <circle id="loaderRing" cx="100" cy="100" r="80" stroke="#C01412" stroke-width="1.5"
                     stroke-dasharray="502" stroke-dashoffset="502" stroke-linecap="round"/>
-                <!-- Mid ring -->
                 <circle cx="100" cy="100" r="60" stroke="rgba(255,255,255,0.08)" stroke-width="0.8"/>
-                <!-- Aperture blades -->
                 <g id="loaderBlades" style="transform-origin:100px 100px">
                     <line x1="100" y1="20" x2="100" y2="50" stroke="rgba(255,255,255,0.4)" stroke-width="1.2"/>
                     <line x1="100" y1="150" x2="100" y2="180" stroke="rgba(255,255,255,0.4)" stroke-width="1.2"/>
@@ -48,11 +42,10 @@
                     <line x1="164" y1="36" x2="143" y2="57" stroke="rgba(255,255,255,0.25)" stroke-width="0.9"/>
                     <line x1="57" y1="143" x2="36" y2="164" stroke="rgba(255,255,255,0.25)" stroke-width="0.9"/>
                 </g>
-                <!-- Inner lens circle -->
+                
                 <circle cx="100" cy="100" r="32" stroke="rgba(192,20,18,0.5)" stroke-width="1.5"/>
                 <circle cx="100" cy="100" r="18" fill="rgba(192,20,18,0.15)" stroke="rgba(192,20,18,0.6)" stroke-width="1"/>
                 <circle cx="100" cy="100" r="6" fill="#C01412"/>
-                <!-- Tick marks -->
                 <g stroke="rgba(255,255,255,0.18)" stroke-width="0.8">
                     <line x1="100" y1="6" x2="100" y2="14"/>
                     <line x1="100" y1="186" x2="100" y2="194"/>
@@ -64,31 +57,28 @@
                     <line x1="35" y1="165" x2="29" y2="171"/>
                 </g>
             </svg>
-            <!-- Year counter — sits INSIDE the aperture div to overlay the SVG center -->
+
             <div class="loader-counter">
                 <span class="loader-year" id="loaderYear">1960</span>
             </div>
         </div>
 
-        <!-- Label -->
+
         <div class="loader-label">
             <span class="loader-label-start">1960</span>
             <span class="loader-label-line"></span>
             <span class="loader-label-end">2026</span>
         </div>
 
-        <!-- Brand name -->
         <div class="loader-brand">Shashi <em>Sahai</em></div>
 
-        <!-- Progress bar -->
         <div class="loader-bar-wrap">
             <div class="loader-bar" id="loaderBar"></div>
         </div>
 
-        <!-- and always remembered -->
         <div class="loader-remembered">1960 &mdash; and always remembered &mdash; 2026</div>
 
-    </div>
+    </div> -->
     <!-- /LOADER -->
 
     <div class="scroll-indicator" aria-hidden="true">
@@ -125,19 +115,30 @@
                     <h1 class="hero-h1"> <span class="accent">Shashi Sahai</span> Photography is about.</h1>
                     <div class="hero-sub">
                         <!-- Camera SVG icon -->
-                        <svg class="hero-cam-icon" width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true">
-                            <rect x="0" y="3" width="18" height="11" rx="1.5" stroke="currentColor" stroke-width="1.3"/>
-                            <path d="M6 3V2a1 1 0 011-1h4a1 1 0 011 1v1" stroke="currentColor" stroke-width="1.3"/>
-                            <circle cx="9" cy="8.5" r="3" stroke="currentColor" stroke-width="1.3"/>
-                            <circle cx="9" cy="8.5" r="1.2" fill="currentColor"/>
-                            <rect x="13" y="5.5" width="2" height="1.2" rx="0.4" fill="currentColor"/>
+                        <svg class="hero-cam-icon" width="18" height="14" viewBox="0 0 18 14" fill="none"
+                            aria-hidden="true">
+                            <rect x="0" y="3" width="18" height="11" rx="1.5" stroke="currentColor"
+                                stroke-width="1.3" />
+                            <path d="M6 3V2a1 1 0 011-1h4a1 1 0 011 1v1" stroke="currentColor" stroke-width="1.3" />
+                            <circle cx="9" cy="8.5" r="3" stroke="currentColor" stroke-width="1.3" />
+                            <circle cx="9" cy="8.5" r="1.2" fill="currentColor" />
+                            <rect x="13" y="5.5" width="2" height="1.2" rx="0.4" fill="currentColor" />
                         </svg>
                         35 Years of Photojournalism &amp; Philanthropy
                     </div>
                     <div class="hero-copy">
-                        <p class="mb-3">Shashi Sahai, a 66-year old veteran photojournalist, photographer and philanthropist, passed away in New Delhi on August 15, 2026, after a prolonged battle with cancer. For over 35 years, his lens traversed heritage streets, quiet misty landscapes, timeless cultural celebrations and intimate human moments across five continents.</p>
-                        <p class="mb-3">A prolific contributor to leading national and international magazines, he received the Bronze at Cannes for an advertising project. Yet more than his accolades, colleagues and friends remember a man who could find a story in the seemingly ordinary, who stood behind the lens not for recognition, but because it was where he felt most at home.</p>
-                        <p class="mb-0">As cofounder of Aarohan NGO, he worked quietly in service of children, women and vulnerable communities. He was the person who called. The person who showed up. The person who remembered.</p>
+                        <p class="mb-3">Shashi Sahai, a 66-year old veteran photojournalist, photographer and
+                            philanthropist, passed away in New Delhi on August 15, 2026, after a prolonged battle with
+                            cancer. For over 35 years, his lens traversed heritage streets, quiet misty landscapes,
+                            timeless cultural celebrations and intimate human moments across five continents.</p>
+                        <p class="mb-3">A prolific contributor to leading national and international magazines, he
+                            received the Bronze at Cannes for an advertising project. Yet more than his accolades,
+                            colleagues and friends remember a man who could find a story in the seemingly ordinary, who
+                            stood behind the lens not for recognition, but because it was where he felt most at home.
+                        </p>
+                        <p class="mb-0">As cofounder of Aarohan NGO, he worked quietly in service of children, women and
+                            vulnerable communities. He was the person who called. The person who showed up. The person
+                            who remembered.</p>
                     </div>
                 </div>
 
@@ -146,17 +147,18 @@
                     <span class="yr top">1960</span>
                     <!-- Aperture SVG watermark -->
                     <svg class="aperture-svg" viewBox="0 0 80 80" fill="none" aria-hidden="true">
-                        <circle cx="40" cy="40" r="36" stroke="currentColor" stroke-width="0.8" stroke-dasharray="3 4"/>
-                        <circle cx="40" cy="40" r="26" stroke="currentColor" stroke-width="0.5"/>
-                        <circle cx="40" cy="40" r="10" stroke="currentColor" stroke-width="1.2"/>
-                        <line x1="40" y1="4" x2="40" y2="18" stroke="currentColor" stroke-width="0.8"/>
-                        <line x1="40" y1="62" x2="40" y2="76" stroke="currentColor" stroke-width="0.8"/>
-                        <line x1="4" y1="40" x2="18" y2="40" stroke="currentColor" stroke-width="0.8"/>
-                        <line x1="62" y1="40" x2="76" y2="40" stroke="currentColor" stroke-width="0.8"/>
-                        <line x1="15" y1="15" x2="25" y2="25" stroke="currentColor" stroke-width="0.6"/>
-                        <line x1="55" y1="55" x2="65" y2="65" stroke="currentColor" stroke-width="0.6"/>
-                        <line x1="65" y1="15" x2="55" y2="25" stroke="currentColor" stroke-width="0.6"/>
-                        <line x1="25" y1="55" x2="15" y2="65" stroke="currentColor" stroke-width="0.6"/>
+                        <circle cx="40" cy="40" r="36" stroke="currentColor" stroke-width="0.8"
+                            stroke-dasharray="3 4" />
+                        <circle cx="40" cy="40" r="26" stroke="currentColor" stroke-width="0.5" />
+                        <circle cx="40" cy="40" r="10" stroke="currentColor" stroke-width="1.2" />
+                        <line x1="40" y1="4" x2="40" y2="18" stroke="currentColor" stroke-width="0.8" />
+                        <line x1="40" y1="62" x2="40" y2="76" stroke="currentColor" stroke-width="0.8" />
+                        <line x1="4" y1="40" x2="18" y2="40" stroke="currentColor" stroke-width="0.8" />
+                        <line x1="62" y1="40" x2="76" y2="40" stroke="currentColor" stroke-width="0.8" />
+                        <line x1="15" y1="15" x2="25" y2="25" stroke="currentColor" stroke-width="0.6" />
+                        <line x1="55" y1="55" x2="65" y2="65" stroke="currentColor" stroke-width="0.6" />
+                        <line x1="65" y1="15" x2="55" y2="25" stroke="currentColor" stroke-width="0.6" />
+                        <line x1="25" y1="55" x2="15" y2="65" stroke="currentColor" stroke-width="0.6" />
                     </svg>
                     <div class="line"></div>
                     <span class="yr bottom">2026</span>
@@ -164,7 +166,7 @@
 
                 <div class="col-12 col-lg-6 hero-image-col reveal-img delay-2">
                     <img loading="lazy" src="images/Shashi_Sahai_hero.jpg?v=20260918"
-                        alt="Photographer looking through a camera viewfinder" >
+                        alt="Photographer looking through a camera viewfinder">
                     <div class="hero-image-caption">
                         <p>A life spent capturing what truly matters.</p>
                         <div class="rule"></div>
@@ -221,14 +223,15 @@
                     <div class="row row-cols-2 row-cols-md-4 g-3 strip">
                         <div class="col">
                             <div class="strip-item reveal-img">
-                                <img loading="lazy" src="images/image_photo (15).jpg?v=20260918" alt="Landscape photography">
-                                <div class="strip-tag"><span>Landscape</span><span class="ln"></span></div>
+                                <img loading="lazy" src="images/image_photo (15).jpg?v=20260918" alt="Portrait of a Devi">
+                                <div class="strip-tag"><span>Portrait</span><span class="ln"></span></div>
                             </div>
                         </div>
                         <div class="col">
                             <div class="strip-item reveal-img delay-1">
-                                <img loading="lazy" src="images/image_photo (5).jpg?v=20260918" alt="Portrait of a man">
-                                <div class="strip-tag"><span>Portraits</span><span class="ln"></span></div>
+                                <img loading="lazy" src="images/image_photo (5).jpg?v=20260918"
+                                    alt="Children playing in a field">
+                                <div class="strip-tag"><span>Street</span><span class="ln"></span></div>
                             </div>
                         </div>
                         <div class="col">
@@ -240,7 +243,8 @@
                         </div>
                         <div class="col">
                             <div class="strip-item reveal-img delay-3">
-                                <img loading="lazy" src="images/image_photo (2).jpg?v=20260918" alt="Wildlife in habitat">
+                                <img loading="lazy" src="images/image_photo (2).jpg?v=20260918"
+                                    alt="Wildlife in habitat">
                                 <div class="strip-tag"><span>Wildlife</span><span class="ln"></span></div>
                             </div>
                         </div>
@@ -293,168 +297,137 @@
                         alt="Portrait, documentary style">
                     <div class="m-label">Portraits</div>
                 </div>
-                <div class="m-item m2 reveal-img delay-1"><img loading="lazy" src="images/image_photo (12).jpg?v=20260918"
-                        alt="Cultural gathering">
+                <div class="m-item m2 reveal-img delay-1"><img loading="lazy"
+                        src="images/image_photo (12).jpg?v=20260918" alt="Cultural gathering">
                     <div class="m-label">Documentary</div>
                 </div>
-                <div class="m-item m3 reveal-img delay-2 color"><img loading="lazy" src="images/image_photo (13).jpg?v=20260918"
-                        alt="Landscape in colour">
+                <div class="m-item m3 reveal-img delay-2 color"><img loading="lazy"
+                        src="images/image_photo (13).jpg?v=20260918" alt="Landscape in colour">
                     <div class="m-label">Landscape</div>
                 </div>
                 <div class="m-item m4 reveal-img"><img loading="lazy" src="images/image_photo (14).jpg?v=20260918"
                         alt="Landscape photograph">
                     <div class="m-label">Landscape</div>
                 </div>
-                <div class="m-item m5 reveal-img delay-1"><img loading="lazy" src="images/image_photo (15).jpg?v=20260918"
-                        alt="Portrait scene">
+                <div class="m-item m5 reveal-img delay-1"><img loading="lazy"
+                        src="images/image_photo (15).jpg?v=20260918" alt="Portrait scene">
                     <div class="m-label">Portraits</div>
                 </div>
-                <div class="m-item m6 reveal-img delay-2"><img loading="lazy" src="images/image_photo (16).jpg?v=20260918"
-                        alt="Street documentary">
+                <div class="m-item m6 reveal-img delay-2"><img loading="lazy"
+                        src="images/image_photo (16).jpg?v=20260918" alt="Street documentary">
                     <div class="m-label">Documentary</div>
                 </div>
                 <div class="m-item m7 reveal-img"><img loading="lazy" src="images/image_photo (18).jpg?v=20260918"
                         alt="Architecture documentary">
                     <div class="m-label">Documentary</div>
                 </div>
-                <div class="m-item m8 reveal-img delay-1 color"><img loading="lazy" src="images/image_photo (20).jpg?v=20260918"
-                        alt="Landscape in colour">
+                <div class="m-item m8 reveal-img delay-1 color"><img loading="lazy"
+                        src="images/image_photo (20).jpg?v=20260918" alt="Landscape in colour">
                     <div class="m-label">Landscape</div>
                 </div>
-                <div class="m-item m9 reveal-img delay-2"><img loading="lazy" src="images/image_photo (21).jpg?v=20260918"
-                        alt="Portrait photograph">
+                <div class="m-item m9 reveal-img delay-2"><img loading="lazy"
+                        src="images/image_photo (21).jpg?v=20260918" alt="Portrait photograph">
                     <div class="m-label">Portraits</div>
                 </div>
                 <div class="m-item m10 reveal-img"><img loading="lazy" src="images/image_photo (22).jpg?v=20260918"
                         alt="Documentary scene">
                     <div class="m-label">Documentary</div>
                 </div>
-                <div class="m-item m11 reveal-img delay-1"><img loading="lazy" src="images/image_photo (23).jpg?v=20260918"
-                        alt="Natural landscape">
+                <div class="m-item m11 reveal-img delay-1"><img loading="lazy"
+                        src="images/image_photo (23).jpg?v=20260918" alt="Natural landscape">
                     <div class="m-label">Landscape</div>
                 </div>
                 <div class="m-item m12 reveal-img color"><img loading="lazy" src="images/image_photo (2).jpg?v=20260918"
                         alt="Wildlife in natural habitat">
                     <div class="m-label">Travel</div>
                 </div>
-                <div class="m-item m13 reveal-img delay-1"><img loading="lazy" src="images/image_photo (17).jpg?v=20260918"
-                        alt="Wildlife perspective">
+                <div class="m-item m13 reveal-img delay-1"><img loading="lazy"
+                        src="images/image_photo (17).jpg?v=20260918" alt="Wildlife perspective">
                     <div class="m-label">Travel</div>
                 </div>
-                <div class="m-item m14 reveal-img delay-2 color"><img loading="lazy" src="images/image_photo (19).jpg?v=20260918"
-                        alt="Animals in natural landscape">
+                <div class="m-item m14 reveal-img delay-2 color"><img loading="lazy"
+                        src="images/image_photo (19).jpg?v=20260918" alt="Animals in natural landscape">
                     <div class="m-label">Travel</div>
                 </div>
                 <div class="m-item m15 reveal-img"><img loading="lazy" src="images/image_photo (4).jpg?v=20260918"
                         alt="Serene landscape">
                     <div class="m-label">Landscape</div>
                 </div>
-                <div class="m-item m16 reveal-img delay-1"><img loading="lazy" src="images/image_photo (7).jpg?v=20260918"
-                        alt="Human portrait story">
+                <div class="m-item m16 reveal-img delay-1"><img loading="lazy"
+                        src="images/image_photo (7).jpg?v=20260918" alt="Human portrait story">
                     <div class="m-label">Portraits</div>
                 </div>
-                <div class="m-item m17 reveal-img delay-2 color"><img loading="lazy" src="images/image_photo (8).jpg?v=20260918"
-                        alt="Documentary frame">
+                <div class="m-item m17 reveal-img delay-2 color"><img loading="lazy"
+                        src="images/image_photo (8).jpg?v=20260918" alt="Documentary frame">
                     <div class="m-label">Documentary</div>
                 </div>
                 <div class="m-item m18 reveal-img"><img loading="lazy" src="images/image_photo (24).jpg?v=20260918"
                         alt="Documentary story frame">
                     <div class="m-label">Documentary</div>
                 </div>
-                <div class="m-item m19 reveal-img delay-1"><img loading="lazy" src="images/image_photo (25).jpg?v=20260918"
-                        alt="Landscape heritage asset">
+                <div class="m-item m19 reveal-img delay-1"><img loading="lazy"
+                        src="images/image_photo (25).jpg?v=20260918" alt="Landscape heritage asset">
                     <div class="m-label">Landscape</div>
                 </div>
-                <div class="m-item m20 reveal-img delay-2 color"><img loading="lazy" src="images/image_photo (27).jpg?v=20260918"
-                        alt="Human connection portrait">
+                <div class="m-item m20 reveal-img delay-2 color"><img loading="lazy"
+                        src="images/image_photo (27).jpg?v=20260918" alt="Human connection portrait">
                     <div class="m-label">Portraits</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- <section class="archive py-5">
-        <div class="container-xxl py-lg-5">
-            <div class="row g-5 align-items-center">
-                <div class="col-12 col-lg-6 archive-copy reveal">
-                    <div class="eyebrow mb-3">Visual History</div>
-                    <h2>An archive that remembers.</h2>
-                    <p class="mt-4">Every roll of film, every contact sheet and every hard drive tells part of the same
-                        story — a
-                        running record of how the world has looked, decade after decade.</p>
-                    <div class="archive-facts mt-4">
-                        <div class="archive-fact d-flex gap-3 align-items-baseline pt-3 border-top"><span class="yr">35+
-                                Yrs</span><span class="tx">Prolific photojournalist for national & international
-                                press.</span></div>
-                        <div class="archive-fact d-flex gap-3 align-items-baseline pt-3 border-top"><span
-                                class="yr">Cannes</span><span class="tx">Won the prestigious Bronze award at Cannes for
-                                advertising project.</span></div>
-                        <div class="archive-fact d-flex gap-3 align-items-baseline pt-3 border-top"><span
-                                class="yr">Aarohan</span><span class="tx">Treasurer & dedicated philanthropist driving
-                                NGO social impact.</span></div>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-6 archive-visual reveal-img delay-1">
-                    <div class="main-img"><img loading="lazy" src="images/image_photo (24).jpg?v=20260918"
-                            alt="Contact sheet of archival photographs"></div>
-                    <div class="float-img"><img loading="lazy" src="images/image_photo (25).jpg?v=20260918"
-                            alt="Vintage camera detail"></div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
     <!-- Film-strip SVG divider -->
     <div class="filmstrip-divider" aria-hidden="true">
         <svg viewBox="0 0 900 28" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect y="8" width="900" height="12" fill="currentColor" opacity="0.06"/>
+            <rect y="8" width="900" height="12" fill="currentColor" opacity="0.06" />
             <!-- Film sprocket holes -->
             <g fill="currentColor" opacity="0.22">
-                <rect x="10" y="10" width="8" height="8" rx="1"/>
-                <rect x="30" y="10" width="8" height="8" rx="1"/>
-                <rect x="50" y="10" width="8" height="8" rx="1"/>
-                <rect x="70" y="10" width="8" height="8" rx="1"/>
-                <rect x="90" y="10" width="8" height="8" rx="1"/>
-                <rect x="110" y="10" width="8" height="8" rx="1"/>
-                <rect x="130" y="10" width="8" height="8" rx="1"/>
-                <rect x="150" y="10" width="8" height="8" rx="1"/>
-                <rect x="170" y="10" width="8" height="8" rx="1"/>
-                <rect x="190" y="10" width="8" height="8" rx="1"/>
-                <rect x="210" y="10" width="8" height="8" rx="1"/>
-                <rect x="230" y="10" width="8" height="8" rx="1"/>
-                <rect x="250" y="10" width="8" height="8" rx="1"/>
-                <rect x="270" y="10" width="8" height="8" rx="1"/>
-                <rect x="290" y="10" width="8" height="8" rx="1"/>
-                <rect x="310" y="10" width="8" height="8" rx="1"/>
-                <rect x="330" y="10" width="8" height="8" rx="1"/>
-                <rect x="350" y="10" width="8" height="8" rx="1"/>
-                <rect x="370" y="10" width="8" height="8" rx="1"/>
-                <rect x="390" y="10" width="8" height="8" rx="1"/>
-                <rect x="410" y="10" width="8" height="8" rx="1"/>
-                <rect x="430" y="10" width="8" height="8" rx="1"/>
-                <rect x="450" y="10" width="8" height="8" rx="1"/>
-                <rect x="470" y="10" width="8" height="8" rx="1"/>
-                <rect x="490" y="10" width="8" height="8" rx="1"/>
-                <rect x="510" y="10" width="8" height="8" rx="1"/>
-                <rect x="530" y="10" width="8" height="8" rx="1"/>
-                <rect x="550" y="10" width="8" height="8" rx="1"/>
-                <rect x="570" y="10" width="8" height="8" rx="1"/>
-                <rect x="590" y="10" width="8" height="8" rx="1"/>
-                <rect x="610" y="10" width="8" height="8" rx="1"/>
-                <rect x="630" y="10" width="8" height="8" rx="1"/>
-                <rect x="650" y="10" width="8" height="8" rx="1"/>
-                <rect x="670" y="10" width="8" height="8" rx="1"/>
-                <rect x="690" y="10" width="8" height="8" rx="1"/>
-                <rect x="710" y="10" width="8" height="8" rx="1"/>
-                <rect x="730" y="10" width="8" height="8" rx="1"/>
-                <rect x="750" y="10" width="8" height="8" rx="1"/>
-                <rect x="770" y="10" width="8" height="8" rx="1"/>
-                <rect x="790" y="10" width="8" height="8" rx="1"/>
-                <rect x="810" y="10" width="8" height="8" rx="1"/>
-                <rect x="830" y="10" width="8" height="8" rx="1"/>
-                <rect x="850" y="10" width="8" height="8" rx="1"/>
-                <rect x="870" y="10" width="8" height="8" rx="1"/>
-                <rect x="890" y="10" width="8" height="8" rx="1"/>
+                <rect x="10" y="10" width="8" height="8" rx="1" />
+                <rect x="30" y="10" width="8" height="8" rx="1" />
+                <rect x="50" y="10" width="8" height="8" rx="1" />
+                <rect x="70" y="10" width="8" height="8" rx="1" />
+                <rect x="90" y="10" width="8" height="8" rx="1" />
+                <rect x="110" y="10" width="8" height="8" rx="1" />
+                <rect x="130" y="10" width="8" height="8" rx="1" />
+                <rect x="150" y="10" width="8" height="8" rx="1" />
+                <rect x="170" y="10" width="8" height="8" rx="1" />
+                <rect x="190" y="10" width="8" height="8" rx="1" />
+                <rect x="210" y="10" width="8" height="8" rx="1" />
+                <rect x="230" y="10" width="8" height="8" rx="1" />
+                <rect x="250" y="10" width="8" height="8" rx="1" />
+                <rect x="270" y="10" width="8" height="8" rx="1" />
+                <rect x="290" y="10" width="8" height="8" rx="1" />
+                <rect x="310" y="10" width="8" height="8" rx="1" />
+                <rect x="330" y="10" width="8" height="8" rx="1" />
+                <rect x="350" y="10" width="8" height="8" rx="1" />
+                <rect x="370" y="10" width="8" height="8" rx="1" />
+                <rect x="390" y="10" width="8" height="8" rx="1" />
+                <rect x="410" y="10" width="8" height="8" rx="1" />
+                <rect x="430" y="10" width="8" height="8" rx="1" />
+                <rect x="450" y="10" width="8" height="8" rx="1" />
+                <rect x="470" y="10" width="8" height="8" rx="1" />
+                <rect x="490" y="10" width="8" height="8" rx="1" />
+                <rect x="510" y="10" width="8" height="8" rx="1" />
+                <rect x="530" y="10" width="8" height="8" rx="1" />
+                <rect x="550" y="10" width="8" height="8" rx="1" />
+                <rect x="570" y="10" width="8" height="8" rx="1" />
+                <rect x="590" y="10" width="8" height="8" rx="1" />
+                <rect x="610" y="10" width="8" height="8" rx="1" />
+                <rect x="630" y="10" width="8" height="8" rx="1" />
+                <rect x="650" y="10" width="8" height="8" rx="1" />
+                <rect x="670" y="10" width="8" height="8" rx="1" />
+                <rect x="690" y="10" width="8" height="8" rx="1" />
+                <rect x="710" y="10" width="8" height="8" rx="1" />
+                <rect x="730" y="10" width="8" height="8" rx="1" />
+                <rect x="750" y="10" width="8" height="8" rx="1" />
+                <rect x="770" y="10" width="8" height="8" rx="1" />
+                <rect x="790" y="10" width="8" height="8" rx="1" />
+                <rect x="810" y="10" width="8" height="8" rx="1" />
+                <rect x="830" y="10" width="8" height="8" rx="1" />
+                <rect x="850" y="10" width="8" height="8" rx="1" />
+                <rect x="870" y="10" width="8" height="8" rx="1" />
+                <rect x="890" y="10" width="8" height="8" rx="1" />
             </g>
         </svg>
     </div>
@@ -464,10 +437,10 @@
             <div class="eyebrow light d-flex justify-content-center">Our Philosophy</div>
             <!-- Lens SVG decoration -->
             <svg class="philosophy-lens" viewBox="0 0 60 60" fill="none" aria-hidden="true">
-                <circle cx="30" cy="30" r="28" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-                <circle cx="30" cy="30" r="20" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-                <circle cx="30" cy="30" r="12" stroke="rgba(192,20,18,0.5)" stroke-width="1.5"/>
-                <circle cx="30" cy="30" r="4" fill="rgba(192,20,18,0.4)"/>
+                <circle cx="30" cy="30" r="28" stroke="rgba(255,255,255,0.15)" stroke-width="1" />
+                <circle cx="30" cy="30" r="20" stroke="rgba(255,255,255,0.1)" stroke-width="1" />
+                <circle cx="30" cy="30" r="12" stroke="rgba(192,20,18,0.5)" stroke-width="1.5" />
+                <circle cx="30" cy="30" r="4" fill="rgba(192,20,18,0.4)" />
             </svg>
             <blockquote>A photograph is a pause button for time — it lets a single <em>moment</em> outlive the instant
                 it was made in.</blockquote>
@@ -508,15 +481,20 @@
     </footer>
 
     <!-- Image Preview Lightbox Modal -->
-    <div id="imagePreviewModal" class="img-preview-modal" aria-hidden="true" role="dialog" aria-label="Image Preview Modal">
+    <div id="imagePreviewModal" class="img-preview-modal" aria-hidden="true" role="dialog"
+        aria-label="Image Preview Modal">
         <div class="modal-overlay" id="modalOverlay"></div>
         <div class="modal-dialog-box">
             <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">&times;</button>
             <button class="modal-arrow modal-arrow-prev" id="modalPrevBtn" aria-label="Previous image">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 18l-6-6 6-6" />
+                </svg>
             </button>
             <button class="modal-arrow modal-arrow-next" id="modalNextBtn" aria-label="Next image">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 18l6-6-6-6" />
+                </svg>
             </button>
             <div class="modal-body-content">
                 <div class="modal-img-container">
@@ -536,82 +514,82 @@
     </div>
 
     <!-- Loader Script -->
-    <script>
-    (function () {
-        const loader   = document.getElementById('siteLoader');
-        const yearEl   = document.getElementById('loaderYear');
-        const bar      = document.getElementById('loaderBar');
-        const ring     = document.getElementById('loaderRing');
-        const blades   = document.getElementById('loaderBlades');
+    <!-- <script>
+        (function () {
+            const loader = document.getElementById('siteLoader');
+            const yearEl = document.getElementById('loaderYear');
+            const bar = document.getElementById('loaderBar');
+            const ring = document.getElementById('loaderRing');
+            const blades = document.getElementById('loaderBlades');
 
-        const START = 1960, END = 2026, TOTAL = END - START; // 66 steps
-        const DURATION_MS = 2800; // total count duration
-        const STEP_MS = DURATION_MS / TOTAL;
+            const START = 1960, END = 2026, TOTAL = END - START; // 66 steps
+            const DURATION_MS = 2800; // total count duration
+            const STEP_MS = DURATION_MS / TOTAL;
 
-        let current = START;
-        let startTime = null;
-        let rafId;
-        let spinAngle = 0;
-        const RING_TOTAL = 2 * Math.PI * 80; // circumference ≈ 502.65
+            let current = START;
+            let startTime = null;
+            let rafId;
+            let spinAngle = 0;
+            const RING_TOTAL = 2 * Math.PI * 80; // circumference ≈ 502.65
 
-        function easeInOut(t) {
-            return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
-        }
-
-        function tick(timestamp) {
-            if (!startTime) startTime = timestamp;
-            const elapsed = timestamp - startTime;
-            const progress = Math.min(elapsed / DURATION_MS, 1);
-            const easedProgress = easeInOut(progress);
-
-            // Year counter
-            const year = Math.round(START + easedProgress * TOTAL);
-            if (year !== current) {
-                current = year;
-                yearEl.textContent = current;
+            function easeInOut(t) {
+                return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
             }
 
-            // Progress bar
-            bar.style.width = (easedProgress * 100) + '%';
+            function tick(timestamp) {
+                if (!startTime) startTime = timestamp;
+                const elapsed = timestamp - startTime;
+                const progress = Math.min(elapsed / DURATION_MS, 1);
+                const easedProgress = easeInOut(progress);
 
-            // SVG ring stroke fill
-            const ringOffset = RING_TOTAL * (1 - easedProgress);
-            ring.setAttribute('stroke-dashoffset', ringOffset.toFixed(2));
+                // Year counter
+                const year = Math.round(START + easedProgress * TOTAL);
+                if (year !== current) {
+                    current = year;
+                    yearEl.textContent = current;
+                }
 
-            // Blade spin
-            spinAngle += 0.6;
-            blades.style.transform = 'rotate(' + spinAngle + 'deg)';
+                // Progress bar
+                bar.style.width = (easedProgress * 100) + '%';
 
-            if (progress < 1) {
-                rafId = requestAnimationFrame(tick);
+                // SVG ring stroke fill
+                const ringOffset = RING_TOTAL * (1 - easedProgress);
+                ring.setAttribute('stroke-dashoffset', ringOffset.toFixed(2));
+
+                // Blade spin
+                spinAngle += 0.6;
+                blades.style.transform = 'rotate(' + spinAngle + 'deg)';
+
+                if (progress < 1) {
+                    rafId = requestAnimationFrame(tick);
+                } else {
+                    // Reached 2026 — pause briefly then dismiss
+                    yearEl.textContent = END;
+                    bar.style.width = '100%';
+                    setTimeout(dismissLoader, 600);
+                }
+            }
+
+            function dismissLoader() {
+                loader.classList.add('loader-exit');
+                loader.addEventListener('transitionend', function onEnd(e) {
+                    if (e.target !== loader) return;
+                    loader.removeEventListener('transitionend', onEnd);
+                    loader.style.display = 'none';
+                    document.body.classList.add('loader-done');
+                }, { once: true });
+            }
+
+            // Start on DOMContentLoaded (fonts already requested)
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', function () {
+                    requestAnimationFrame(tick);
+                });
             } else {
-                // Reached 2026 — pause briefly then dismiss
-                yearEl.textContent = END;
-                bar.style.width = '100%';
-                setTimeout(dismissLoader, 600);
-            }
-        }
-
-        function dismissLoader() {
-            loader.classList.add('loader-exit');
-            loader.addEventListener('transitionend', function onEnd(e) {
-                if (e.target !== loader) return;
-                loader.removeEventListener('transitionend', onEnd);
-                loader.style.display = 'none';
-                document.body.classList.add('loader-done');
-            }, { once: true });
-        }
-
-        // Start on DOMContentLoaded (fonts already requested)
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', function () {
                 requestAnimationFrame(tick);
-            });
-        } else {
-            requestAnimationFrame(tick);
-        }
-    }());
-    </script>
+            }
+        }());
+    </script> -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.5/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.5/dist/ScrollToPlugin.min.js"></script>
