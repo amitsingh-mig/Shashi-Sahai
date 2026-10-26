@@ -183,39 +183,45 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ── Photo Archive Category Filtering (Requirement 1) ────
-  const archiveFilterBtns = document.querySelectorAll('.archive-filter-btn');
-  const archiveCards = document.querySelectorAll('.archive-photo-card');
+  // ── Photo Archive & Portfolio Category Filtering (Requirements 1 & 4) ────
+  function setupCategoryFiltering(filterBtnSelector, cardSelector) {
+    const filterBtns = document.querySelectorAll(filterBtnSelector);
+    const cards = document.querySelectorAll(cardSelector);
 
-  if (archiveFilterBtns.length && archiveCards.length) {
-    archiveFilterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        archiveFilterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const filterCategory = (btn.getAttribute('data-category') || 'all').toLowerCase();
+    if (filterBtns.length && cards.length) {
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const filterCategory = (btn.getAttribute('data-category') || 'all').toLowerCase();
 
-        archiveCards.forEach(card => {
-          const cardCategory = (card.getAttribute('data-category') || '').toLowerCase();
-          if (filterCategory === 'all' || cardCategory === filterCategory) {
-            card.style.display = 'flex';
-            requestAnimationFrame(() => {
-              card.style.opacity = '1';
-              card.style.transform = 'scale(1)';
-            });
-          } else {
-            card.style.opacity = '0';
-            card.style.transform = 'scale(0.96)';
-            setTimeout(() => {
-              if ((btn.getAttribute('data-category') || 'all').toLowerCase() !== 'all' && 
-                  (card.getAttribute('data-category') || '').toLowerCase() !== (btn.getAttribute('data-category') || '').toLowerCase()) {
-                card.style.display = 'none';
-              }
-            }, 250);
-          }
+          cards.forEach(card => {
+            const cardCategory = (card.getAttribute('data-category') || '').toLowerCase();
+            if (filterCategory === 'all' || cardCategory === filterCategory) {
+              card.style.display = 'flex';
+              requestAnimationFrame(() => {
+                card.style.opacity = '1';
+                card.style.transform = 'scale(1)';
+              });
+            } else {
+              card.style.opacity = '0';
+              card.style.transform = 'scale(0.96)';
+              setTimeout(() => {
+                const currentActive = document.querySelector(`${filterBtnSelector}.active`);
+                const currentCat = (currentActive?.getAttribute('data-category') || 'all').toLowerCase();
+                if (currentCat !== 'all' && (card.getAttribute('data-category') || '').toLowerCase() !== currentCat) {
+                  card.style.display = 'none';
+                }
+              }, 250);
+            }
+          });
         });
       });
-    });
+    }
   }
+
+  setupCategoryFiltering('.archive-filter-btn', '.archive-photo-card');
+  setupCategoryFiltering('.portfolio-filter-btn', '.portfolio-photo-card');
 
   // Image Preview Lightbox Modal Logic
   function ensureLightboxModalExists() {
@@ -276,7 +282,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function getVisiblePreviewElements() {
       const all = Array.from(document.querySelectorAll(
-        '.archive-photo-card, .portfolio-project-card, .strip-item, .mosaic .m-item, .tribute-photo-card, .tl-thumb, .archive-visual .main-img, .archive-visual .float-img'
+        '.portfolio-photo-card, .archive-photo-card, .portfolio-project-card, .strip-item, .mosaic .m-item, .tribute-photo-card, .tl-thumb, .archive-visual .main-img, .archive-visual .float-img'
       ));
       return all.filter(el => {
         const style = window.getComputedStyle(el);
@@ -286,9 +292,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function getPhotoData(el) {
       const img = el.querySelector('img') || (el.tagName === 'IMG' ? el : null);
-      const tag = el.querySelector('.archive-photo-tag-pill, .portfolio-project-eyebrow, .strip-tag span, .m-label, .modal-tag')?.textContent.trim() || 'Archive';
-      const title = el.querySelector('.archive-photo-card-title, .portfolio-project-title')?.textContent.trim() || img?.getAttribute('alt') || 'Photograph by Shashi Sahai';
-      const desc = el.querySelector('.archive-photo-card-desc, .portfolio-project-desc')?.textContent.trim() || '';
+      const tag = el.querySelector('.portfolio-photo-tag-pill, .archive-photo-tag-pill, .portfolio-project-eyebrow, .strip-tag span, .m-label, .modal-tag')?.textContent.trim() || 'Portfolio';
+      const title = el.querySelector('.portfolio-photo-card-title, .archive-photo-card-title, .portfolio-project-title')?.textContent.trim() || img?.getAttribute('alt') || 'Photograph by Shashi Sahai';
+      const desc = el.querySelector('.portfolio-photo-card-desc, .archive-photo-card-desc, .portfolio-project-desc')?.textContent.trim() || '';
       const src = img?.getAttribute('src') || '';
       return { src, tag, title, desc };
     }
@@ -337,7 +343,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Global Click Listener for all preview items
     document.addEventListener('click', (e) => {
       const card = e.target.closest(
-        '.archive-photo-card, .portfolio-project-card, .strip-item, .mosaic .m-item, .tribute-photo-card, .tl-thumb, .archive-visual .main-img, .archive-visual .float-img'
+        '.portfolio-photo-card, .archive-photo-card, .portfolio-project-card, .strip-item, .mosaic .m-item, .tribute-photo-card, .tl-thumb, .archive-visual .main-img, .archive-visual .float-img'
       );
       if (card) {
         e.preventDefault();
