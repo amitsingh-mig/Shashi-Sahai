@@ -19,6 +19,17 @@
         rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+
+    <!-- Preloader First-Visit Synchronous Check (Prevents FOUC on subsequent visits) -->
+    <script>
+        (function () {
+            try {
+                if (localStorage.getItem('shashi_sahai_loader_seen') === 'true') {
+                    document.documentElement.classList.add('no-preloader');
+                }
+            } catch (e) { }
+        })();
+    </script>
 </head>
 
 <body id="top">
@@ -75,8 +86,11 @@
                 would be there when it was needed.</p>
         </section>
         <article class="profile-sections paper section-pad">
-            <section class="profile-section" id="chapter-1"><span class="kicker">01 / THE FRIENDSHIP</span>
-                <h2>A shared purpose</h2>
+            <section class="profile-section" id="chapter-1">
+                <div class="profile-section-header">
+                    <span class="kicker">01 / THE FRIENDSHIP</span>
+                    <h2>A shared purpose</h2>
+                </div>
                 <div>
                     <p>Aarohan gave the friendship a continuing field of work. As a cofounder and longstanding
                         contributor, Shashi helped support children, women and vulnerable communities. The recollection
@@ -87,19 +101,28 @@
                         work and time, rather than a single public occasion.</p>
                 </div>
             </section>
-            <section class="profile-section" id="chapter-2"><span class="kicker">02 / THE FRIENDSHIP</span>
-                <h2>Support without ceremony</h2>
+            <section class="profile-section" id="chapter-2">
+                <div class="profile-section-header">
+                    <span class="kicker">02 / THE FRIENDSHIP</span>
+                    <h2>Support without ceremony</h2>
+                </div>
                 <div>
                     <p>The remembered situations are recognisable: an organisational crisis, a difficult decision, a
                         personal worry, the exhaustion of a long day. Across them, Patel describes the reassurance of
                         knowing that Shashi was nearby. Sometimes that assurance needed little conversation.</p>
+                    <div class="profile-quote-block">
+                        “His presence was a reassurance that did not need ceremony. He showed up when help was needed, without announcement, and stayed until the work was done.”
+                    </div>
                     <p>His usefulness was practical as well as emotional. The memorial recalls someone who made time
                         when help was needed, without treating every act of care as something to announce. His presence
                         could become so familiar that its steadiness was easier to feel than to describe.</p>
                 </div>
             </section>
-            <section class="profile-section" id="chapter-3"><span class="kicker">03 / THE FRIENDSHIP</span>
-                <h2>Room for difference</h2>
+            <section class="profile-section" id="chapter-3">
+                <div class="profile-section-header">
+                    <span class="kicker">03 / THE FRIENDSHIP</span>
+                    <h2>Room for difference</h2>
+                </div>
                 <div>
                     <p>The account makes space for disagreement. Patel remembers differences that did not turn into
                         separation, and a relationship that could contain several roles: friend, critic, guide and
@@ -110,17 +133,27 @@
                         parts that remain unspoken.</p>
                 </div>
             </section>
-            <div class="profile-sources"><span class="kicker">THE RECOLLECTIONS BEHIND THIS PAGE</span><a
-                    href="https://shashi-sahai.vercel.app/tributes.html" target="_blank"
-                    rel="noopener noreferrer">Original memorial and Rani Patel’s remembrance ↗</a><a
-                    href="https://shashi-sahai-coral.vercel.app/" target="_blank" rel="noopener noreferrer">The Long
-                    Look memorial site ↗</a></div>
+            <div class="profile-sources">
+                <span class="kicker">THE RECOLLECTIONS BEHIND THIS PAGE</span>
+                <div class="profile-sources-links">
+                    <a href="https://shashi-sahai.vercel.app/tributes.html" target="_blank" rel="noopener noreferrer">
+                        Original memorial &amp; Rani Patel’s remembrance ↗
+                    </a>
+                    <a href="https://shashi-sahai-coral.vercel.app/" target="_blank" rel="noopener noreferrer">
+                        The Long Look memorial site ↗
+                    </a>
+                </div>
+            </div>
         </article>
         <section class="profile-onward section-pad">
-            <div><span class="kicker">THERE IS MORE TO THE STORY</span>
+            <div>
+                <span class="kicker">THERE IS MORE TO THE STORY</span>
                 <h2>Care becomes<br><em>something lasting.</em></h2>
-            </div><a class="arrow-link " href="legacy.html"><span>Explore his work with Aarohan</span><span
-                    class="arrow" aria-hidden="true">↗</span></a>
+            </div>
+            <a class="arrow-link" href="legacy.html">
+                <span>Explore his work with Aarohan</span>
+                <span class="arrow" aria-hidden="true">↗</span>
+            </a>
         </section>
     </main>
 
