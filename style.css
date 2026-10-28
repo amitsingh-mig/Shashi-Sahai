@@ -5647,7 +5647,511 @@ dialog.photo-viewer::backdrop {
 
 .quote-author {
   padding-left: 27px;
+  font-size: 14px;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.quote-author strong {
+  font-family: var(--sans);
+  font-weight: 700;
+  color: var(--black);
+  letter-spacing: 0.5px;
+}
+
+.quote-author span {
+  font-family: var(--sans);
+  color: var(--text-muted);
+}
+
+.quote-author span::before {
+  content: "— ";
+  opacity: 0.6;
+  margin-right: 4px;
+}
+
+/* Tributes Heading */
+.tributes-heading {
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 50px;
+}
+
+.tributes-heading h1 {
+  font-family: var(--display);
+  font-size: clamp(52px, 8.5vw, 120px);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  margin: 15px 0 30px;
+  font-weight: 600;
+  color: var(--black);
+}
+
+.tributes-heading h1 em {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--red);
+  font-weight: 500;
+}
+
+/* Memory Strip: Archival 3-Card Interactive Grid */
+.memory-strip {
+  border-top: 1px solid var(--line);
+  padding: 70px 0;
+  background: var(--cream, #f7f4ed);
+}
+
+.memory-strip .section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-bottom: 45px;
+}
+
+.memory-strip .section-heading h2 {
+  font-family: var(--display);
+  font-size: clamp(40px, 6vw, 84px);
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  margin: 10px 0 0;
+}
+
+.memory-strip .section-heading h2 em {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--red);
+}
+
+.memory-strip .section-heading p {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+  color: var(--charcoal);
+  margin: 0;
+  line-height: 1.4;
+  text-align: right;
+}
+
+.memory-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.memory-photo {
+  all: unset;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  background: var(--white);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.memory-photo:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
+}
+
+.memory-frame {
+  aspect-ratio: 16 / 11;
+  overflow: hidden;
+  background: var(--charcoal-dark);
+  position: relative;
+}
+
+.memory-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.memory-photo:hover .memory-frame img {
+  transform: scale(1.05);
+}
+
+.memory-photo>span {
+  font-family: var(--serif);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--black);
+  padding: 18px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  transition: color 0.2s ease;
+}
+
+.memory-photo:hover>span {
+  color: var(--red);
+}
+
+/* Remembering Together (Dual Column Figure & Text) */
+.remembering-together {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: clamp(40px, 6vw, 80px);
+  align-items: center;
+  border-top: 1px solid var(--line);
+  padding: 70px 0;
+}
+
+.remembering-together figure {
+  margin: 0;
+}
+
+.remembering-together figure>div {
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 1;
+  background: var(--charcoal-dark);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+}
+
+.remembering-together figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.remembering-together figure:hover img {
+  transform: scale(1.03);
+}
+
+.remembering-together figcaption {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 12px;
+  display: block;
+}
+
+.remembering-together h2 {
+  font-family: var(--serif);
+  font-size: clamp(34px, 4.5vw, 56px);
+  line-height: 1.05;
+  margin: 12px 0 20px;
+}
+
+.remembering-together h2 em {
+  font-style: italic;
+  color: var(--red);
+}
+
+.remembering-together p {
+  font-size: 16px;
+  line-height: 1.85;
+  color: #55594F;
+  margin-bottom: 20px;
+}
+
+.remembering-together .arrow-link {
+  margin-top: 10px;
+  margin-right: 15px;
+}
+
+/* ==========================================================================
+   PROFILE & ESSAY EDITORIAL ARCHITECTURE (behind-the-lens.html, friendship.html)
+   ========================================================================== */
+
+.profile-hero {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: clamp(40px, 5vw, 80px);
+  align-items: center;
+  padding: clamp(50px, 7vw, 90px) 0 60px;
+}
+
+.profile-hero-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.profile-hero-copy h1 {
+  font-family: var(--display);
+  font-size: clamp(44px, 6vw, 88px);
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  margin: 16px 0 24px;
+  font-weight: 600;
+  color: var(--black);
+}
+
+.profile-hero-copy h1 em {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--red);
+  font-weight: 500;
+}
+
+.profile-hero-copy p {
+  font-size: clamp(16px, 1.2vw, 19px);
+  line-height: 1.7;
+  color: var(--charcoal);
+  margin-bottom: 28px;
+  max-width: 520px;
+}
+
+.essay-start {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--sans);
   font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--black);
+  text-decoration: none;
+  border-bottom: 2px solid var(--red);
+  padding-bottom: 4px;
+  width: fit-content;
+  transition: all 0.25s ease;
+}
+
+.essay-start:hover {
+  color: var(--red);
+  padding-bottom: 8px;
+  gap: 14px;
+}
+
+.profile-portrait {
+  margin: 0;
+  position: relative;
+}
+
+.profile-portrait .parallax-frame {
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 4 / 4.8;
+  background: var(--charcoal-dark);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.profile-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.profile-portrait:hover img {
+  transform: scale(1.03);
+}
+
+.profile-portrait figcaption {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 12px;
+  display: block;
+}
+
+/* Profile Chapter Quick Navigation Bar */
+.profile-opening {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: clamp(40px, 6vw, 80px);
+  align-items: start;
+  border-top: 1px solid var(--line);
+  padding: 50px 0;
+}
+
+.profile-opening nav[aria-label="Page chapters"] {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: sticky;
+  top: 110px;
+}
+
+.profile-opening nav[aria-label="Page chapters"] .kicker {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--red);
+  margin-bottom: 6px;
+  display: block;
+}
+
+.profile-opening nav[aria-label="Page chapters"] a {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  align-items: baseline;
+  gap: 10px;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--black);
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  line-height: 1.4;
+}
+
+.profile-opening nav[aria-label="Page chapters"] a span {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--red);
+  font-weight: 700;
+}
+
+.profile-opening nav[aria-label="Page chapters"] a:hover {
+  background: rgba(0, 0, 0, 0.04);
+  color: var(--red);
+  border-color: rgba(0, 0, 0, 0.06);
+  transform: translateX(4px);
+}
+
+.profile-opening>p {
+  font-family: var(--serif);
+  font-size: clamp(1.2rem, 1.8vw, 1.45rem);
+  line-height: 1.7;
+  color: var(--charcoal);
+  border-left: 3px solid var(--red);
+  padding-left: 28px;
+  margin: 0;
+  align-self: center;
+}
+
+/* Profile Chapters */
+.profile-sections {
+  border-top: 1px solid var(--line);
+  padding: 60px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.profile-section {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: clamp(30px, 5vw, 70px);
+  align-items: start;
+  padding-bottom: 50px;
+  border-bottom: 1px solid var(--line);
+  scroll-margin-top: 110px;
+}
+
+.profile-section:last-of-type {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.profile-section .kicker {
+  grid-column: 1 / -1;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--red);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.profile-section h2 {
+  font-family: var(--serif);
+  font-size: clamp(30px, 3.8vw, 48px);
+  line-height: 1.1;
+  color: var(--black);
+  margin: 0;
+}
+
+.profile-section h2 em {
+  font-style: italic;
+  color: var(--red);
+}
+
+.profile-section>div {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.profile-section>div p {
+  font-size: 16px;
+  line-height: 1.9;
+  color: #55594F;
+  margin: 0;
+}
+
+/* Profile Onward Banner */
+.profile-onward {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  border-top: 1px solid var(--line);
+  background: var(--paper, #faf8f5);
+  padding: 50px 0;
+}
+
+.profile-onward h2 {
+  font-family: var(--display);
+  font-size: clamp(32px, 4.5vw, 56px);
+  line-height: 1.05;
+  margin: 10px 0 0;
+}
+
+.profile-onward h2 em {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--red);
+}
+
+@media (max-width: 900px) {
+  .memory-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .remembering-together {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .memory-strip .section-heading {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .memory-strip .section-heading p {
+    text-align: left;
+  }
+  .profile-hero {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+  .profile-opening {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .profile-opening nav[aria-label="Page chapters"] {
+    position: static;
+  }
+  .profile-section {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
 }
 
 .community-hero-grid {
