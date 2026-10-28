@@ -7,13 +7,11 @@
   --crimson: #8B0000;
   --accent-red: #B91C1C;
   --wine-red: #6E1423;
-  --warm-off-white: #F8F5F2;
+  --warm-off-white: #fff0e0;
   --charcoal-black: #171414;
-
   --burgundy-soft: rgba(74, 14, 23, 0.08);
   --crimson-soft: rgba(139, 0, 0, 0.12);
   --burgundy-glow: rgba(74, 14, 23, 0.35);
-
   --white: #F8F5F2;
   --off-white: #F8F5F2;
   --cream: #EFECE4;
@@ -2039,7 +2037,6 @@ nav.links a.active::after {
   text-transform: uppercase;
 }
 
-/* Closing Visual */
 .closing {
   height: 92vh;
   min-height: 560px;
@@ -2055,7 +2052,6 @@ nav.links a.active::after {
 .closing-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(23, 20, 20, 0.94) 0%, rgba(74, 14, 23, 0.45) 45%, rgba(0, 0, 0, 0.15) 100%);
   color: #fff;
 }
 
@@ -2083,12 +2079,6 @@ nav.links a.active::after {
   background: linear-gradient(90deg, #8B0000, #B91C1C);
 }
 
-/* ============================================================
-   Redesigned Cinematic Archival Footer
-   ============================================================ */
-/* ============================================================
-   Redesigned Cinematic Archival Footer (Deep Burgundy & Charcoal)
-   ============================================================ */
 footer.site-footer,
 footer {
   background: linear-gradient(180deg, #171414 0%, #22080D 55%, #140407 100%);
@@ -3317,10 +3307,7 @@ footer a:hover {
 }
 
 @media (max-width: 991px) {
-  .aperture-svg {
-    width: 40px;
-    height: 40px;
-  }
+  .aperture-svg { width: 40px; height: 40px;}
 }
 
 .filmstrip-divider {
@@ -3333,9 +3320,25 @@ footer a:hover {
 }
 
 .filmstrip-divider svg {
-  width: 100%;
-  height: 28px;
   display: block;
+  width: 100%;
+  height: 50px;
+}
+
+.filmstrip-divider .filmstrip-base,
+.filmstrip-divider svg > rect {
+  fill: var(--charcoal-black, #171414);
+  stroke: rgba(185, 28, 28, 0.45);
+  stroke-width: 0.8px;
+  opacity: 0.95;
+}
+
+.filmstrip-divider .filmstrip-holes,
+.filmstrip-divider svg g {
+  fill: var(--warm-off-white, #F8F5F2);
+  opacity: 0.82;
+  stroke: rgba(23, 20, 20, 0.45);
+  stroke-width: 1px;
 }
 
 .philosophy-lens {
