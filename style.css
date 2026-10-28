@@ -1076,13 +1076,7 @@ nav.links a:hover {
     display: none;
   }
 
-  .stat .num {
-    font-size: clamp(1.5rem, 5vw, 1.85rem);
-    line-height: 1.05;
-    font-weight: 450;
-    letter-spacing: -0.01em;
-  }
-
+  .stat .num { font-size: clamp(1.5rem, 5vw, 1.85rem); line-height: 1.05; font-weight: 450; letter-spacing : -0.01em;}
   .stat .lbl {
     margin-top: 4px;
     font-size: clamp(0.53rem, 2.4vw, 0.6rem);
