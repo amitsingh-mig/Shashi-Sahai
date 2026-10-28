@@ -5673,7 +5673,16 @@ dialog.photo-viewer::backdrop {
   margin-right: 4px;
 }
 
-/* Tributes Heading */
+.paper {
+  background-color: var(--paper, #efece4);
+}
+
+/* Tributes Heading & Editorial Headers */
+.editorial-heading {
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
+}
+
 .tributes-heading {
   border-bottom: 1px solid var(--line);
   padding-bottom: 50px;
@@ -5694,6 +5703,83 @@ dialog.photo-viewer::backdrop {
   font-style: italic;
   color: var(--red);
   font-weight: 500;
+}
+
+.editorial-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 25px;
+  border-top: 1px solid var(--line);
+  padding-top: 25px;
+  margin-top: 35px;
+}
+
+.editorial-bottom p {
+  font-family: var(--serif);
+  font-size: clamp(1.15rem, 1.8vw, 1.4rem);
+  line-height: 1.6;
+  color: var(--charcoal);
+  margin: 0;
+  max-width: 580px;
+}
+
+.editorial-bottom span {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  line-height: 1.7;
+  text-transform: uppercase;
+  color: var(--red);
+  text-align: right;
+}
+
+.inline-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--red);
+  text-decoration: none;
+  border-bottom: 1.5px solid rgba(152, 3, 0, 0.4);
+  padding-bottom: 3px;
+  margin-top: 24px;
+  transition: all 0.2s ease;
+  width: fit-content;
+}
+
+.inline-link:hover {
+  color: var(--red-hover);
+  border-bottom-color: var(--red);
+  gap: 12px;
+}
+
+.remembrance aside .kicker {
+  margin-top: 16px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--red);
+  font-weight: 700;
+  line-height: 1.6;
+  display: block;
+}
+
+.personal-chapter .arrow-link {
+  display: flex;
+  margin-top: 20px;
+  max-width: 400px;
+  border-top: 1px solid var(--line);
+}
+
+.remembering-together .arrow-link {
+  display: flex;
+  margin-top: 16px;
+  max-width: 440px;
+  border-top: 1px solid var(--line);
 }
 
 /* Memory Strip: Archival 3-Card Interactive Grid */
