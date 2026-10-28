@@ -4,15 +4,20 @@ A memorial photography website dedicated to **Shashi Sahai** (1961 – August 15
 
 ---
 
-## 🌐 Live Pages
+## 🌐 Live Pages & Collections
 
 | Page | Description |
 |------|-------------|
 | `index.html` | Home — Hero narrative, photojournalist biography, preview strip, curated mosaic, and philosophy |
-| `portfolio.html` | Portfolio Archive — Dedicated showcase of 8 landmark projects including Cannes Bronze series, Varanasi, and Aarohan |
-| `archive.html` | Photo Archive & Timeline — 7 thematic categories (People, Nature, Travel, Heritage, City Lights, Wildlife, Culture) with photo descriptions and 1991–2026 timeline |
-| `tributes.html` | Tributes & Reflections — Interactive Tribute Wall with local storage, tabs, and Swiper archival photo carousel |
+| `collections.html` | Collections Hub — 6 curated photographic collections: People, Everyday Life, Heritage, Nature, City Light, Wildlife |
+| `stories.html` | Visual Essays Hub — Six in-depth visual essays exploring framing, lighting, movement, and looking techniques |
+| `portfolio.html` | Portfolio Archive — Dedicated gallery featuring 27 photographs across 7 categories with dynamic filtering & lightbox |
+| `archive.html` | Photo Archive & Timeline — Historical chronicles hero, synchronized 1991–2026 milestone spine, and visual history |
+| `tributes.html` | Tributes & Reflections — Interactive Tribute Wall with local storage persistence, tabs, and Swiper archival carousel |
 | `privacy.html` | Privacy Policy — Transparent data minimization policy, copyright notices, and institutional contact information |
+| *Editorial essays* | `street-stories.html`, `human-connections.html`, `living-heritage.html`, `water-and-wings.html`, `light-and-shadow.html`, `ways-of-seeing.html` |
+| *Collection galleries*| `people.html`, `everyday.html`, `heritage.html`, `nature.html`, `city-light.html`, `wildlife.html` |
+| *Memorial essays* | `about-archive.html`, `behind-the-lens.html`, `community-and-trust.html`, `friendship.html`, `learning-to-look.html`, `legacy.html`, `life.html` |
 
 ---
 
@@ -20,15 +25,21 @@ A memorial photography website dedicated to **Shashi Sahai** (1961 – August 15
 
 ```
 photography/
-├── index.html          # Main landing page
-├── portfolio.html      # Dedicated Portfolio Archive page
-├── archive.html        # Photo Archive (7 categories) & timeline page
-├── tributes.html       # Tributes & memorial page
-├── privacy.html        # Privacy Policy page
-├── style.css           # Global stylesheet & design system
-├── script.js           # JavaScript (Scroll progress, lightbox, category filters, tribute wall)
-├── favicon.svg         # Browser tab icon (aperture design)
-└── images/             # All photographs, vector calligraphy logo, and assets
+├── index.html              # Main landing page
+├── collections.html        # Collections index (6 routes)
+├── stories.html            # Visual essays index (6 essays)
+├── portfolio.html          # Dedicated Portfolio Archive (7 categories)
+├── archive.html            # Photo Archive & 1991–2026 timeline page
+├── tributes.html           # Tributes & interactive remembrance wall
+├── privacy.html            # Privacy Policy page
+├── [editorial pages].html  # In-depth essays & collection pages
+├── style.css               # Global unified stylesheet & design system
+├── script.js               # Core JavaScript (Navbar, progress bar, lightbox, filters, tribute wall)
+├── catalog.js              # Photo archive catalog & metadata
+├── exhibition.js           # Dynamic exhibition gallery rendering
+├── scroll.js               # Smooth scroll & parallax engine
+├── favicon.svg             # Standard browser tab icon (aperture design)
+└── images/                 # All active photography assets (WebP/SVG)
 ```
 
 ---
