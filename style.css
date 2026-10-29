@@ -1363,11 +1363,19 @@ nav.links a.active::after {
   }
 }
 
-/* Gallery Preview */
+/* Gallery Preview - Floating Camera Decoration */
 .float-camera-1 {
+  position: absolute;
+  top: 18px;
+  left: calc(50% - 620px);
+  width: 105px;
+  height: auto;
+  opacity: 0.28;
+  z-index: 1;
   pointer-events: none;
   user-select: none;
   filter: drop-shadow(0 6px 14px rgba(74, 14, 23, 0.08));
+  transition: opacity 0.35s ease;
 }
 
 @keyframes drift {
@@ -1375,12 +1383,30 @@ nav.links a.active::after {
     transform: translateY(0px) rotate(0deg);
   }
   50% {
-    transform: translateY(-10px) rotate(3deg);
+    transform: translateY(-12px) rotate(3deg);
   }
 }
 
 .drift {
   animation: drift 7s ease-in-out infinite;
+}
+
+@media (max-width: 1400px) {
+  .float-camera-1 {
+    left: 4%;
+    top: 2%;
+    width: 95px;
+    opacity: 0.22;
+  }
+}
+
+@media (max-width: 1199.98px) {
+  .float-camera-1 {
+    left: 2%;
+    top: 1%;
+    width: 80px;
+    opacity: 0.18;
+  }
 }
 
 @media (max-width: 991.98px) {
