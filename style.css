@@ -1099,9 +1099,6 @@ nav.links a.active::after {
   }
 }
 
-/* ------------------------------------------------------------
-   TABLET LAYOUT (768px - 1024px)
-   ------------------------------------------------------------ */
 @media (min-width: 768px) and (max-width: 1024px) {
   .editorial-hero {
     min-height: 100svh;
@@ -1156,9 +1153,6 @@ nav.links a.active::after {
   }
 }
 
-/* ------------------------------------------------------------
-   MOBILE & NARROW TABLET LAYOUT (< 768px)
-   ------------------------------------------------------------ */
 @media (max-width: 767px) {
   .editorial-hero {
     flex-direction: column;
@@ -1166,7 +1160,6 @@ nav.links a.active::after {
     overflow-x: hidden;
   }
 
-  /* Ivory Text Panel on Top */
   .hero-content-panel {
     width: 100%;
     padding: 2.25rem 1.25rem 1.75rem;
@@ -1219,7 +1212,6 @@ nav.links a.active::after {
     font-size: 0.7rem;
   }
 
-  /* Charcoal Portrait Panel on Bottom */
   .hero-photo-panel {
     position: relative;
     top: auto;
@@ -1272,8 +1264,6 @@ nav.links a.active::after {
   }
 }
 
-
-/* Stats / Awards & Achievements */
 .stats {
   background: linear-gradient(160deg, #1A0508 0%, #2E090F 50%, #171414 100%);
   color: #fff;
@@ -1308,7 +1298,6 @@ nav.links a.active::after {
   color: rgba(255, 255, 255, 0.6);
 }
 
-/* Tablet adjustments (576px - 991px) */
 @media (min-width: 576px) and (max-width: 991.98px) {
   .stat .num {
     font-size: clamp(2rem, 3.2vw, 2.35rem);
@@ -1320,7 +1309,6 @@ nav.links a.active::after {
   }
 }
 
-/* Mobile Layout (< 576px: 320px, 375px, 390px, 430px) */
 @media (max-width: 575.98px) {
 
   .stats,
@@ -1363,7 +1351,6 @@ nav.links a.active::after {
   }
 }
 
-/* Preview Section - Positioning Context & Decorative Camera */
 #work-preview {
   position: relative;
   isolation: isolate;
@@ -1376,7 +1363,6 @@ nav.links a.active::after {
   z-index: 1;
 }
 
-/* Floating Decorative Elements Base */
 .float-deco {
   position: absolute;
   pointer-events: none;
@@ -1395,7 +1381,6 @@ nav.links a.active::after {
   }
 }
 
-/* Gentle float preserving translateY(-50%) positioning */
 @keyframes gentle-float-centered {
   0%,
   100% {
@@ -1422,7 +1407,6 @@ nav.links a.active::after {
   }
 }
 
-/* Specific Preview Floating Camera (Positioned cleanly above Left Heading area) */
 #work-preview .float-camera-1 {
   position: absolute;
   top: 36px;
