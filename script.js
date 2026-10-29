@@ -346,6 +346,9 @@ document.addEventListener('DOMContentLoaded', () => {
         '.portfolio-photo-card, .archive-photo-card, .portfolio-project-card, .strip-item, .mosaic .m-item, .tribute-photo-card, .tl-thumb, .archive-visual .main-img, .archive-visual .float-img'
       );
       if (card) {
+        if (card.tagName === 'A' && card.getAttribute('href') && !card.getAttribute('href').startsWith('#')) {
+          return;
+        }
         e.preventDefault();
         openModalForElement(card);
       }
@@ -476,6 +479,93 @@ document.addEventListener('DOMContentLoaded', () => {
           spaceBetween: 24,
         }
       }
+    });
+  }
+
+  // Preview Horizontal Strip Gallery Controller
+  const previewTrack = document.getElementById('previewStripTrack');
+  const previewPrev = document.getElementById('previewPrevBtn');
+  const previewNext = document.getElementById('previewNextBtn');
+  const previewThumb = document.getElementById('previewScrollThumb');
+
+  if (previewTrack) {
+    function updateScrollProgress() {
+      const maxScroll = previewTrack.scrollWidth - previewTrack.clientWidth;
+      if (maxScroll <= 0) {
+        if (previewThumb) previewThumb.style.width = '100%';
+        if (previewPrev) previewPrev.disabled = true;
+        if (previewNext) previewNext.disabled = true;
+        return;
+      }
+      const scrollRatio = previewTrack.scrollLeft / maxScroll;
+      const thumbWidthPercent = Math.max((previewTrack.clientWidth / previewTrack.scrollWidth) * 100, 25);
+      if (previewThumb) {
+        previewThumb.style.width = `${thumbWidthPercent}%`;
+        const maxTranslate = ((100 - thumbWidthPercent) / thumbWidthPercent) * 100;
+        previewThumb.style.transform = `translateX(${scrollRatio * maxTranslate}%)`;
+      }
+      if (previewPrev) previewPrev.disabled = previewTrack.scrollLeft <= 5;
+      if (previewNext) previewNext.disabled = previewTrack.scrollLeft >= maxScroll - 5;
+    }
+
+    if (previewPrev) {
+      previewPrev.addEventListener('click', () => {
+        const card = previewTrack.querySelector('.preview-strip-card');
+        const scrollAmount = card ? card.offsetWidth + 16 : 220;
+        previewTrack.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      });
+    }
+
+    if (previewNext) {
+      previewNext.addEventListener('click', () => {
+        const card = previewTrack.querySelector('.preview-strip-card');
+        const scrollAmount = card ? card.offsetWidth + 16 : 220;
+        previewTrack.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      });
+    }
+
+    previewTrack.addEventListener('scroll', updateScrollProgress, { passive: true });
+    window.addEventListener('resize', updateScrollProgress, { passive: true });
+    updateScrollProgress();
+
+    // Mouse drag-to-scroll interaction for desktop
+    let isDown = false;
+    let startX = 0;
+    let scrollLeftPos = 0;
+    let hasDragged = false;
+
+    previewTrack.addEventListener('mousedown', (e) => {
+      isDown = true;
+      hasDragged = false;
+      startX = e.pageX - previewTrack.offsetLeft;
+      scrollLeftPos = previewTrack.scrollLeft;
+    });
+
+    previewTrack.addEventListener('mouseleave', () => {
+      isDown = false;
+    });
+
+    previewTrack.addEventListener('mouseup', () => {
+      isDown = false;
+    });
+
+    previewTrack.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      const x = e.pageX - previewTrack.offsetLeft;
+      const walk = (x - startX) * 1.5;
+      if (Math.abs(walk) > 5) {
+        hasDragged = true;
+      }
+      previewTrack.scrollLeft = scrollLeftPos - walk;
+    });
+
+    // Prevent click on card if dragged
+    previewTrack.querySelectorAll('a.preview-strip-card').forEach(link => {
+      link.addEventListener('click', (e) => {
+        if (hasDragged) {
+          e.preventDefault();
+        }
+      });
     });
   }
 });
