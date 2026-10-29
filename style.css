@@ -1363,32 +1363,45 @@ nav.links a.active::after {
   }
 }
 
-/* Gallery Preview - Floating Camera Decoration */
-.float-camera-1 {
+/* Floating Decorative Elements */
+.float-deco {
   position: absolute;
-  top: 18px;
-  left: calc(50% - 620px);
-  width: 105px;
-  height: auto;
-  opacity: 0.28;
-  z-index: 1;
   pointer-events: none;
-  user-select: none;
-  filter: drop-shadow(0 6px 14px rgba(74, 14, 23, 0.08));
-  transition: opacity 0.35s ease;
+  opacity: .9;
+  z-index: 1;
 }
 
-@keyframes drift {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
+@keyframes gentle-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
   }
+
   50% {
-    transform: translateY(-12px) rotate(3deg);
+    transform: translateY(-10px) rotate(2deg);
   }
 }
 
 .drift {
-  animation: drift 7s ease-in-out infinite;
+  animation: gentle-float 6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .drift {
+    animation: none;
+  }
+}
+
+/* Specific Floating Elements */
+.float-camera-1 {
+  top: 18px;
+  left: calc(50% - 620px);
+  width: 105px;
+  height: auto;
+  opacity: 0.3;
+  user-select: none;
+  filter: drop-shadow(0 6px 14px rgba(74, 14, 23, 0.08));
+  transition: opacity 0.35s ease;
 }
 
 @media (max-width: 1400px) {
@@ -1396,7 +1409,7 @@ nav.links a.active::after {
     left: 4%;
     top: 2%;
     width: 95px;
-    opacity: 0.22;
+    opacity: 0.25;
   }
 }
 
@@ -1405,13 +1418,23 @@ nav.links a.active::after {
     left: 2%;
     top: 1%;
     width: 80px;
-    opacity: 0.18;
+    opacity: 0.2;
   }
 }
 
 @media (max-width: 991.98px) {
-  .float-camera-1 {
-    display: none;
+  .float-deco,
+  .float-camera-1,
+  .hero-deco-bottle,
+  .hero-deco-glasses,
+  .hero-deco-leaf,
+  .opp-deco-glass,
+  .opp-deco-cask,
+  .opp-deco-leaf,
+  .opp-deco-bottles,
+  .cost-deco,
+  .about-leaf-corner {
+    display: none !important;
   }
 }
 
