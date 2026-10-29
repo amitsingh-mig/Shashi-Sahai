@@ -1382,6 +1382,7 @@ nav.links a.active::after {
 }
 
 @keyframes gentle-float {
+
   0%,
   100% {
     transform: translateY(0) rotate(0deg);
@@ -1393,6 +1394,7 @@ nav.links a.active::after {
 }
 
 @keyframes gentle-float-subtle {
+
   0%,
   100% {
     transform: translateY(0) rotate(0deg);
@@ -1405,6 +1407,7 @@ nav.links a.active::after {
 
 /* Gentle float preserving translateY(-50%) positioning */
 @keyframes gentle-float-centered {
+
   0%,
   100% {
     transform: translateY(-50%) rotate(0deg);
@@ -1428,6 +1431,7 @@ nav.links a.active::after {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .drift,
   .drift-subtle,
   .float-deco,
@@ -1459,7 +1463,7 @@ nav.links a.active::after {
   isolation: isolate;
 }
 
-.story-red > *:not(.float-deco) {
+.story-red>*:not(.float-deco) {
   position: relative;
   z-index: 2;
 }
@@ -1594,6 +1598,7 @@ nav.links a.active::after {
 
 /* Mobile: hide decorative SVG to prevent overlap */
 @media (max-width: 767.98px) {
+
   #work-preview .float-camera-1,
   .float-deco,
   .deco-pos-1,
@@ -1698,8 +1703,8 @@ nav.links a.active::after {
   box-sizing: border-box;
   scroll-snap-align: start;
   transition: transform 0.4s cubic-bezier(0.16, 0.84, 0.44, 1),
-              border-color 0.35s ease,
-              box-shadow 0.4s ease;
+    border-color 0.35s ease,
+    box-shadow 0.4s ease;
 }
 
 .preview-strip-card img {
@@ -2437,7 +2442,7 @@ nav.links a.active::after {
     grid-row: auto;
   }
 
- 
+
 }
 
 /* Archive */
@@ -2758,7 +2763,7 @@ footer a:hover {
 .footer-bottom-tagline {
   margin: 0;
   letter-spacing: 0.12em;
-  color: #C94B50;
+  color: #C5A059;
   font-weight: 500;
   text-transform: uppercase;
   font-size: 0.6875rem;
@@ -3814,7 +3819,10 @@ footer a:hover {
 }
 
 @media (max-width: 991px) {
-  .aperture-svg { width: 40px; height: 40px;}
+  .aperture-svg {
+    width: 40px;
+    height: 40px;
+  }
 }
 
 .filmstrip-divider {
@@ -3833,7 +3841,7 @@ footer a:hover {
 }
 
 .filmstrip-divider .filmstrip-base,
-.filmstrip-divider svg > rect {
+.filmstrip-divider svg>rect {
   fill: #323232;
   stroke: #00000073;
   stroke-width: 2 px;
