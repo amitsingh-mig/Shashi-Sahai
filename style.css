@@ -1366,8 +1366,19 @@ nav.links a.active::after {
 .float-deco {
   position: absolute;
   pointer-events: none;
-  opacity: .9;
+  user-select: none;
+  height: auto;
   z-index: 1;
+  opacity: 0.15;
+}
+
+#work-preview,
+#gallery,
+#archive,
+#memorial,
+.story-red,
+.closing {
+  position: relative;
 }
 
 @keyframes gentle-float {
@@ -1377,10 +1388,22 @@ nav.links a.active::after {
   }
 
   50% {
-    transform: translateY(-10px) rotate(2deg);
+    transform: translateY(-8px) rotate(1.5deg);
   }
 }
 
+@keyframes gentle-float-subtle {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-6px) rotate(-1.5deg);
+  }
+}
+
+/* Gentle float preserving translateY(-50%) positioning */
 @keyframes gentle-float-centered {
   0%,
   100% {
@@ -1388,12 +1411,16 @@ nav.links a.active::after {
   }
 
   50% {
-    transform: translateY(calc(-50% - 10px)) rotate(2deg);
+    transform: translateY(calc(-50% - 8px)) rotate(1.5deg);
   }
 }
 
 .drift {
   animation: gentle-float 6s ease-in-out infinite;
+}
+
+.drift-subtle {
+  animation: gentle-float-subtle 7.5s ease-in-out infinite 0.7s;
 }
 
 #work-preview .float-camera-1.drift {
@@ -1402,11 +1429,14 @@ nav.links a.active::after {
 
 @media (prefers-reduced-motion: reduce) {
   .drift,
+  .drift-subtle,
+  .float-deco,
   #work-preview .float-camera-1.drift {
-    animation: none;
+    animation: none !important;
   }
 }
 
+/* Specific Preview Floating Camera (Positioned cleanly above Left Heading area) */
 #work-preview .float-camera-1 {
   position: absolute;
   top: 36px;
@@ -1422,6 +1452,98 @@ nav.links a.active::after {
   transition: opacity 0.35s ease, width 0.35s ease;
 }
 
+/* Position 1 — Photography Connects People (Red Background Panel) */
+.story-red {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.story-red > *:not(.float-deco) {
+  position: relative;
+  z-index: 2;
+}
+
+.story-red .deco-pos-1 {
+  top: 24px;
+  right: 28px;
+  width: 76px;
+  opacity: 0.18;
+  filter: brightness(0) invert(1) drop-shadow(0 2px 8px rgba(0, 0, 0, 0.2));
+  transition: opacity 0.35s ease, width 0.35s ease;
+}
+
+/* Positions 2, 3, 4 — Archive / Moments Across Time Gallery */
+#gallery,
+#archive {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+#gallery .container-xxl,
+#archive .container-xxl {
+  position: relative;
+  z-index: 2;
+}
+
+/* Position 2 — Upper-right side of archive section */
+#gallery .deco-pos-2,
+#archive .deco-pos-2 {
+  top: 28px;
+  right: 5%;
+  width: 105px;
+  opacity: 0.14;
+  filter: drop-shadow(0 4px 12px rgba(23, 20, 20, 0.06));
+  transition: opacity 0.35s ease, width 0.35s ease;
+}
+
+/* Position 3 — Lower-left area below archive gallery, above filmstrip */
+#gallery .deco-pos-3,
+#archive .deco-pos-3 {
+  bottom: 35px;
+  left: 4%;
+  width: 145px;
+  opacity: 0.13;
+  filter: drop-shadow(0 4px 10px rgba(23, 20, 20, 0.05));
+  transition: opacity 0.35s ease, width 0.35s ease;
+}
+
+/* Position 4 — Lower-right edge of archive gallery section */
+#gallery .deco-pos-4,
+#archive .deco-pos-4 {
+  bottom: 40px;
+  right: 4%;
+  width: 110px;
+  opacity: 0.13;
+  filter: drop-shadow(0 4px 10px rgba(23, 20, 20, 0.05));
+  transition: opacity 0.35s ease, width 0.35s ease;
+}
+
+/* Position 5 — Memorial Feature Section */
+#memorial,
+.closing {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.closing-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+#memorial .deco-pos-5,
+.closing .deco-pos-5 {
+  top: 36px;
+  right: 6%;
+  width: 95px;
+  opacity: 0.18;
+  filter: brightness(0) invert(1) drop-shadow(0 4px 14px rgba(0, 0, 0, 0.35));
+  transition: opacity 0.35s ease, width 0.35s ease;
+}
+
 /* Tablet: reduce size and opacity */
 @media (max-width: 991.98px) {
   #work-preview .float-camera-1 {
@@ -1429,12 +1551,56 @@ nav.links a.active::after {
     opacity: 0.12;
     left: 8%;
   }
+
+  .story-red .deco-pos-1 {
+    width: 60px;
+    top: 18px;
+    right: 20px;
+    opacity: 0.14;
+  }
+
+  #gallery .deco-pos-2,
+  #archive .deco-pos-2 {
+    width: 80px;
+    top: 20px;
+    right: 4%;
+    opacity: 0.11;
+  }
+
+  #gallery .deco-pos-3,
+  #archive .deco-pos-3 {
+    width: 110px;
+    bottom: 25px;
+    left: 3%;
+    opacity: 0.10;
+  }
+
+  #gallery .deco-pos-4,
+  #archive .deco-pos-4 {
+    width: 85px;
+    bottom: 30px;
+    right: 3%;
+    opacity: 0.10;
+  }
+
+  #memorial .deco-pos-5,
+  .closing .deco-pos-5 {
+    width: 75px;
+    top: 25px;
+    right: 5%;
+    opacity: 0.14;
+  }
 }
 
 /* Mobile: hide decorative SVG to prevent overlap */
 @media (max-width: 767.98px) {
   #work-preview .float-camera-1,
   .float-deco,
+  .deco-pos-1,
+  .deco-pos-2,
+  .deco-pos-3,
+  .deco-pos-4,
+  .deco-pos-5,
   .hero-deco-bottle,
   .hero-deco-glasses,
   .hero-deco-leaf,
