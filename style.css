@@ -1422,15 +1422,15 @@ nav.links a.active::after {
   }
 }
 
-/* Specific Preview Floating Camera */
+/* Specific Preview Floating Camera (Option 1: Subtle Background Watermark behind Left Heading Area) */
 #work-preview .float-camera-1 {
   position: absolute;
   top: 50%;
-  left: 12%;
-  width: 110px;
+  left: 8%;
+  width: 125px;
   height: auto;
   transform: translateY(-50%);
-  opacity: 0.18;
+  opacity: 0.12;
   pointer-events: none;
   user-select: none;
   z-index: 0;
@@ -2171,13 +2171,13 @@ nav.links a.active::after {
 }
 
 .mosaic-box-black {
-  background-color: #000000;
+  background-color: #fee7ce;
   grid-column: 3 / 4;
   grid-row: 5 / 6;
 }
 
 .mosaic-box-grey {
-  background-color: #343434;
+  background-color: #2d2d2d;
   grid-column: 2 / 3;
   grid-row: 8 / 9;
 }
