@@ -1363,7 +1363,20 @@ nav.links a.active::after {
   }
 }
 
-/* Floating Decorative Elements */
+/* Preview Section - Positioning Context & Decorative Camera */
+#work-preview {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+#work-preview .preview-head,
+#work-preview .preview-gallery-col {
+  position: relative;
+  z-index: 1;
+}
+
+/* Floating Decorative Elements Base */
 .float-deco {
   position: absolute;
   pointer-events: none;
@@ -1382,49 +1395,62 @@ nav.links a.active::after {
   }
 }
 
+/* Gentle float preserving translateY(-50%) positioning */
+@keyframes gentle-float-centered {
+  0%,
+  100% {
+    transform: translateY(-50%) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(calc(-50% - 10px)) rotate(2deg);
+  }
+}
+
 .drift {
   animation: gentle-float 6s ease-in-out infinite;
 }
 
+#work-preview .float-camera-1.drift {
+  animation: gentle-float-centered 6s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .drift {
+  .drift,
+  #work-preview .float-camera-1.drift {
     animation: none;
   }
 }
 
-/* Specific Floating Elements */
-.float-camera-1 {
-  top: 18px;
-  left: calc(50% - 620px);
-  width: 105px;
+/* Specific Preview Floating Camera */
+#work-preview .float-camera-1 {
+  position: absolute;
+  top: 50%;
+  left: 12%;
+  width: 110px;
   height: auto;
-  opacity: 0.3;
+  transform: translateY(-50%);
+  opacity: 0.18;
+  pointer-events: none;
   user-select: none;
+  z-index: 0;
   filter: drop-shadow(0 6px 14px rgba(74, 14, 23, 0.08));
-  transition: opacity 0.35s ease;
+  transition: opacity 0.35s ease, width 0.35s ease;
 }
 
-@media (max-width: 1400px) {
-  .float-camera-1 {
-    left: 4%;
-    top: 2%;
-    width: 95px;
-    opacity: 0.25;
-  }
-}
-
-@media (max-width: 1199.98px) {
-  .float-camera-1 {
-    left: 2%;
-    top: 1%;
-    width: 80px;
-    opacity: 0.2;
-  }
-}
-
+/* Tablet: reduce size and opacity */
 @media (max-width: 991.98px) {
+  #work-preview .float-camera-1 {
+    width: 85px;
+    opacity: 0.12;
+    left: 8%;
+  }
+}
+
+/* Mobile: hide decorative SVG to prevent overlap */
+@media (max-width: 767.98px) {
+  #work-preview .float-camera-1,
   .float-deco,
-  .float-camera-1,
   .hero-deco-bottle,
   .hero-deco-glasses,
   .hero-deco-leaf,
@@ -2235,8 +2261,7 @@ nav.links a.active::after {
   .mosaic-box-red,
   .mosaic-box-black,
   .mosaic-box-grey {
-    grid-column: auto;
-    grid-row: span 2;
+    display: none !important;
   }
 }
 
@@ -2262,14 +2287,7 @@ nav.links a.active::after {
     grid-row: auto;
   }
 
-  .mosaic-box,
-  .mosaic-box-red,
-  .mosaic-box-black,
-  .mosaic-box-grey {
-    grid-column: auto;
-    grid-row: auto;
-    min-height: 140px;
-  }
+ 
 }
 
 /* Archive */
