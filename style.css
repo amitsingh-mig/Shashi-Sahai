@@ -1364,6 +1364,31 @@ nav.links a.active::after {
 }
 
 /* Gallery Preview */
+.float-camera-1 {
+  pointer-events: none;
+  user-select: none;
+  filter: drop-shadow(0 6px 14px rgba(74, 14, 23, 0.08));
+}
+
+@keyframes drift {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(3deg);
+  }
+}
+
+.drift {
+  animation: drift 7s ease-in-out infinite;
+}
+
+@media (max-width: 991.98px) {
+  .float-camera-1 {
+    display: none;
+  }
+}
+
 .preview-head h2 {
   font-size: clamp(2rem, 4vw, 2.875rem);
 }
