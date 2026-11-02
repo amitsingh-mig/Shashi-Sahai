@@ -227,8 +227,8 @@
     galleries.forEach(gallery => {
       const baseCategory = gallery.dataset.category || 'All';
       const filtered = photos.filter(photo => {
-        const categoryMatches = (baseCategory === 'All' || photo.category === baseCategory)
-          && (currentFilter === 'All' || photo.category === currentFilter);
+        const categoryMatches = (baseCategory === 'All' || photo.category.toLowerCase() === baseCategory.toLowerCase())
+          && (currentFilter === 'All' || photo.category.toLowerCase() === currentFilter.toLowerCase());
         const queryMatches = !query || `${photo.title} ${photo.category} ${photo.alt}`.toLocaleLowerCase().includes(query);
         return categoryMatches && queryMatches;
       });
