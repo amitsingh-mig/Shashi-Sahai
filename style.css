@@ -5794,7 +5794,7 @@ dialog.photo-viewer::backdrop {
   display: grid;
   grid-template-columns: 1.1fr 1fr;
   gap: 60px;
-  padding: 50px 0 70px;
+  padding: 50px var(--gutter) 70px;
   align-items: center;
 }
 
