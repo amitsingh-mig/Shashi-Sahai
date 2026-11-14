@@ -74,9 +74,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // Reveal Animations
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('in-view'); }
+      if (e.isIntersecting) {
+        e.target.classList.add('in-view');
+        io.unobserve(e.target);
+      }
     });
-  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
   document.querySelectorAll('.reveal, .reveal-img').forEach(el => io.observe(el));
 
   // Timeline Spine & Dot Scroll Synchronizer
