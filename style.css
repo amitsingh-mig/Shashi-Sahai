@@ -62,19 +62,26 @@
   box-shadow: 0 1px 6px rgba(139, 0, 0, 0.5);
 }
 
-html,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100vw;
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   padding: 0;
   width: 100%;
+  max-width: 100vw;
   min-height: 100%;
-}
-
-body {
   font-family: var(--sans);
   color: var(--black);
   background: var(--off-white);
   overflow-x: hidden;
+  position: relative;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -1153,22 +1160,28 @@ nav.links a.active::after {
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 767.98px) {
   .editorial-hero {
     flex-direction: column;
     min-height: auto;
-    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
   }
 
   .hero-content-panel {
     width: 100%;
-    padding: calc(54px + 1.25rem) 1.25rem 2rem !important;
+    max-width: 100%;
+    padding: calc(54px + 1.25rem) 1rem 1.75rem !important;
     box-sizing: border-box;
+    overflow: hidden;
   }
 
   .camera-blueprint-svg {
     bottom: -10px;
-    left: 10px;
+    left: 0;
+    max-width: 70vw;
+    height: auto;
     width: 250px;
     opacity: 0.22;
   }
@@ -1218,15 +1231,28 @@ nav.links a.active::after {
     right: auto;
     bottom: auto;
     width: 100%;
-    height: clamp(380px, 60vh, 500px);
-    clip-path: polygon(0 4vw, 100% 0, 100% 100%, 0 100%);
-    margin-top: -2.5vw;
+    max-width: 100%;
+    height: clamp(340px, 55vh, 440px);
+    clip-path: polygon(0 3vw, 100% 0, 100% 100%, 0 100%);
+    margin-top: -2vw;
+    overflow: hidden;
+  }
+
+  .photo-stage {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
   }
 
   .hero-portrait-img {
-    left: 42%;
+    position: absolute;
+    left: 50%;
     top: 50%;
-    height: 104%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-width: 100%;
   }
 
   .photo-vignette {
@@ -1235,10 +1261,12 @@ nav.links a.active::after {
   }
 
   .viewfinder-hud-cluster {
-    top: 48%;
-    left: 44%;
-    width: clamp(170px, 48vw, 210px);
-    height: clamp(150px, 44vw, 190px);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: clamp(160px, 46vw, 200px);
+    height: clamp(140px, 42vw, 180px);
+    max-width: 90vw;
   }
 
   .focus-crosshair {
@@ -1246,8 +1274,8 @@ nav.links a.active::after {
   }
 
   .camera-settings {
-    top: -20px;
-    right: -10px;
+    top: -18px;
+    right: 2px;
     font-size: clamp(8px, 2.4vw, 9.5px);
     letter-spacing: 0.12em;
   }
@@ -1258,9 +1286,9 @@ nav.links a.active::after {
   }
 
   .exposure-scale {
-    right: -10px;
-    height: clamp(115px, 32vw, 135px);
-    width: 20px;
+    right: 2px;
+    height: clamp(100px, 28vw, 125px);
+    width: 18px;
   }
 }
 
@@ -1659,11 +1687,15 @@ nav.links a.active::after {
 .preview-gallery-col {
   position: relative;
   min-width: 0;
+  max-width: 100%;
 }
 
 .preview-strip-wrapper {
   position: relative;
   width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  min-width: 0;
 }
 
 .preview-strip-track {
@@ -1933,6 +1965,20 @@ nav.links a.active::after {
 /* Story Split */
 .story-split {
   overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+}
+
+.story-split .row {
+  margin-left: 0;
+  margin-right: 0;
+  max-width: 100%;
+}
+
+.story-split .col-12 {
+  padding-left: 0;
+  padding-right: 0;
+  max-width: 100%;
 }
 
 .story-photo {
@@ -2555,6 +2601,15 @@ nav.links a.active::after {
   border-top: 1px solid rgba(139, 0, 0, 0.35);
   border-bottom: 1px solid rgba(139, 0, 0, 0.35);
   position: relative;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.philosophy .container-xxl {
+  max-width: 100%;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
 }
 
 .philosophy::before {
@@ -2574,9 +2629,11 @@ nav.links a.active::after {
   font-family: var(--serif);
   font-weight: 300;
   font-style: italic;
-  font-size: clamp(1.35rem, 4.4vw, 3.25rem);
+  font-size: clamp(1.2rem, 4.4vw, 3.25rem);
   line-height: 1.35;
   color: var(--warm-off-white);
+  word-break: normal;
+  overflow-wrap: break-word;
 }
 
 .philosophy blockquote em {
@@ -2590,6 +2647,15 @@ nav.links a.active::after {
   letter-spacing: 0.08em;
   color: rgba(248, 245, 242, 0.65);
   text-transform: uppercase;
+}
+
+#memorial.closing,
+.closing {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 .closing {
@@ -2634,20 +2700,42 @@ nav.links a.active::after {
   background: linear-gradient(90deg, #8B0000, #B91C1C);
 }
 
-@media (max-width: 576px) {
+@media (max-width: 767.98px) {
+  #memorial.closing,
   .closing {
-    height: auto;
-    min-height: 460px;
-    aspect-ratio: 4 / 5;
+    height: auto !important;
+    min-height: 380px !important;
+    aspect-ratio: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+  }
+
+  .closing img {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  .closing-overlay {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 2rem 1.25rem 1.75rem !important;
+    box-sizing: border-box !important;
   }
 
   .closing-overlay h2 {
-    font-size: clamp(1.65rem, 7vw, 2.5rem);
+    font-size: clamp(1.4rem, 6vw, 2.5rem) !important;
+    max-width: 100% !important;
   }
 
   .closing-timeline {
-    flex-wrap: wrap;
-    gap: 8px 12px !important;
+    flex-wrap: wrap !important;
+    gap: 6px 10px !important;
+    font-size: 0.7rem !important;
   }
 
   .closing-timeline .ln {
@@ -8179,4 +8267,169 @@ body.dev-mode .img-shield-overlay {
 .viewer-top button[data-viewer-close] {
   z-index: 10 !important;
   position: relative;
+}
+
+/* ==========================================================================
+   GLOBAL RESPONSIVE CONTAINMENT & MOBILE VIEWPORT FIXES (ALL SCREENS)
+   ========================================================================== */
+html,
+body {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+  width: 100% !important;
+}
+
+header.site-nav,
+main#main,
+.editorial-hero,
+.stats,
+#work-preview,
+.story-split,
+#gallery,
+.philosophy,
+#memorial,
+.closing,
+footer.site-footer {
+  width: 100% !important;
+  max-width: 100vw !important;
+  box-sizing: border-box !important;
+}
+
+@media (max-width: 767.98px) {
+  .editorial-hero {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  .hero-content-panel {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  .hero-photo-panel {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  .hero-portrait-img {
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  .viewfinder-hud-cluster {
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    max-width: 90vw !important;
+  }
+
+  .exposure-scale,
+  .camera-settings {
+    right: 2px !important;
+  }
+
+  .story-split {
+    overflow: hidden !important;
+    max-width: 100% !important;
+  }
+
+  .story-split .row {
+    margin: 0 !important;
+  }
+
+  .story-split .col-12 {
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .preview-gallery-col {
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .preview-strip-wrapper {
+    max-width: 100% !important;
+    overflow: hidden !important;
+    min-width: 0 !important;
+  }
+
+  .preview-strip-track {
+    max-width: 100% !important;
+  }
+
+  .philosophy {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  .philosophy .container-xxl {
+    max-width: 100% !important;
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+
+  .philosophy blockquote {
+    max-width: 100% !important;
+    font-size: clamp(1.2rem, 4.5vw, 1.85rem) !important;
+    overflow-wrap: break-word !important;
+  }
+
+  #memorial.closing,
+  .closing {
+    height: auto !important;
+    min-height: 380px !important;
+    aspect-ratio: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  .closing img {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  .closing-overlay {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 2rem 1.25rem 1.75rem !important;
+  }
+
+  .closing-overlay h2 {
+    font-size: clamp(1.4rem, 6vw, 2.2rem) !important;
+    max-width: 100% !important;
+  }
+
+  .closing-timeline {
+    flex-wrap: wrap !important;
+    gap: 6px 10px !important;
+    font-size: 0.7rem !important;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .stats .container-xxl {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    max-width: 100% !important;
+  }
+
+  .stat:not(:last-child)::after {
+    display: none !important;
+  }
 }
