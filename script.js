@@ -1,3 +1,265 @@
+/* ==========================================================================
+   Website Content & Image Protection System with Developer Mode (?mode=dev)
+   ========================================================================== */
+(function () {
+  'use strict';
+
+  // 1. Detect Developer Mode via URL query parameter (?mode=dev or ?dev)
+  const urlParams = new URLSearchParams(window.location.search);
+  const isDevMode = urlParams.get('mode') === 'dev' || urlParams.has('dev');
+
+  // Cache for protected blob URLs (src -> blobUrl)
+  const blobUrlCache = new Map();
+
+  // Helper: check if element is an interactive input or form field
+  function isInteractiveInput(el) {
+    if (!el || !el.closest) return false;
+    return Boolean(
+      el.closest('input, textarea, select, [contenteditable="true"], .allow-select')
+    );
+  }
+
+  // Convert raw image URL to local memory Blob URL
+  async function fetchImageAsBlob(src) {
+    if (!src || src.startsWith('blob:') || src.startsWith('data:') || src.endsWith('.svg')) {
+      return src;
+    }
+    if (blobUrlCache.has(src)) {
+      return blobUrlCache.get(src);
+    }
+    try {
+      const response = await fetch(src);
+      if (!response.ok) return src;
+      const blob = await response.blob();
+      const blobUrl = URL.createObjectURL(blob);
+      blobUrlCache.set(src, blobUrl);
+      return blobUrl;
+    } catch (err) {
+      return src;
+    }
+  }
+
+  // Expose global helper for modal lightbox & exhibition viewer
+  window.__getProtectedImageUrl = function (src) {
+    if (isDevMode || !src) return src;
+    if (blobUrlCache.has(src)) return blobUrlCache.get(src);
+    fetchImageAsBlob(src).then(blobUrl => {
+      if (blobUrl && blobUrl !== src) {
+        const modalImg = document.getElementById('modalPreviewImg');
+        if (modalImg && modalImg.src.includes(src)) {
+          modalImg.src = blobUrl;
+        }
+        const viewerImg = document.getElementById('viewer-image');
+        if (viewerImg && viewerImg.src.includes(src)) {
+          viewerImg.src = blobUrl;
+        }
+      }
+    }).catch(() => {});
+    return src;
+  };
+
+  // Protect an individual image element with blob URL delivery
+  async function protectImageElement(img) {
+    if (isDevMode || !img) return;
+    const rawSrc = img.getAttribute('src');
+    if (!rawSrc || rawSrc.startsWith('blob:') || rawSrc.startsWith('data:') || rawSrc.endsWith('.svg')) {
+      return;
+    }
+    if (img.dataset.protectedBlob === 'true') return;
+
+    try {
+      const blobUrl = await fetchImageAsBlob(rawSrc);
+      if (blobUrl && blobUrl !== rawSrc) {
+        img.dataset.protectedBlob = 'true';
+        img.src = blobUrl;
+        if (img.hasAttribute('srcset')) {
+          img.dataset.origSrcset = img.getAttribute('srcset');
+          img.removeAttribute('srcset');
+        }
+      }
+    } catch (e) {}
+  }
+
+  // Attach invisible protective shield overlay to image parent containers
+  function attachProtectionShields() {
+    if (isDevMode) return;
+    const images = document.querySelectorAll('img:not(.brand-logo-img)');
+    images.forEach(img => {
+      const parent = img.parentElement;
+      if (!parent) return;
+
+      const computed = window.getComputedStyle(parent);
+      if (computed.position === 'static') {
+        parent.style.position = 'relative';
+      }
+
+      if (!parent.querySelector(':scope > .img-shield-overlay')) {
+        const shield = document.createElement('div');
+        shield.className = 'img-shield-overlay';
+        shield.setAttribute('aria-hidden', 'true');
+        parent.appendChild(shield);
+      }
+
+      protectImageElement(img);
+    });
+  }
+
+  // Developer Mode Badge UI
+  function renderDevModeBadge() {
+    if (document.getElementById('devModeBadge')) return;
+
+    const badge = document.createElement('div');
+    badge.id = 'devModeBadge';
+    badge.className = 'dev-mode-badge';
+    badge.setAttribute('role', 'status');
+    badge.setAttribute('aria-label', 'Developer Mode Active');
+    badge.innerHTML = `
+      <span class="dev-badge-dot" aria-hidden="true"></span>
+      <span class="dev-badge-text">
+        <span>⚡ DEV MODE</span>
+        <span class="dev-badge-tag">Full Access</span>
+      </span>
+      <button type="button" class="dev-mode-exit-btn" id="exitDevModeBtn" title="Return to Protected Normal Mode">Exit</button>
+    `;
+
+    document.body.appendChild(badge);
+
+    const exitBtn = document.getElementById('exitDevModeBtn');
+    if (exitBtn) {
+      exitBtn.addEventListener('click', () => {
+        const url = new URL(window.location.href);
+        url.searchParams.delete('mode');
+        url.searchParams.delete('dev');
+        window.location.href = url.pathname + (url.search ? url.search : '') + url.hash;
+      });
+    }
+  }
+
+  // Preserve ?mode=dev across internal site navigation
+  function setupDevModeLinks() {
+    document.addEventListener('click', (e) => {
+      const link = e.target.closest('a');
+      if (!link || !link.href) return;
+      try {
+        const targetUrl = new URL(link.href, window.location.href);
+        if (targetUrl.origin === window.location.origin) {
+          if (!targetUrl.searchParams.has('mode') && !targetUrl.hash.startsWith('#_')) {
+            const path = targetUrl.pathname.toLowerCase();
+            if (path.endsWith('.html') || path.endsWith('/') || !path.includes('.')) {
+              targetUrl.searchParams.set('mode', 'dev');
+              link.href = targetUrl.toString();
+            }
+          }
+        }
+      } catch (err) {}
+    }, true);
+  }
+
+  // -------------------------------------------------------------------------
+  // MODE DISPATCHER
+  // -------------------------------------------------------------------------
+  if (isDevMode) {
+    // DEVELOPER MODE: Full access, disable all protections
+    document.documentElement.classList.add('dev-mode');
+    document.addEventListener('DOMContentLoaded', () => {
+      document.body.classList.add('dev-mode');
+      renderDevModeBadge();
+      setupDevModeLinks();
+    });
+  } else {
+    // NORMAL MODE: Content & Image Protection Active
+    document.documentElement.classList.remove('dev-mode');
+
+    // 1. Disable Right-Click Context Menu (except on form inputs)
+    document.addEventListener('contextmenu', (e) => {
+      if (isInteractiveInput(e.target)) return;
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    }, true);
+
+    // 2. Prevent Copy & Cut (except in form inputs)
+    document.addEventListener('copy', (e) => {
+      if (isInteractiveInput(e.target)) return;
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    }, true);
+
+    document.addEventListener('cut', (e) => {
+      if (isInteractiveInput(e.target)) return;
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    }, true);
+
+    // 3. Prevent Text Selection Start via Mouse
+    document.addEventListener('selectstart', (e) => {
+      if (isInteractiveInput(e.target)) return;
+      e.preventDefault();
+      return false;
+    }, true);
+
+    // 4. Disable Image & Element Dragging
+    document.addEventListener('dragstart', (e) => {
+      if (isInteractiveInput(e.target)) return;
+      e.preventDefault();
+      return false;
+    }, true);
+
+    // 5. Prevent Keyboard Shortcuts: Ctrl+C, Ctrl+A, Ctrl+X, Ctrl+U, Ctrl+S, Ctrl+P, F12, Ctrl+Shift+I/J/C
+    document.addEventListener('keydown', (e) => {
+      if (isInteractiveInput(e.target)) return;
+
+      const isCtrlOrCmd = e.ctrlKey || e.metaKey;
+      if (isCtrlOrCmd) {
+        const key = (e.key || '').toLowerCase();
+        // c: copy, x: cut, a: select all, u: view source, s: save page, p: print
+        if (['c', 'x', 'a', 'u', 's', 'p'].includes(key)) {
+          e.preventDefault();
+          e.stopPropagation();
+          return false;
+        }
+
+        // Ctrl+Shift+I / J / C (DevTools inspector shortcuts)
+        if (e.shiftKey && ['i', 'j', 'c'].includes(key)) {
+          e.preventDefault();
+          e.stopPropagation();
+          return false;
+        }
+      }
+
+      // F12 developer console shortcut in normal mode
+      if (e.key === 'F12') {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+      }
+    }, true);
+
+    // 6. Shield overlays and Blob conversion on DOM ready and dynamic changes
+    document.addEventListener('DOMContentLoaded', () => {
+      document.body.classList.remove('dev-mode');
+      attachProtectionShields();
+
+      // Observe dynamically added images (e.g. from filtering, ajax, tabs)
+      const observer = new MutationObserver((mutations) => {
+        let hasNewImages = false;
+        for (const m of mutations) {
+          if (m.addedNodes.length > 0) {
+            hasNewImages = true;
+            break;
+          }
+        }
+        if (hasNewImages) {
+          attachProtectionShields();
+        }
+      });
+      observer.observe(document.body, { childList: true, subtree: true });
+    });
+  }
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
   // ── Responsive Hamburger Nav ────────────────────────────
   const navToggle = document.getElementById('navToggle');
@@ -248,6 +510,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </button>
             <div class="modal-body-content">
                 <div class="modal-img-container">
+                    <div class="img-shield-overlay" aria-hidden="true"></div>
                     <img id="modalPreviewImg" src="" alt="Full view photograph">
                 </div>
                 <div class="modal-footer-caption">
@@ -313,7 +576,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (modalImg) {
         modalImg.style.opacity = '0';
         setTimeout(() => {
-          modalImg.src = data.src;
+          modalImg.src = window.__getProtectedImageUrl ? window.__getProtectedImageUrl(data.src) : data.src;
           modalImg.alt = data.title;
           if (modalTag) modalTag.textContent = data.tag;
           if (modalTitle) modalTitle.textContent = data.title;

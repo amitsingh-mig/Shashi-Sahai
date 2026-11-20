@@ -1162,7 +1162,7 @@ nav.links a.active::after {
 
   .hero-content-panel {
     width: 100%;
-    padding: calc(54px + 1.25rem) 1.25rem 2rem;
+    padding: calc(54px + 1.25rem) 1.25rem 2rem !important;
     box-sizing: border-box;
   }
 
@@ -7819,6 +7819,12 @@ body:has(.editorial-hero) main#main {
   }
 }
 
+@media (max-width: 575px) {
+  .filmstrip-divider{
+    display: none;
+  }
+}
+
 /* ==========================================================================
    PREMIUM CINEMATIC PRELOADER (First Visit Only)
    ========================================================================== */
@@ -7993,4 +7999,184 @@ body.preloader-locked {
     transition: none !important;
     width: 100% !important;
   }
+}
+
+
+/* ==========================================================================
+   Website Content & Image Protection System with Developer Mode (?mode=dev)
+   ========================================================================== */
+
+/* 1. Normal Mode - Content & Text Protection */
+body:not(.dev-mode) {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+  -webkit-touch-callout: none !important;
+}
+
+/* Allow text selection, editing, and pointer events in all interactive form elements */
+input,
+textarea,
+select,
+button,
+[contenteditable="true"],
+.allow-select,
+.allow-select * {
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+  user-select: text !important;
+  pointer-events: auto !important;
+}
+
+/* 2. Normal Mode - Image Interaction Shield */
+body:not(.dev-mode) img {
+  -webkit-user-drag: none !important;
+  user-drag: none !important;
+  -webkit-touch-callout: none !important;
+  pointer-events: none;
+}
+
+/* Invisible Protective Shield Overlay */
+.img-shield-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  background: transparent;
+  pointer-events: auto;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  user-drag: none;
+}
+
+/* Modal lightbox shield overlay */
+.modal-img-container {
+  position: relative;
+}
+
+.modal-img-container .img-shield-overlay {
+  z-index: 5;
+}
+
+/* 3. Developer Mode Overrides (?mode=dev) */
+body.dev-mode,
+body.dev-mode * {
+  -webkit-user-select: auto !important;
+  -moz-user-select: auto !important;
+  -ms-user-select: auto !important;
+  user-select: auto !important;
+}
+
+body.dev-mode img {
+  pointer-events: auto !important;
+  -webkit-user-drag: auto !important;
+  user-drag: auto !important;
+  -webkit-touch-callout: default !important;
+}
+
+body.dev-mode .img-shield-overlay {
+  display: none !important;
+  pointer-events: none !important;
+}
+
+/* 4. Developer Mode UI Floating Badge */
+.dev-mode-badge {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(18, 18, 18, 0.94);
+  color: #ffffff;
+  border: 1px solid rgba(220, 160, 60, 0.65);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(220, 160, 60, 0.25);
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-family: var(--sans, system-ui, -apple-system, sans-serif);
+  font-size: 13px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  pointer-events: auto;
+  user-select: none;
+  animation: devBadgeSlideIn 0.3s ease-out;
+}
+
+.dev-mode-badge .dev-badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 8px #22c55e;
+  flex-shrink: 0;
+}
+
+.dev-mode-badge .dev-badge-text {
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.dev-mode-badge .dev-badge-tag {
+  background: rgba(220, 160, 60, 0.25);
+  color: #e5b060;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.dev-mode-badge .dev-mode-exit-btn {
+  background: rgba(255, 255, 255, 0.12);
+  border: none;
+  color: #ffffff;
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 11px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+
+.dev-mode-badge .dev-mode-exit-btn:hover {
+  background: #ef4444;
+  color: #ffffff;
+}
+
+@keyframes devBadgeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 576px) {
+  .dev-mode-badge {
+    bottom: 16px;
+    right: 16px;
+    left: 16px;
+    justify-content: space-between;
+  }
+}
+
+/* Exhibition dialog prev/next button priority above shield */
+.viewer-stage button[data-viewer-prev],
+.viewer-stage button[data-viewer-next],
+.viewer-top button[data-viewer-close] {
+  z-index: 10 !important;
+  position: relative;
 }

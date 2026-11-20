@@ -89,7 +89,8 @@
     if (!photo || !viewerImage) return;
     const size = dimensions(photo);
     viewerImage.alt = photo.alt;
-    viewerImage.src = `images/${photo.file}.webp`;
+    const photoUrl = `images/${photo.file}.webp`;
+    viewerImage.src = window.__getProtectedImageUrl ? window.__getProtectedImageUrl(photoUrl) : photoUrl;
     viewerImage.width = size.width;
     viewerImage.height = size.height;
     if (viewerTitle) viewerTitle.textContent = photo.title;
