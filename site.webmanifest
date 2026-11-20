@@ -1,0 +1,18 @@
+{
+  "name": "Unfinished Frames - Shashi Sahai Photography Archive",
+  "short_name": "Unfinished Frames",
+  "description": "Four Decades of Perspective: The Photography Archive of Shashi Sahai (1961-2026)",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0b",
+  "theme_color": "#c0392b",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

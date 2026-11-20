@@ -1,0 +1,13 @@
+# Robots.txt for Unfinished Frames
+# Website: https://unfinishedframes.com
+
+User-agent: *
+Allow: /
+
+# Internal system & private paths
+Disallow: /brain/
+Disallow: /*?mode=dev
+Disallow: /*&mode=dev
+
+# Sitemap
+Sitemap: https://unfinishedframes.com/sitemap.xml

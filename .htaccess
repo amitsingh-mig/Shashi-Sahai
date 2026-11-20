@@ -1,13 +1,17 @@
 # ==============================================================================
-# Website Image Protection & Access Control (.htaccess)
+# Website Image Protection, SEO & Access Control (.htaccess)
+# Domain: unfinishedframes.com
 # ==============================================================================
 
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteBase /
 
+# Canonical domain enforcement (optional for production HTTPS)
+# RewriteCond %{HTTP_HOST} ^www\.unfinishedframes\.com [NC]
+# RewriteRule ^(.*)$ https://unfinishedframes.com/$1 [L,R=301]
+
 # 1. DEVELOPER MODE BYPASS (?mode=dev)
-# If developer mode query parameter or dev cookie is present, allow full access
 RewriteCond %{QUERY_STRING} (^|&)mode=dev(&|$) [NC,OR]
 RewriteCond %{QUERY_STRING} (^|&)dev(&|$) [NC,OR]
 RewriteCond %{HTTP_COOKIE} mode_dev=true [NC]
@@ -19,9 +23,10 @@ RewriteCond %{REQUEST_URI} ^/images/.*\.(webp|jpe?g|png|gif|svg)$ [NC]
 RewriteCond %{HTTP_REFERER} ^$
 RewriteRule ^images/.*\.(webp|jpe?g|png|gif|svg)$ - [F,L,NC]
 
-# Block external websites from hotlinking raw images
+# Allow legitimate domain referers (unfinishedframes.com) & local testing
 RewriteCond %{REQUEST_URI} ^/images/.*\.(webp|jpe?g|png|gif|svg)$ [NC]
 RewriteCond %{HTTP_REFERER} !^$
+RewriteCond %{HTTP_REFERER} !^https?://(www\.)?unfinishedframes\.com [NC]
 RewriteCond %{HTTP_REFERER} !^https?://%{HTTP_HOST} [NC]
 RewriteCond %{HTTP_REFERER} !^https?://(www\.)?localhost [NC]
 RewriteCond %{HTTP_REFERER} !^https?://127\.0\.0\.1 [NC]
@@ -29,15 +34,20 @@ RewriteCond %{HTTP_REFERER} !^https?://192\.168\. [NC]
 RewriteRule ^images/.*\.(webp|jpe?g|png|gif|svg)$ - [F,L,NC]
 </IfModule>
 
-# 3. SECURITY HEADERS FOR ASSET PROTECTION
+# 3. MIME TYPES & CACHING FOR SEO ASSETS
+<IfModule mod_mime.c>
+    AddType text/xml .xml
+    AddType application/manifest+json .webmanifest
+</IfModule>
+
+# 4. SECURITY HEADERS FOR ASSET PROTECTION
 <IfModule mod_headers.c>
-    # Prevent MIME sniffing
     Header set X-Content-Type-Options "nosniff"
-    # Prevent embedding within unauthorized frames
     Header set X-Frame-Options "SAMEORIGIN"
-    # Prevent caching of raw images outside authenticated sessions if needed
     <FilesMatch "\.(webp|jpe?g|png)$">
         Header set Cache-Control "private, no-transform"
     </FilesMatch>
+    <FilesMatch "(sitemap\.xml|robots\.txt)$">
+        Header set Cache-Control "public, max-age=86400"
+    </FilesMatch>
 </IfModule>
-
