@@ -7580,6 +7580,16 @@ dialog.photo-viewer::backdrop {
     align-items: flex-start;
     padding: 36px 24px;
   }
+
+  .remembering-together {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .remembering-together figure {
+    max-width: 540px;
+    margin: 0 auto;
+  }
 }
 
 .community-hero-grid {
@@ -7816,6 +7826,7 @@ dialog.photo-viewer::backdrop {
   .profile-section,
   .biography,
   .remembrance,
+  .remembering-together,
   .community-hero-grid,
   .community-reading,
   .discovery-hero,
