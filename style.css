@@ -750,11 +750,11 @@ nav.links a.active::after {
    ------------------------------------------------------------ */
 .hero-content-panel {
   position: relative;
-  width: 48%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: clamp(3rem, 6vw, 6.5rem) clamp(2rem, 4vw, 4rem) clamp(3rem, 6vw, 6.5rem) clamp(2.5rem, 6vw, 7rem);
+  padding: calc(65px + clamp(1.5rem, 3vh, 3rem)) clamp(2.5rem, 4.5vw, 5.5rem) clamp(2rem, 4vh, 3.5rem);
   z-index: 2;
   box-sizing: border-box;
 }
@@ -908,9 +908,9 @@ nav.links a.active::after {
   top: 0;
   right: 0;
   bottom: 0;
-  width: 75%;
+  width: 56%;
   background: var(--hero-charcoal);
-  clip-path: polygon(32% 0%, 100% 0%, 100% 100%, 0% 100%);
+  clip-path: polygon(14% 0%, 100% 0%, 100% 100%, 0% 100%);
   overflow: hidden;
   z-index: 1;
   filter: drop-shadow(-4px 0 16px rgba(74, 14, 23, 0.25));
@@ -927,7 +927,7 @@ nav.links a.active::after {
 .hero-portrait-img {
   position: absolute;
   top: 50%;
-  left: 60%;
+  left: 50%;
   transform: translate(-50%, -50%);
   height: 106%;
   width: auto;
