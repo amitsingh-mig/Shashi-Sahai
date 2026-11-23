@@ -2066,6 +2066,40 @@ nav.links a.active::after {
   color: var(--red);
 }
 
+/* Timeline Break Line / Reticle Divider */
+.berak-line,
+.break-line {
+  position: relative;
+  width: min(88%, 560px);
+  height: 1px;
+  margin: 10px auto 55px auto;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.12) 20%, var(--red, #C01412) 50%, rgba(255, 255, 255, 0.12) 80%, transparent 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.berak-line::before,
+.break-line::before {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--red, #C01412);
+  border: 1.5px solid #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(192, 20, 18, 0.85);
+}
+
+.berak-line::after,
+.break-line::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.5);
+}
+
 .tl-track {
   max-width: 1200px;
   position: relative;
