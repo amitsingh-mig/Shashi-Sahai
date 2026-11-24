@@ -494,14 +494,14 @@ header.site-nav.scrolled {
   align-items: center;
   justify-content: space-between;
   padding: 0 1rem;
-  height: 64px;
+  height: 101px;
 }
 
 /* Calligraphy Brand Logo */
 .nav-brand {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 9px;
   text-decoration: none;
   color: var(--black);
   transition: opacity 0.25s ease, transform 0.25s ease;
@@ -513,15 +513,15 @@ header.site-nav.scrolled {
 }
 
 .nav-brand .brand-logo-img {
-  height: 38px;
+  height: 85px;
   width: auto;
-  max-width: 190px;
+  max-width: 250px;
   display: block;
 }
 
 .nav-brand .brand-text {
   font-family: var(--serif);
-  font-size: 1.15rem;
+  font-size: 1.25rem;
   font-weight: 700;
   letter-spacing: -0.01em;
   white-space: nowrap;
@@ -639,7 +639,12 @@ nav.links a.active::after {
 @media (max-width: 820px) {
   .nav-inner {
     padding: 0 1.25rem;
-    height: 54px;
+    height: 64px;
+  }
+
+  .nav-brand .brand-logo-img {
+    height: 42px;
+    max-width: 200px;
   }
 
   .nav-toggle {
@@ -750,11 +755,11 @@ nav.links a.active::after {
    ------------------------------------------------------------ */
 .hero-content-panel {
   position: relative;
-  width: 50%;
+  width: 65%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: calc(65px + clamp(1.5rem, 3vh, 3rem)) clamp(2.5rem, 4.5vw, 5.5rem) clamp(2rem, 4vh, 3.5rem);
+  padding: calc(80px + clamp(1rem, 2vh, 2rem)) clamp(2.5rem, 4.5vw, 5rem) clamp(1.5rem, 3vh, 2.5rem);
   z-index: 2;
   box-sizing: border-box;
 }
@@ -775,7 +780,7 @@ nav.links a.active::after {
 .hero-text-container {
   position: relative;
   z-index: 2;
-  max-width: 530px;
+  max-width: 620px;
 }
 
 /* Eyebrow: A LIFE THROUGH THE LENS —— */
@@ -783,7 +788,7 @@ nav.links a.active::after {
   display: inline-flex;
   align-items: center;
   gap: 16px;
-  margin-bottom: clamp(1.2rem, 2vw, 1.8rem);
+  margin-bottom: clamp(0.75rem, 1.2vw, 1.1rem);
 }
 
 .hero-eyebrow .eyebrow-text {
@@ -804,7 +809,7 @@ nav.links a.active::after {
 
 /* Main Heading */
 .hero-headline {
-  margin: 0 0 clamp(1.5rem, 2.5vw, 2.25rem);
+  margin: 0 0 clamp(0.9rem, 1.4vw, 1.35rem);
   font-family: 'Playfair Display', Georgia, serif;
   font-weight: 700;
   line-height: 0.98;
@@ -826,7 +831,7 @@ nav.links a.active::after {
   display: block;
   color: #171414;
   font-family: var(--sans);
-  font-size: clamp(2rem, 4vw, 4rem);
+  font-size: clamp(2rem, 3.4vw, 3.6rem);
   font-weight: 400;
   letter-spacing: -0.025em;
   line-height: 0.90;
@@ -838,7 +843,7 @@ nav.links a.active::after {
   font-size: clamp(0.9375rem, 1.12vw, 1.125rem);
   font-weight: 600;
   color: #262121;
-  margin: 0 0 0.85rem;
+  margin: 0 0 0.75rem;
   letter-spacing: -0.01em;
 }
 
@@ -848,14 +853,16 @@ nav.links a.active::after {
   font-size: clamp(0.82rem, 1.05vw, 0.92rem);
   line-height: 1.6;
   color: #262121;
-  margin: 0 0 clamp(0.75rem, 3vw, 2.25rem);
-  max-width: 440px;
+  margin: 0 0 clamp(1.1rem, 1.8vw, 1.6rem);
+  max-width: 580px;
 }
 
 /* CTA Outlined Button */
 .hero-cta-wrap {
   display: flex;
   align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
 }
 
 .hero-cta-btn {
@@ -908,9 +915,9 @@ nav.links a.active::after {
   top: 0;
   right: 0;
   bottom: 0;
-  width: 56%;
+  width: 68%;
   background: var(--hero-charcoal);
-  clip-path: polygon(14% 0%, 100% 0%, 100% 100%, 0% 100%);
+  clip-path: polygon(6.6% 0%, 100% 0%, 100% 100%, 74.3% 100%);
   overflow: hidden;
   z-index: 1;
   filter: drop-shadow(-4px 0 16px rgba(74, 14, 23, 0.25));
@@ -926,20 +933,23 @@ nav.links a.active::after {
 
 .hero-portrait-img {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 52%;
+  left: 58%;
   transform: translate(-50%, -50%);
-  height: 106%;
+  height: 104%;
   width: auto;
-  max-width: none;
+  max-width: 95%;
+  aspect-ratio: 797 / 1416;
+  object-fit: cover;
+  object-position: center 28%;
   filter: grayscale(100%) contrast(124%) brightness(88%);
   transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-  mask-image: radial-gradient(ellipse 65% 60% at 50% 50%, black 50%, transparent 95%);
-  -webkit-mask-image: radial-gradient(ellipse 65% 60% at 50% 50%, black 50%, transparent 95%);
+  mask-image: radial-gradient(ellipse 95% 90% at 50% 46%, black 72%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 95% 90% at 50% 46%, black 72%, transparent 100%);
 }
 
 .photo-stage:hover .hero-portrait-img {
-  transform: translate(-50%, -50%) scale(1.03);
+  transform: translate(-50%, -50%) scale(1.025);
 }
 
 /* Deep Photographic Vignette & Subtle Burgundy Tonal Blending */
@@ -965,8 +975,8 @@ nav.links a.active::after {
 /* Cohesive Viewfinder HUD Box centered on face */
 .viewfinder-hud-cluster {
   position: absolute;
-  top: 48%;
-  left: 60%;
+  top: 47%;
+  left: 58%;
   transform: translate(-50%, -50%);
   width: clamp(310px, 24vw, 380px);
   height: clamp(270px, 21vw, 330px);
@@ -1112,17 +1122,20 @@ nav.links a.active::after {
   }
 
   .hero-content-panel {
-    width: 48%;
-    padding: calc(60px + 1.5rem) 1.5rem 3.5rem clamp(1.75rem, 3.5vw, 2.5rem);
+    width: 58%;
+    padding: calc(60px + 1rem) 1.5rem 2rem clamp(1.75rem, 3.5vw, 2.5rem);
   }
 
   .hero-text-container {
-    max-width: 320px;
+    max-width: 560px;
   }
 
-  .hero-description {
-    max-width: 290px;
-    font-size: 0.8125rem;
+  .hero-eyebrow {
+    margin-bottom: 0.85rem;
+  }
+
+  .hero-headline {
+    margin-bottom: 1rem;
   }
 
   .hero-headline .heading-name,
@@ -1131,19 +1144,37 @@ nav.links a.active::after {
     line-height: 1.0;
   }
 
+  .hero-subtitle {
+    margin-bottom: 0.65rem;
+  }
+
+  .hero-description {
+    max-width: 530px;
+    font-size: 0.8125rem;
+    line-height: 1.55;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-cta-wrap {
+    flex-wrap: nowrap;
+    gap: 14px;
+  }
+
   .hero-photo-panel {
-    width: 66%;
-    clip-path: polygon(28% 0%, 100% 0%, 100% 100%, 0% 100%);
+    width: 68%;
+    clip-path: polygon(6.6% 0%, 100% 0%, 100% 100%, 74.3% 100%);
   }
 
   .hero-portrait-img {
     left: 58%;
-    height: 102%;
+    top: 52%;
+    height: 100%;
+    max-width: 92%;
   }
 
   .viewfinder-hud-cluster {
     left: 58%;
-    top: 48%;
+    top: 47%;
     width: 260px;
     height: 230px;
   }
@@ -1172,7 +1203,7 @@ nav.links a.active::after {
   .hero-content-panel {
     width: 100%;
     max-width: 100%;
-    padding: calc(54px + 1.25rem) 1rem 1.75rem !important;
+    padding: calc(64px + 1.25rem) 1rem 1.75rem !important;
     box-sizing: border-box;
     overflow: hidden;
   }
@@ -1232,7 +1263,7 @@ nav.links a.active::after {
     bottom: auto;
     width: 100%;
     max-width: 100%;
-    height: clamp(340px, 55vh, 440px);
+    height: clamp(380px, 58vh, 480px);
     clip-path: polygon(0 3vw, 100% 0, 100% 100%, 0 100%);
     margin-top: -2vw;
     overflow: hidden;
@@ -1249,23 +1280,28 @@ nav.links a.active::after {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
+    height: 94%;
+    width: auto;
+    max-width: 85%;
+    aspect-ratio: 797 / 1416;
     object-fit: cover;
-    max-width: 100%;
+    object-position: center 25%;
+    filter: grayscale(100%) contrast(124%) brightness(88%);
+    mask-image: radial-gradient(ellipse 75% 70% at 50% 46%, black 55%, transparent 98%);
+    -webkit-mask-image: radial-gradient(ellipse 75% 70% at 50% 46%, black 55%, transparent 98%);
   }
 
   .photo-vignette {
     background: linear-gradient(to bottom, rgba(23, 23, 23, 0.92) 0%, rgba(23, 23, 23, 0.15) 35%, rgba(23, 23, 23, 0.85) 100%),
-      radial-gradient(circle at 45% 48%, transparent 35%, rgba(23, 23, 23, 0.88) 90%);
+      radial-gradient(circle at 50% 46%, transparent 35%, rgba(23, 23, 23, 0.88) 90%);
   }
 
   .viewfinder-hud-cluster {
-    top: 50%;
+    top: 47%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: clamp(160px, 46vw, 200px);
-    height: clamp(140px, 42vw, 180px);
+    width: clamp(200px, 56vw, 250px);
+    height: clamp(170px, 48vw, 215px);
     max-width: 90vw;
   }
 
@@ -2066,7 +2102,7 @@ nav.links a.active::after {
 
 @media (max-width: 576px) {
   .story-photo-copy {
-    padding: 2.25rem 1.25rem 2rem;
+    padding: 2.25rem 1.5rem 2rem;
   }
 
   .story-photo-copy h3,
@@ -2107,9 +2143,15 @@ nav.links a.active::after {
   color: rgba(255, 255, 255, 0.92);
 }
 
+@media (max-width: 767.98px) {
+  .story-split .story-red {
+    padding: 2.25rem 1.5rem 2.25rem !important;
+  }
+}
+
 @media (max-width: 576px) {
-  .story-red {
-    padding: 2.25rem 1.25rem 2.25rem !important;
+  .story-split .story-red {
+    padding: 2.25rem 1.5rem 2.25rem !important;
   }
 
   .story-red h3 {
@@ -8045,7 +8087,7 @@ dialog.photo-viewer::backdrop {
 
 /* Offset for Fixed Header on Editorial Pages */
 main#main {
-  padding-top: 64px;
+  padding-top: 80px;
 }
 
 main#main:has(.editorial-hero),
@@ -8055,7 +8097,7 @@ body:has(.editorial-hero) main#main {
 
 @media (max-width: 820px) {
   main#main {
-    padding-top: 54px;
+    padding-top: 64px;
   }
 
   main#main:has(.editorial-hero),
@@ -8131,14 +8173,14 @@ body.preloader-locked {
 }
 
 .preloader-brand {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
   opacity: 0;
   transform: scale(0.92);
   animation: preloaderLogoIn 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
 }
 
 .preloader-logo {
-  height: 54px;
+  height: 100px;
   width: auto;
   filter: brightness(0) invert(1);
   opacity: 0.95;
@@ -8469,6 +8511,7 @@ footer.site-footer {
   .hero-photo-panel {
     width: 100% !important;
     max-width: 100% !important;
+    height: clamp(380px, 58vh, 480px) !important;
     overflow: hidden !important;
   }
 
@@ -8476,15 +8519,20 @@ footer.site-footer {
     left: 50% !important;
     top: 50% !important;
     transform: translate(-50%, -50%) !important;
-    width: 100% !important;
-    height: 100% !important;
+    height: 94% !important;
+    width: auto !important;
+    max-width: 85% !important;
+    aspect-ratio: 797 / 1416 !important;
     object-fit: cover !important;
+    object-position: center 25% !important;
   }
 
   .viewfinder-hud-cluster {
     left: 50% !important;
-    top: 50% !important;
+    top: 47% !important;
     transform: translate(-50%, -50%) !important;
+    width: clamp(200px, 56vw, 250px) !important;
+    height: clamp(170px, 48vw, 215px) !important;
     max-width: 90vw !important;
   }
 
